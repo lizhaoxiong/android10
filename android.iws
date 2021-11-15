@@ -1,32 +1,370 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af249a12-873e-48b4-8f8b-ded42e771cdb" name="Default Changelist" comment="" />
+    <list default="true" id="af249a12-873e-48b4-8f8b-ded42e771cdb" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/GeneratedAppGlideModule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/GenericTransitionOptions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/Glide.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/GlideBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/GlideContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/GlideExperiments.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/ListPreloader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/MemoryCategory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/ModelTypes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/Priority.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/Registry.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/RequestBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/RequestManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/TransitionOptions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/DataSource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/DecodeFormat.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/EncodeStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/Encoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/HttpException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/ImageHeaderParser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/ImageHeaderParserUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/Key.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/MultiTransformation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/Option.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/Options.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/PreferredColorSpace.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/ResourceDecoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/ResourceEncoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/Transformation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/data/AssetFileDescriptorLocalUriFetcher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/data/AssetPathFetcher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/data/BufferedOutputStream.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/data/DataFetcher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/data/DataRewinder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/data/DataRewinderRegistry.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/data/ExifOrientationStream.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/data/FileDescriptorAssetPathFetcher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/data/FileDescriptorLocalUriFetcher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/data/HttpUrlFetcher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/data/InputStreamRewinder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/data/LocalUriFetcher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/data/ParcelFileDescriptorRewinder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/data/StreamAssetPathFetcher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/data/StreamLocalUriFetcher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/data/mediastore/FileService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/data/mediastore/MediaStoreUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/data/mediastore/ThumbFetcher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/data/mediastore/ThumbnailQuery.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/data/mediastore/ThumbnailStreamOpener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/engine/ActiveResources.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/engine/CallbackException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/engine/DataCacheGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/engine/DataCacheKey.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/engine/DataCacheWriter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/engine/DataFetcherGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/engine/DecodeHelper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/engine/DecodeJob.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/engine/DecodePath.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/engine/DiskCacheStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/engine/Engine.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/engine/EngineJob.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/engine/EngineJobListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/engine/EngineKey.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/engine/EngineKeyFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/engine/EngineResource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/engine/GlideException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/engine/Initializable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/engine/Jobs.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/engine/LoadPath.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/engine/LockedResource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/engine/Resource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/engine/ResourceCacheGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/engine/ResourceCacheKey.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/engine/ResourceRecycler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/engine/SourceGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/engine/bitmap_recycle/ArrayAdapterInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/engine/bitmap_recycle/ArrayPool.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/engine/bitmap_recycle/AttributeStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/engine/bitmap_recycle/BaseKeyPool.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/engine/bitmap_recycle/BitmapPool.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/engine/bitmap_recycle/BitmapPoolAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/engine/bitmap_recycle/ByteArrayAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/engine/bitmap_recycle/GroupedLinkedMap.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/engine/bitmap_recycle/IntegerArrayAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/engine/bitmap_recycle/LruArrayPool.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/engine/bitmap_recycle/LruBitmapPool.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/engine/bitmap_recycle/LruPoolStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/engine/bitmap_recycle/Poolable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/engine/bitmap_recycle/PrettyPrintTreeMap.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/engine/bitmap_recycle/SizeConfigStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/engine/bitmap_recycle/SizeStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/engine/cache/DiskCache.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/engine/cache/DiskCacheAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/engine/cache/DiskCacheWriteLocker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/engine/cache/DiskLruCacheFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/engine/cache/DiskLruCacheWrapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/engine/cache/ExternalCacheDiskCacheFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/engine/cache/ExternalPreferredCacheDiskCacheFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/engine/cache/InternalCacheDiskCacheFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/engine/cache/LruResourceCache.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/engine/cache/MemoryCache.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/engine/cache/MemoryCacheAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/engine/cache/MemorySizeCalculator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/engine/cache/SafeKeyGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/engine/executor/GlideExecutor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/engine/executor/RuntimeCompat.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/engine/prefill/BitmapPreFillRunner.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/engine/prefill/BitmapPreFiller.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/engine/prefill/PreFillQueue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/engine/prefill/PreFillType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/model/AssetUriLoader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/model/ByteArrayLoader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/model/ByteBufferEncoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/model/ByteBufferFileLoader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/model/DataUrlLoader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/model/FileLoader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/model/GlideUrl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/model/Headers.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/model/LazyHeaderFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/model/LazyHeaders.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/model/MediaStoreFileLoader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/model/Model.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/model/ModelCache.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/model/ModelLoader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/model/ModelLoaderFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/model/ModelLoaderRegistry.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/model/MultiModelLoader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/model/MultiModelLoaderFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/model/ResourceLoader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/model/StreamEncoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/model/StringLoader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/model/UnitModelLoader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/model/UriLoader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/model/UrlUriLoader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/model/stream/BaseGlideUrlLoader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/model/stream/HttpGlideUrlLoader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/model/stream/HttpUriLoader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/model/stream/MediaStoreImageThumbLoader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/model/stream/MediaStoreVideoThumbLoader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/model/stream/QMediaStoreUriLoader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/model/stream/UrlLoader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/resource/ImageDecoderResourceDecoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/resource/SimpleResource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/resource/UnitTransformation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/resource/bitmap/BitmapDrawableDecoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/resource/bitmap/BitmapDrawableEncoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/resource/bitmap/BitmapDrawableResource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/resource/bitmap/BitmapDrawableTransformation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/resource/bitmap/BitmapEncoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/resource/bitmap/BitmapImageDecoderResourceDecoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/resource/bitmap/BitmapResource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/resource/bitmap/BitmapTransformation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/resource/bitmap/BitmapTransitionOptions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/resource/bitmap/ByteBufferBitmapDecoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/resource/bitmap/ByteBufferBitmapImageDecoderResourceDecoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/resource/bitmap/CenterCrop.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/resource/bitmap/CenterInside.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/resource/bitmap/CircleCrop.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/resource/bitmap/DefaultImageHeaderParser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/resource/bitmap/DownsampleStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/resource/bitmap/Downsampler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/resource/bitmap/DrawableToBitmapConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/resource/bitmap/DrawableTransformation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/resource/bitmap/ExifInterfaceImageHeaderParser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/resource/bitmap/FitCenter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/resource/bitmap/GranularRoundedCorners.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/resource/bitmap/HardwareConfigState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/resource/bitmap/ImageReader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/resource/bitmap/InputStreamBitmapImageDecoderResourceDecoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/resource/bitmap/LazyBitmapDrawableResource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/resource/bitmap/ParcelFileDescriptorBitmapDecoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/resource/bitmap/RecyclableBufferedInputStream.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/resource/bitmap/ResourceBitmapDecoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/resource/bitmap/Rotate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/resource/bitmap/RoundedCorners.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/resource/bitmap/StreamBitmapDecoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/resource/bitmap/TransformationUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/resource/bitmap/UnitBitmapDecoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/resource/bitmap/VideoBitmapDecoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/resource/bitmap/VideoDecoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/resource/bytes/ByteBufferRewinder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/resource/bytes/BytesResource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/resource/drawable/DrawableDecoderCompat.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/resource/drawable/DrawableResource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/resource/drawable/DrawableTransitionOptions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/resource/drawable/NonOwnedDrawableResource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/resource/drawable/ResourceDrawableDecoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/resource/drawable/UnitDrawableDecoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/resource/file/FileDecoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/resource/file/FileResource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/resource/gif/ByteBufferGifDecoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/resource/gif/GifBitmapProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/resource/gif/GifDrawable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/resource/gif/GifDrawableEncoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/resource/gif/GifDrawableResource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/resource/gif/GifDrawableTransformation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/resource/gif/GifFrameLoader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/resource/gif/GifFrameResourceDecoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/resource/gif/GifOptions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/resource/gif/StreamGifDecoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/resource/transcode/BitmapBytesTranscoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/resource/transcode/BitmapDrawableTranscoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/resource/transcode/DrawableBytesTranscoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/resource/transcode/GifDrawableBytesTranscoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/resource/transcode/ResourceTranscoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/resource/transcode/TranscoderRegistry.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/load/resource/transcode/UnitTranscoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/manager/ActivityFragmentLifecycle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/manager/ApplicationLifecycle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/manager/ConnectivityMonitor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/manager/ConnectivityMonitorFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/manager/DefaultConnectivityMonitor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/manager/DefaultConnectivityMonitorFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/manager/DoNothingFirstFrameWaiter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/manager/EmptyRequestManagerTreeNode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/manager/FirstFrameAndAfterTrimMemoryWaiter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/manager/FirstFrameWaiter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/manager/FrameWaiter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/manager/Lifecycle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/manager/LifecycleListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/manager/NullConnectivityMonitor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/manager/RequestManagerFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/manager/RequestManagerRetriever.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/manager/RequestManagerTreeNode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/manager/RequestTracker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/manager/SingletonConnectivityReceiver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/manager/SupportRequestManagerFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/manager/TargetTracker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/module/AppGlideModule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/module/AppliesOptions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/module/GlideModule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/module/LibraryGlideModule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/module/ManifestParser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/module/RegistersComponents.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/provider/EncoderRegistry.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/provider/ImageHeaderParserRegistry.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/provider/LoadPathCache.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/provider/ModelToResourceClassCache.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/provider/ResourceDecoderRegistry.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/provider/ResourceEncoderRegistry.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/request/BaseRequestOptions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/request/ErrorRequestCoordinator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/request/ExperimentalRequestListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/request/FutureTarget.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/request/Request.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/request/RequestCoordinator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/request/RequestFutureTarget.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/request/RequestListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/request/RequestOptions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/request/ResourceCallback.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/request/SingleRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/request/ThumbnailRequestCoordinator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/request/target/AppWidgetTarget.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/request/target/BaseTarget.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/request/target/BitmapImageViewTarget.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/request/target/BitmapThumbnailImageViewTarget.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/request/target/CustomTarget.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/request/target/CustomViewTarget.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/request/target/DrawableImageViewTarget.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/request/target/DrawableThumbnailImageViewTarget.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/request/target/FixedSizeDrawable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/request/target/ImageViewTarget.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/request/target/ImageViewTargetFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/request/target/NotificationTarget.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/request/target/PreloadTarget.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/request/target/SimpleTarget.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/request/target/SizeReadyCallback.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/request/target/Target.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/request/target/ThumbnailImageViewTarget.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/request/target/ViewTarget.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/request/transition/BitmapContainerTransitionFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/request/transition/BitmapTransitionFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/request/transition/DrawableCrossFadeFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/request/transition/DrawableCrossFadeTransition.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/request/transition/NoTransition.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/request/transition/Transition.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/request/transition/TransitionFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/request/transition/ViewAnimationFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/request/transition/ViewPropertyAnimationFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/request/transition/ViewPropertyTransition.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/request/transition/ViewTransition.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/signature/AndroidResourceSignature.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/signature/ApplicationVersionSignature.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/signature/EmptySignature.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/signature/MediaStoreSignature.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/signature/ObjectKey.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/util/ByteBufferUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/util/CachedHashCodeArrayMap.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/util/ContentLengthInputStream.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/util/ExceptionCatchingInputStream.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/util/ExceptionPassthroughInputStream.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/util/Executors.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/util/FixedPreloadSizeProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/util/GlideSuppliers.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/util/LogTime.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/util/LruCache.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/util/MarkEnforcingInputStream.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/util/MultiClassKey.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/util/Preconditions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/util/Synthetic.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/util/Util.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/util/ViewPreloadSizeProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/util/pool/FactoryPools.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/util/pool/GlideTrace.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frameworks/base/core/java/com.bumptech.glide/util/pool/StateVerifier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android.iml" beforeDir="false" afterPath="$PROJECT_DIR$/android.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android.ipr" beforeDir="false" afterPath="$PROJECT_DIR$/android.ipr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android.iws" beforeDir="false" afterPath="$PROJECT_DIR$/android.iws" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/app/Activity.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/app/Activity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/os/Looper.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/os/Looper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/os/MessageQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/os/MessageQueue.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/frameworks/native" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="1sQXQlovSziCZXfulwGD7o9eOf1" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="android-custom-view/Users/lzx/code/aosp/android10/frameworks/base/core/java/android/view/SurfaceView.java_SELECTED" value="SurfaceView" />
+    <property name="android-custom-view/Users/lzx/code/aosp/android10/frameworks/base/core/java/android/view/ViewGroup.java_SELECTED" value="ViewGroup" />
+    <property name="android-custom-view/Users/lzx/code/aosp/android10/frameworks/base/core/java/com/android/internal/widget/RecyclerView.java_SELECTED" value="RecyclerView" />
+    <property name="android-custom-view/Users/lzx/code/aosp/android10/frameworks/base/opengl/java/android/opengl/GLSurfaceView.java_SELECTED" value="GLSurfaceView" />
     <property name="dart.analysis.tool.window.visible" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/android.ipr" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -43,24 +381,167 @@
     </task>
     <servers />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="597" y="399" key="DetectedRootsChooserDialog" timestamp="1620818039887">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state x="597" y="399" key="DetectedRootsChooserDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1620818039887" />
-    <state x="328" y="103" key="SettingsEditor" timestamp="1622954519141">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state x="328" y="103" key="SettingsEditor/0.0.1680.1050@0.0.1680.1050" timestamp="1622954519141" />
-    <state x="328" y="117" key="SettingsEditor/0.25.1680.940@0.25.1680.940" timestamp="1621823382760" />
-    <state x="570" y="230" width="576" height="586" key="StructurePopup" timestamp="1622799529319">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state x="570" y="230" width="576" height="586" key="StructurePopup/0.0.1680.1050@0.0.1680.1050" timestamp="1622799529319" />
-    <state x="570" y="231" width="576" height="524" key="StructurePopup/0.25.1680.940@0.25.1680.940" timestamp="1621825223382" />
-    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup" timestamp="1622799522114">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1622799522114" />
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/frameworks/av" />
+      <path value="$PROJECT_DIR$/frameworks/base" />
+      <path value="$PROJECT_DIR$/frameworks/compile/libbcc" />
+      <path value="$PROJECT_DIR$/frameworks/compile/mclinker" />
+      <path value="$PROJECT_DIR$/frameworks/compile/slang" />
+      <path value="$PROJECT_DIR$/frameworks/ex" />
+      <path value="$PROJECT_DIR$/frameworks/hardware/interfaces" />
+      <path value="$PROJECT_DIR$/frameworks/layoutlib" />
+      <path value="$PROJECT_DIR$/frameworks/minikin" />
+      <path value="$PROJECT_DIR$/frameworks/ml" />
+      <path value="$PROJECT_DIR$/frameworks/multidex" />
+      <path value="$PROJECT_DIR$/frameworks/native" />
+      <path value="$PROJECT_DIR$/frameworks/opt/bitmap" />
+      <path value="$PROJECT_DIR$/frameworks/opt/calendar" />
+      <path value="$PROJECT_DIR$/frameworks/opt/car/services" />
+      <path value="$PROJECT_DIR$/frameworks/opt/car/setupwizard" />
+      <path value="$PROJECT_DIR$/frameworks/opt/chips" />
+      <path value="$PROJECT_DIR$/frameworks/opt/colorpicker" />
+      <path value="$PROJECT_DIR$/frameworks/opt/datetimepicker" />
+      <path value="$PROJECT_DIR$/frameworks/opt/gamesdk" />
+      <path value="$PROJECT_DIR$/frameworks/opt/net/ethernet" />
+      <path value="$PROJECT_DIR$/frameworks/opt/net/ike" />
+      <path value="$PROJECT_DIR$/frameworks/opt/net/ims" />
+      <path value="$PROJECT_DIR$/frameworks/opt/net/voip" />
+      <path value="$PROJECT_DIR$/frameworks/opt/net/wifi" />
+      <path value="$PROJECT_DIR$/frameworks/opt/photoviewer" />
+      <path value="$PROJECT_DIR$/frameworks/opt/setupwizard" />
+      <path value="$PROJECT_DIR$/frameworks/opt/telephony" />
+      <path value="$PROJECT_DIR$/frameworks/opt/timezonepicker" />
+      <path value="$PROJECT_DIR$/frameworks/opt/vcard" />
+      <path value="$PROJECT_DIR$/frameworks/rs" />
+      <path value="$PROJECT_DIR$/frameworks/wilhelm" />
+      <path value="$PROJECT_DIR$/kernel/build" />
+      <path value="$PROJECT_DIR$/kernel/configs" />
+      <path value="$PROJECT_DIR$/kernel/tests" />
+      <path value="$PROJECT_DIR$/packages/apps/BasicSmsReceiver" />
+      <path value="$PROJECT_DIR$/packages/apps/Bluetooth" />
+      <path value="$PROJECT_DIR$/packages/apps/Browser2" />
+      <path value="$PROJECT_DIR$/packages/apps/Calendar" />
+      <path value="$PROJECT_DIR$/packages/apps/Camera2" />
+      <path value="$PROJECT_DIR$/packages/apps/Car/Cluster" />
+      <path value="$PROJECT_DIR$/packages/apps/Car/CompanionDeviceSupport" />
+      <path value="$PROJECT_DIR$/packages/apps/Car/Dialer" />
+      <path value="$PROJECT_DIR$/packages/apps/Car/Hvac" />
+      <path value="$PROJECT_DIR$/packages/apps/Car/LatinIME" />
+      <path value="$PROJECT_DIR$/packages/apps/Car/Launcher" />
+      <path value="$PROJECT_DIR$/packages/apps/Car/LensPicker" />
+      <path value="$PROJECT_DIR$/packages/apps/Car/LinkViewer" />
+      <path value="$PROJECT_DIR$/packages/apps/Car/LocalMediaPlayer" />
+      <path value="$PROJECT_DIR$/packages/apps/Car/Media" />
+      <path value="$PROJECT_DIR$/packages/apps/Car/Messenger" />
+      <path value="$PROJECT_DIR$/packages/apps/Car/Notification" />
+      <path value="$PROJECT_DIR$/packages/apps/Car/Overview" />
+      <path value="$PROJECT_DIR$/packages/apps/Car/Radio" />
+      <path value="$PROJECT_DIR$/packages/apps/Car/Settings" />
+      <path value="$PROJECT_DIR$/packages/apps/Car/Stream" />
+      <path value="$PROJECT_DIR$/packages/apps/Car/SystemUpdater" />
+      <path value="$PROJECT_DIR$/packages/apps/Car/externallibs" />
+      <path value="$PROJECT_DIR$/packages/apps/Car/libs" />
+      <path value="$PROJECT_DIR$/packages/apps/Car/tests" />
+      <path value="$PROJECT_DIR$/packages/apps/CarrierConfig" />
+      <path value="$PROJECT_DIR$/packages/apps/CellBroadcastReceiver" />
+      <path value="$PROJECT_DIR$/packages/apps/CertInstaller" />
+      <path value="$PROJECT_DIR$/packages/apps/Contacts" />
+      <path value="$PROJECT_DIR$/packages/apps/DeskClock" />
+      <path value="$PROJECT_DIR$/packages/apps/DevCamera" />
+      <path value="$PROJECT_DIR$/packages/apps/Dialer" />
+      <path value="$PROJECT_DIR$/packages/apps/DocumentsUI" />
+      <path value="$PROJECT_DIR$/packages/apps/Email" />
+      <path value="$PROJECT_DIR$/packages/apps/EmergencyInfo" />
+      <path value="$PROJECT_DIR$/packages/apps/Gallery" />
+      <path value="$PROJECT_DIR$/packages/apps/Gallery2" />
+      <path value="$PROJECT_DIR$/packages/apps/HTMLViewer" />
+      <path value="$PROJECT_DIR$/packages/apps/KeyChain" />
+      <path value="$PROJECT_DIR$/packages/apps/Launcher3" />
+      <path value="$PROJECT_DIR$/packages/apps/LegacyCamera" />
+      <path value="$PROJECT_DIR$/packages/apps/ManagedProvisioning" />
+      <path value="$PROJECT_DIR$/packages/apps/Messaging" />
+      <path value="$PROJECT_DIR$/packages/apps/Music" />
+      <path value="$PROJECT_DIR$/packages/apps/MusicFX" />
+      <path value="$PROJECT_DIR$/packages/apps/Nfc" />
+      <path value="$PROJECT_DIR$/packages/apps/OneTimeInitializer" />
+      <path value="$PROJECT_DIR$/packages/apps/PermissionController" />
+      <path value="$PROJECT_DIR$/packages/apps/PhoneCommon" />
+      <path value="$PROJECT_DIR$/packages/apps/Protips" />
+      <path value="$PROJECT_DIR$/packages/apps/Provision" />
+      <path value="$PROJECT_DIR$/packages/apps/QuickSearchBox" />
+      <path value="$PROJECT_DIR$/packages/apps/SafetyRegulatoryInfo" />
+      <path value="$PROJECT_DIR$/packages/apps/SampleLocationAttribution" />
+      <path value="$PROJECT_DIR$/packages/apps/SecureElement" />
+      <path value="$PROJECT_DIR$/packages/apps/Settings" />
+      <path value="$PROJECT_DIR$/packages/apps/SettingsIntelligence" />
+      <path value="$PROJECT_DIR$/packages/apps/SoundRecorder" />
+      <path value="$PROJECT_DIR$/packages/apps/SpareParts" />
+      <path value="$PROJECT_DIR$/packages/apps/Stk" />
+      <path value="$PROJECT_DIR$/packages/apps/StorageManager" />
+      <path value="$PROJECT_DIR$/packages/apps/TV" />
+      <path value="$PROJECT_DIR$/packages/apps/Tag" />
+      <path value="$PROJECT_DIR$/packages/apps/Terminal" />
+      <path value="$PROJECT_DIR$/packages/apps/Test/connectivity" />
+      <path value="$PROJECT_DIR$/packages/apps/ThemePicker" />
+      <path value="$PROJECT_DIR$/packages/apps/TimeZoneData" />
+      <path value="$PROJECT_DIR$/packages/apps/TimeZoneUpdater" />
+      <path value="$PROJECT_DIR$/packages/apps/Traceur" />
+      <path value="$PROJECT_DIR$/packages/apps/TvSettings" />
+      <path value="$PROJECT_DIR$/packages/apps/UnifiedEmail" />
+      <path value="$PROJECT_DIR$/packages/apps/UniversalMediaPlayer" />
+      <path value="$PROJECT_DIR$/packages/apps/WallpaperPicker" />
+      <path value="$PROJECT_DIR$/packages/apps/WallpaperPicker2" />
+      <path value="$PROJECT_DIR$/packages/inputmethods/LatinIME" />
+      <path value="$PROJECT_DIR$/packages/modules/CaptivePortalLogin" />
+      <path value="$PROJECT_DIR$/packages/modules/ExtServices" />
+      <path value="$PROJECT_DIR$/packages/modules/ModuleMetadata" />
+      <path value="$PROJECT_DIR$/packages/modules/NetworkPermissionConfig" />
+      <path value="$PROJECT_DIR$/packages/modules/NetworkStack" />
+      <path value="$PROJECT_DIR$/packages/modules/TestModule" />
+      <path value="$PROJECT_DIR$/packages/providers/ApplicationsProvider" />
+      <path value="$PROJECT_DIR$/packages/providers/BlockedNumberProvider" />
+      <path value="$PROJECT_DIR$/packages/providers/BookmarkProvider" />
+      <path value="$PROJECT_DIR$/packages/providers/CalendarProvider" />
+      <path value="$PROJECT_DIR$/packages/providers/CallLogProvider" />
+      <path value="$PROJECT_DIR$/packages/providers/ContactsProvider" />
+      <path value="$PROJECT_DIR$/packages/providers/DownloadProvider" />
+      <path value="$PROJECT_DIR$/packages/providers/MediaProvider" />
+      <path value="$PROJECT_DIR$/packages/providers/PartnerBookmarksProvider" />
+      <path value="$PROJECT_DIR$/packages/providers/TelephonyProvider" />
+      <path value="$PROJECT_DIR$/packages/providers/TvProvider" />
+      <path value="$PROJECT_DIR$/packages/providers/UserDictionaryProvider" />
+      <path value="$PROJECT_DIR$/packages/screensavers/Basic" />
+      <path value="$PROJECT_DIR$/packages/screensavers/PhotoTable" />
+      <path value="$PROJECT_DIR$/packages/services/AlternativeNetworkAccess" />
+      <path value="$PROJECT_DIR$/packages/services/BuiltInPrintService" />
+      <path value="$PROJECT_DIR$/packages/services/Car" />
+      <path value="$PROJECT_DIR$/packages/services/Mms" />
+      <path value="$PROJECT_DIR$/packages/services/Telecomm" />
+      <path value="$PROJECT_DIR$/packages/services/Telephony" />
+      <path value="$PROJECT_DIR$/packages/wallpapers/LivePicker" />
+      <path value="$PROJECT_DIR$/test/framework" />
+      <path value="$PROJECT_DIR$/test/mlts/benchmark" />
+      <path value="$PROJECT_DIR$/test/mlts/models" />
+      <path value="$PROJECT_DIR$/test/mts" />
+      <path value="$PROJECT_DIR$/test/suite_harness" />
+      <path value="$PROJECT_DIR$/test/vti/alert" />
+      <path value="$PROJECT_DIR$/test/vti/dashboard" />
+      <path value="$PROJECT_DIR$/test/vti/fuzz_test_serving" />
+      <path value="$PROJECT_DIR$/test/vti/test_serving" />
+      <path value="$PROJECT_DIR$/test/vts" />
+      <path value="$PROJECT_DIR$/test/vts-testcase/fuzz" />
+      <path value="$PROJECT_DIR$/test/vts-testcase/hal" />
+      <path value="$PROJECT_DIR$/test/vts-testcase/hal-trace" />
+      <path value="$PROJECT_DIR$/test/vts-testcase/kernel" />
+      <path value="$PROJECT_DIR$/test/vts-testcase/nbu" />
+      <path value="$PROJECT_DIR$/test/vts-testcase/performance" />
+      <path value="$PROJECT_DIR$/test/vts-testcase/security" />
+      <path value="$PROJECT_DIR$/test/vts-testcase/vndk" />
+      <path value="$PROJECT_DIR$/toolchain/benchmark" />
+      <path value="$PROJECT_DIR$/toolchain/pgo-profiles" />
+      <path value="$PROJECT_DIR$" />
+    </ignored-roots>
   </component>
 </project>

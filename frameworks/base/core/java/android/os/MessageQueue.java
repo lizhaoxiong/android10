@@ -332,7 +332,7 @@ public final class MessageQueue {
             if (nextPollTimeoutMillis != 0) {
                 Binder.flushPendingCommands();
             }
-
+            //
             nativePollOnce(ptr, nextPollTimeoutMillis);
 
             synchronized (this) {
