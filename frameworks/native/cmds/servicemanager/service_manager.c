@@ -305,6 +305,7 @@ int svcmgr_handler(struct binder_state *bs,
     }
 
     switch(txn->code) {
+    //ServiceManager启动和工作原理,handler回调干活，get
     case SVC_MGR_GET_SERVICE:
     case SVC_MGR_CHECK_SERVICE:
         s = bio_get_string16(msg, &len);
@@ -317,7 +318,7 @@ int svcmgr_handler(struct binder_state *bs,
             break;
         bio_put_ref(reply, handle);
         return 0;
-
+    //ServiceManager启动和工作原理,handler回调干活，add
     case SVC_MGR_ADD_SERVICE:
         s = bio_get_string16(msg, &len);
         if (s == NULL) {
@@ -381,7 +382,7 @@ static int audit_callback(void *data, __unused security_class_t cls, char *buf, 
 
 int main(int argc, char** argv)
 {
-
+    //ServiceManager启动和工作原理，main
     struct binder_state *bs;
     union selinux_callback cb;
     char *driver;
@@ -391,7 +392,7 @@ int main(int argc, char** argv)
     } else {
         driver = "/dev/binder";
     }
-
+    //ServiceManager启动和工作原理，main
     bs = binder_open(driver, 128*1024);
     if (!bs) {
 #ifdef VENDORSERVICEMANAGER
@@ -436,7 +437,7 @@ int main(int argc, char** argv)
         abort();
     }
 
-
+    //ServiceManager启动和工作原理，处理请求
     binder_loop(bs, svcmgr_handler);
 
     return 0;

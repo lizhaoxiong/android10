@@ -37,6 +37,7 @@ public:
     static status_t publish(bool allowIsolated = false,
                             int dumpFlags = IServiceManager::DUMP_FLAG_PRIORITY_DEFAULT) {
         sp<IServiceManager> sm(defaultServiceManager());
+        //ServiceManager启动和工作原理,获取SM
         return sm->addService(String16(SERVICE::getServiceName()), new SERVICE(), allowIsolated,
                               dumpFlags);
     }

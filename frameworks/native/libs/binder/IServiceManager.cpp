@@ -188,6 +188,7 @@ public:
         data.writeStrongBinder(service);
         data.writeInt32(allowIsolated ? 1 : 0);
         data.writeInt32(dumpsysPriority);
+        //ServiceManager启动和工作原理,添加service
         status_t err = remote()->transact(ADD_SERVICE_TRANSACTION, data, &reply);
         return err == NO_ERROR ? reply.readExceptionCode() : err;
     }

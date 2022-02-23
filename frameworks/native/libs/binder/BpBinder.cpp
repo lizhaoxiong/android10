@@ -212,6 +212,7 @@ status_t BpBinder::transact(
 {
     // Once a binder has died, it will never come back to life.
     if (mAlive) {
+        //ServiceManager启动和工作原理,添加service
         status_t status = IPCThreadState::self()->transact(
             mHandle, code, data, reply, flags);
         if (status == DEAD_OBJECT) mAlive = 0;

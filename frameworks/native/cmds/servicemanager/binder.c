@@ -105,6 +105,7 @@ struct binder_state *binder_open(const char* driver, size_t mapsize)
         return NULL;
     }
 
+    //ServiceManager启动和工作原理，open /dev/binder
     bs->fd = open(driver, O_RDWR | O_CLOEXEC);
     if (bs->fd < 0) {
         fprintf(stderr,"binder: cannot open %s (%s)\n",
@@ -120,7 +121,7 @@ struct binder_state *binder_open(const char* driver, size_t mapsize)
         goto fail_open;
     }
 
-    bs->mapsize = mapsize;
+    bs->mapsize = mapsize;  //ServiceManager启动和工作原理，128k 很小
     bs->mapped = mmap(NULL, mapsize, PROT_READ, MAP_PRIVATE, bs->fd, 0);
     if (bs->mapped == MAP_FAILED) {
         fprintf(stderr,"binder: cannot map device (%s)\n",
@@ -172,7 +173,7 @@ int binder_write(struct binder_state *bs, void *data, size_t len)
     bwr.read_size = 0;
     bwr.read_consumed = 0;
     bwr.read_buffer = 0;
-    res = ioctl(bs->fd, BINDER_WRITE_READ, &bwr);
+    res = ioctl(bs->fd, BINDER_WRITE_READ, &bwr);//ServiceManager启动和工作原理,ioctl
     if (res < 0) {
         fprintf(stderr,"binder_write: ioctl failed (%s)\n",
                 strerror(errno));
@@ -411,7 +412,7 @@ fail:
     reply->flags |= BIO_F_IOERROR;
     return -1;
 }
-
+//ServiceManager启动和工作原理,binder_loop
 void binder_loop(struct binder_state *bs, binder_handler func)
 {
     int res;
@@ -423,14 +424,14 @@ void binder_loop(struct binder_state *bs, binder_handler func)
     bwr.write_buffer = 0;
 
     readbuf[0] = BC_ENTER_LOOPER;
-    binder_write(bs, readbuf, sizeof(uint32_t));
+    binder_write(bs, readbuf, sizeof(uint32_t)); //ServiceManager启动和工作原理,binder_write
 
     for (;;) {
         bwr.read_size = sizeof(readbuf);
         bwr.read_consumed = 0;
         bwr.read_buffer = (uintptr_t) readbuf;
 
-        res = ioctl(bs->fd, BINDER_WRITE_READ, &bwr);
+        res = ioctl(bs->fd, BINDER_WRITE_READ, &bwr); //ServiceManager启动和工作原理,ioctl
 
         if (res < 0) {
             ALOGE("binder_loop: ioctl failed (%s)\n", strerror(errno));

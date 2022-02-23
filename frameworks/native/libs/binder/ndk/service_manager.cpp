@@ -28,12 +28,14 @@ using ::android::sp;
 using ::android::status_t;
 using ::android::String16;
 
+
 binder_status_t AServiceManager_addService(AIBinder* binder, const char* instance) {
     if (binder == nullptr || instance == nullptr) {
         return STATUS_UNEXPECTED_NULL;
     }
 
     sp<IServiceManager> sm = defaultServiceManager();
+    //ServiceManager启动和工作原理,系统服务注册
     status_t status = sm->addService(String16(instance), binder->getBinder());
     return PruneStatusT(status);
 }
@@ -55,6 +57,7 @@ AIBinder* AServiceManager_getService(const char* instance) {
     }
 
     sp<IServiceManager> sm = defaultServiceManager();
+    //ServiceManager启动和工作原理,系统服务使用
     sp<IBinder> binder = sm->getService(String16(instance));
 
     sp<AIBinder> ret = ABpBinder::lookupOrCreateFromBinder(binder);
