@@ -1030,7 +1030,7 @@ public final class ActivityThread extends ClientTransactionHandler {
             }
 
             setCoreSettings(coreSettings);
-
+            //Application原理，参数封装到AppBindData
             AppBindData data = new AppBindData();
             data.processName = processName;
             data.appInfo = appInfo;
@@ -1050,7 +1050,7 @@ public final class ActivityThread extends ClientTransactionHandler {
             data.buildSerial = buildSerial;
             data.autofillOptions = autofillOptions;
             data.contentCaptureOptions = contentCaptureOptions;
-            sendMessage(H.BIND_APPLICATION, data);
+            sendMessage(H.BIND_APPLICATION, data);//Application原理，发送BIND_APPLICATION消息
         }
 
         public final void runIsolatedEntryPoint(String entryPoint, String[] entryPointArgs) {
@@ -6211,7 +6211,7 @@ public final class ActivityThread extends ClientTransactionHandler {
             // This calls mResourcesManager so keep it within the synchronized block.
             applyCompatConfiguration(mCurDefaultDisplayDpi);
         }
-
+        //Application原理，handleBindApplication,pkg数据 - LoadedApk
         data.info = getPackageInfoNoCheck(data.appInfo, data.compatInfo);
 
         if (agent != null) {
@@ -6428,6 +6428,7 @@ public final class ActivityThread extends ClientTransactionHandler {
         try {
             // If the app is being launched for full backup or restore, bring it up in
             // a restricted environment with the base application class.
+            //Application原理，makeApplication
             app = data.info.makeApplication(data.restrictedBackupMode, null);
 
             // Propagate autofill compat state
@@ -6457,6 +6458,7 @@ public final class ActivityThread extends ClientTransactionHandler {
                     + data.instrumentationName + ": " + e.toString(), e);
             }
             try {
+                //Application原理，callApplicationOnCreate,application的onCreate生命周期
                 mInstrumentation.callApplicationOnCreate(app);
             } catch (Exception e) {
                 if (!mInstrumentation.onException(app, e)) {
@@ -7076,7 +7078,7 @@ public final class ActivityThread extends ClientTransactionHandler {
                                                     UserHandle.myUserId());
             RuntimeInit.setApplicationObject(mAppThread.asBinder());
             final IActivityManager mgr = ActivityManager.getService();
-            try {
+            try {//Application原理，入口
                 mgr.attachApplication(mAppThread, startSeq);//应用进程启动，attachApplication
             } catch (RemoteException ex) {
                 throw ex.rethrowFromSystemServer();

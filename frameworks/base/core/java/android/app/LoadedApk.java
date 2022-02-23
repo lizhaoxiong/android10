@@ -1215,6 +1215,7 @@ public final class LoadedApk {
                 Trace.traceEnd(Trace.TRACE_TAG_ACTIVITY_MANAGER);
             }
             ContextImpl appContext = ContextImpl.createAppContext(mActivityThread, this);
+            //Application原理，通过mInstrumentation创建application，classLoader反射获取
             app = mActivityThread.mInstrumentation.newApplication(
                     cl, appClass, appContext);
             appContext.setOuterContext(app);

@@ -11,10 +11,12 @@
   <component name="ChangeListManager">
     <list default="true" id="af249a12-873e-48b4-8f8b-ded42e771cdb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/android.iws" beforeDir="false" afterPath="$PROJECT_DIR$/android.iws" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/base/cmds/app_process/app_main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/cmds/app_process/app_main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/com/android/internal/os/ZygoteInit.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/com/android/internal/os/ZygoteInit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/native/libs/binder/IPCThreadState.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/native/libs/binder/IPCThreadState.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/native/libs/binder/ProcessState.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/native/libs/binder/ProcessState.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/app/ActivityThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/app/ActivityThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/app/AppComponentFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/app/AppComponentFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/app/Instrumentation.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/app/Instrumentation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/app/LoadedApk.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/app/LoadedApk.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/content/ContextWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/content/ContextWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frameworks/base/services/core/java/com/android/server/am/ActivityManagerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/services/core/java/com/android/server/am/ActivityManagerService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,7 +126,14 @@
       <option name="project" value="LOCAL" />
       <updated>1645614563063</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="binder机制的启动">
+      <created>1645616409893</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1645616409893</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -309,6 +318,7 @@
     <MESSAGE value="系统服务注册与使用" />
     <MESSAGE value="ServiceManager启动和工作原理" />
     <MESSAGE value="应用进程启动" />
-    <option name="LAST_COMMIT_MESSAGE" value="应用进程启动" />
+    <MESSAGE value="binder机制的启动" />
+    <option name="LAST_COMMIT_MESSAGE" value="binder机制的启动" />
   </component>
 </project>

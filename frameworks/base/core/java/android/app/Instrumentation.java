@@ -1138,6 +1138,7 @@ public class Instrumentation {
             ClassNotFoundException {
         Application app = getFactory(context.getPackageName())
                 .instantiateApplication(cl, className);
+        //Application原理，反射创建后，attach就是attachBaseContext(context)
         app.attach(context);
         return app;
     }

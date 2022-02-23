@@ -5041,6 +5041,7 @@ public class ActivityManagerService extends IActivityManager.Stub
                 // being bound to an application.
                 thread.runIsolatedEntryPoint(app.isolatedEntryPoint, app.isolatedEntryPointArgs);
             } else if (instr2 != null) {
+                //Application原理,bindApplication ---> start
                 thread.bindApplication(processName, appInfo, providers,
                         instr2.mClass,
                         profilerInfo, instr2.mArguments,
@@ -5094,10 +5095,10 @@ public class ActivityManagerService extends IActivityManager.Stub
 
         boolean badApp = false;
         boolean didSomething = false;
-
+        //Application原理，不要再Application声明周期搞耗时操作，影响组件的初始化启动
         // See if the top visible activity is waiting to run in this process...
         if (normalMode) {
-            try {
+            try {//Application原理，ActivityStack，初始化启动Activity组件
                 didSomething = mAtmInternal.attachApplication(app.getWindowProcessController());
             } catch (Exception e) {
                 Slog.wtf(TAG, "Exception thrown launching activities in " + app, e);
@@ -5107,7 +5108,7 @@ public class ActivityManagerService extends IActivityManager.Stub
 
         // Find any services that should be running in this process...
         if (!badApp) {
-            try {
+            try {//Application原理，mPendingServices，初始化启动服务组件
                 didSomething |= mServices.attachApplicationLocked(app, processName);
                 checkTime(startTime, "attachApplicationLocked: after mServices.attachApplicationLocked");
             } catch (Exception e) {
@@ -5118,7 +5119,7 @@ public class ActivityManagerService extends IActivityManager.Stub
 
         // Check if a next-broadcast receiver is in this process...
         if (!badApp && isPendingBroadcastProcessLocked(pid)) {
-            try {
+            try {//Application原理，mPendingBroadcast，初始化启动广播组件
                 didSomething |= sendPendingBroadcastsLocked(app);
                 checkTime(startTime, "attachApplicationLocked: after sendPendingBroadcastsLocked");
             } catch (Exception e) {

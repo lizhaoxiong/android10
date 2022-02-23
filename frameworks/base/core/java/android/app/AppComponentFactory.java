@@ -73,6 +73,7 @@ public class AppComponentFactory {
     public @NonNull Application instantiateApplication(@NonNull ClassLoader cl,
             @NonNull String className)
             throws InstantiationException, IllegalAccessException, ClassNotFoundException {
+        //Application原理，构造函数还没有context，这个时候使用资源会报错
         return (Application) cl.loadClass(className).newInstance();
     }
 
