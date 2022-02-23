@@ -9,14 +9,12 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af249a12-873e-48b4-8f8b-ded42e771cdb" name="Default Changelist" comment="">
+    <list default="true" id="af249a12-873e-48b4-8f8b-ded42e771cdb" name="Default Changelist" comment="Application原理">
       <change beforePath="$PROJECT_DIR$/android.iws" beforeDir="false" afterPath="$PROJECT_DIR$/android.iws" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/app/ActivityThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/app/ActivityThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/app/AppComponentFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/app/AppComponentFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/app/Instrumentation.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/app/Instrumentation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/app/LoadedApk.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/app/LoadedApk.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/content/ContextWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/content/ContextWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/base/services/core/java/com/android/server/am/ActivityManagerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/services/core/java/com/android/server/am/ActivityManagerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/content/ContentProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/content/ContentProvider.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,7 +131,14 @@
       <option name="project" value="LOCAL" />
       <updated>1645616409893</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Application原理">
+      <created>1645620260875</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1645620260876</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -319,6 +324,7 @@
     <MESSAGE value="ServiceManager启动和工作原理" />
     <MESSAGE value="应用进程启动" />
     <MESSAGE value="binder机制的启动" />
-    <option name="LAST_COMMIT_MESSAGE" value="binder机制的启动" />
+    <MESSAGE value="Application原理" />
+    <option name="LAST_COMMIT_MESSAGE" value="Application原理" />
   </component>
 </project>

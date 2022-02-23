@@ -1206,6 +1206,7 @@ public class Instrumentation {
         if (application == null) {
             application = new Application();
         }
+        //Context原理，activity.attach(context)
         activity.attach(context, aThread, this, token, 0 /* ident */, application, intent,
                 info, title, parent, id,
                 (Activity.NonConfigurationInstances) lastNonConfigurationInstance,

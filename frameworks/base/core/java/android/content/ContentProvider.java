@@ -2089,6 +2089,7 @@ public abstract class ContentProvider implements ContentInterface, ComponentCall
                 mSingleUser = (info.flags & ProviderInfo.FLAG_SINGLE_USER) != 0;
                 setAuthorities(info.authority);
             }
+            //Context原理，--> ContentProvider的onCreate 早于 application的onCreate
             ContentProvider.this.onCreate();
         }
     }

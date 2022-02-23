@@ -3005,6 +3005,7 @@ public final class ActivityThread extends ClientTransactionHandler {
         // TODO(lifecycler): Can't switch to use #handleLaunchActivity() because it will try to
         // call #reportSizeConfigurations(), but the server might not know anything about the
         // activity if it was launched from LocalAcvitivyManager.
+        //Context原理，启动Activity
         return performLaunchActivity(r, null /* customIntent */);
     }
 
@@ -3174,11 +3175,12 @@ public final class ActivityThread extends ClientTransactionHandler {
             component = new ComponentName(r.activityInfo.packageName,
                     r.activityInfo.targetActivity);
         }
-
+        //Context原理，--> 1.new ContextImpl
         ContextImpl appContext = createBaseContextForActivity(r);
         Activity activity = null;
         try {
             java.lang.ClassLoader cl = appContext.getClassLoader();
+            //Context原理，--> 2.newActivity
             activity = mInstrumentation.newActivity(
                     cl, component.getClassName(), r.intent);
             StrictMode.incrementExpectedActivityCount(activity.getClass());
@@ -3221,6 +3223,7 @@ public final class ActivityThread extends ClientTransactionHandler {
                     r.mPendingRemoveWindowManager = null;
                 }
                 appContext.setOuterContext(activity);
+                //Context原理，3.attach,attachBaseContext(context);
                 activity.attach(appContext, this, getInstrumentation(), r.token,
                         r.ident, app, r.intent, r.activityInfo, title, r.parent,
                         r.embeddedID, r.lastNonConfigurationInstances, config,
@@ -3240,6 +3243,7 @@ public final class ActivityThread extends ClientTransactionHandler {
 
                 activity.mCalled = false;
                 if (r.isPersistable()) {
+                    //Context原理，--> 4.callActivityOnCreate，onCreate
                     mInstrumentation.callActivityOnCreate(activity, r.state, r.persistentState);
                 } else {
                     mInstrumentation.callActivityOnCreate(activity, r.state);
@@ -3931,6 +3935,7 @@ public final class ActivityThread extends ClientTransactionHandler {
         Service service = null;
         try {
             java.lang.ClassLoader cl = packageInfo.getClassLoader();
+            //Context原理，--> 1.new service()
             service = packageInfo.getAppFactory()
                     .instantiateService(cl, data.info.name, data.intent);
         } catch (Exception e) {
@@ -3943,13 +3948,15 @@ public final class ActivityThread extends ClientTransactionHandler {
 
         try {
             if (localLOGV) Slog.v(TAG, "Creating service " + data.info.name);
-
+            //Context原理，--> 2.new ContextImpl
             ContextImpl context = ContextImpl.createAppContext(this, packageInfo);
             context.setOuterContext(service);
 
             Application app = packageInfo.makeApplication(false, mInstrumentation);
+            //Context原理，--> 3.attach，attachBaseContext(context);
             service.attach(context, this, data.info.name, data.token, app,
                     ActivityManager.getService());
+            //Context原理，--> 4.onCreate
             service.onCreate();
             mServices.put(data.token, service);
             try {
@@ -6443,6 +6450,8 @@ public final class ActivityThread extends ClientTransactionHandler {
             // app's custom Application class
             if (!data.restrictedBackupMode) {
                 if (!ArrayUtils.isEmpty(data.providers)) {
+                    //Application原理，contentProvider的onCreate提前与application的onCreate
+                    //在handleBindApplication，installContentProvider > mInstrumentation.callApplicationOnCreate
                     installContentProviders(app, data.providers);
                 }
             }
