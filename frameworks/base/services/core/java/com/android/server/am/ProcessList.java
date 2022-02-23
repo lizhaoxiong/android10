@@ -1843,7 +1843,7 @@ public final class ProcessList {
                 false /* disableHiddenApiChecks */, false /* mountExtStorageFull */, abiOverride);
     }
 
-    @GuardedBy("mService")
+    @GuardedBy("mService") //应用进程启动，只是发送请求启动的指令，打开本地socket的zygote，发送参数给zygote返回创建进程的ID
     final ProcessRecord startProcessLocked(String processName, ApplicationInfo info,
             boolean knownToBeDead, int intentFlags, HostingRecord hostingRecord,
             boolean allowWhileBooting, boolean isolated, int isolatedUid, boolean keepIfLarge,
@@ -1851,6 +1851,7 @@ public final class ProcessList {
         long startTime = SystemClock.elapsedRealtime();
         ProcessRecord app;
         if (!isolated) {
+            //应用进程启动，启动应用进程
             app = getProcessRecordLocked(processName, info.uid, keepIfLarge);
             checkSlow(startTime, "startProcess: after getProcessRecord");
 
@@ -1897,6 +1898,7 @@ public final class ProcessList {
                 + " pid=" + (app != null ? app.pid : -1));
         if (app != null && app.pid > 0) {
             if ((!knownToBeDead && !app.killed) || app.thread == null) {
+                //应用进程启动，反正应用进程重复启动
                 // We already have the app running, or are waiting for it to
                 // come up (we have a pid but not yet its thread), so keep it.
                 if (DEBUG_PROCESSES) Slog.v(TAG_PROCESSES, "App already running: " + app);

@@ -572,6 +572,7 @@ public final class ActiveServices {
         boolean addToStarting = false;
         if (!callerFg && !fgRequired && r.app == null
                 && mAm.mUserController.hasStartedUserState(r.userId)) {
+            //应用进程启动，getProcessRecordLocked，启动service组件
             ProcessRecord proc = mAm.getProcessRecordLocked(r.processName, r.appInfo.uid, false);
             if (proc == null || proc.getCurProcState() > ActivityManager.PROCESS_STATE_RECEIVER) {
                 // If this is not coming from a foreground caller, then we may want
@@ -2509,7 +2510,7 @@ public final class ActiveServices {
     private String bringUpServiceLocked(ServiceRecord r, int intentFlags, boolean execInFg,
             boolean whileRestarting, boolean permissionsReviewRequired)
             throws TransactionTooLargeException {
-        if (r.app != null && r.app.thread != null) {
+        if (r.app != null && r.app.thread != null) { //应用进程已经启动，并且已经在ServiceManager注册了，直接启动组件
             sendServiceArgsLocked(r, execInFg, false);
             return null;
         }
@@ -2601,7 +2602,7 @@ public final class ActiveServices {
 
         // Not running -- get it started, and enqueue this service record
         // to be executed when the app comes up.
-        if (app == null && !permissionsReviewRequired) {
+        if (app == null && !permissionsReviewRequired) { //应用进程启动，app ==null，去启动进程startProcessLocked
             if ((app=mAm.startProcessLocked(procName, r.appInfo, true, intentFlags,
                     hostingRecord, false, isolated, false)) == null) {
                 String msg = "Unable to launch app "
@@ -2609,7 +2610,7 @@ public final class ActiveServices {
                         + r.appInfo.uid + " for service "
                         + r.intent.getIntent() + ": process is bad";
                 Slog.w(TAG, msg);
-                bringDownServiceLocked(r);
+                bringDownServiceLocked(r);//应用进程启动，再次递归bringDownServiceLocked
                 return msg;
             }
             if (isolated) {
@@ -2627,7 +2628,7 @@ public final class ActiveServices {
         }
 
         if (!mPendingServices.contains(r)) {
-            mPendingServices.add(r);
+            mPendingServices.add(r); //应用进程启动，进程已经启动，但是未注册SM，注册进去
         }
 
         if (r.delayedStop) {
@@ -3348,6 +3349,7 @@ public final class ActiveServices {
                     i--;
                     proc.addPackage(sr.appInfo.packageName, sr.appInfo.longVersionCode,
                             mAm.mProcessStats);
+                    //应用进程启动，AMS会遍历mPendingServices，一个个启动起来
                     realStartServiceLocked(sr, proc, sr.createdFromFg);
                     didSomething = true;
                     if (!isServiceNeededLocked(sr, false, false)) {

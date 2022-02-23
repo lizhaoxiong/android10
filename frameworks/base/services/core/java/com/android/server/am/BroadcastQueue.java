@@ -1519,6 +1519,7 @@ public final class BroadcastQueue {
             info.activityInfo = mService.getActivityInfoForUser(info.activityInfo, 0);
         }
         String targetProcess = info.activityInfo.processName;
+        //应用进程启动，getProcessRecordLocked，启动broadcast组件
         ProcessRecord app = mService.getProcessRecordLocked(targetProcess,
                 info.activityInfo.applicationInfo.uid, false);
 

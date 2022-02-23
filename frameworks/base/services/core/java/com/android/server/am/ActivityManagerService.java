@@ -5178,7 +5178,7 @@ public class ActivityManagerService extends IActivityManager.Stub
             int callingPid = Binder.getCallingPid();
             final int callingUid = Binder.getCallingUid();
             final long origId = Binder.clearCallingIdentity();
-            attachApplicationLocked(thread, callingPid, callingUid, startSeq);
+            attachApplicationLocked(thread, callingPid, callingUid, startSeq);//应用进程启动，我从ActivityThread的attach中来
             Binder.restoreCallingIdentity(origId);
         }
     }
@@ -7016,9 +7016,10 @@ public class ActivityManagerService extends IActivityManager.Stub
 
                         // Use existing process if already started
                         checkTime(startTime, "getContentProviderImpl: looking for process record");
+                        //应用进程启动，getProcessRecordLocked，启动contentProvide组件
                         ProcessRecord proc = getProcessRecordLocked(
                                 cpi.processName, cpr.appInfo.uid, false);
-                        if (proc != null && proc.thread != null && !proc.killed) {
+                        if (proc != null && proc.thread != null && !proc.killed) { //已启动进程
                             if (DEBUG_PROVIDER) Slog.d(TAG_PROVIDER,
                                     "Installing in existing process " + proc);
                             if (!proc.pubProviders.containsKey(cpi.name)) {
@@ -7031,7 +7032,7 @@ public class ActivityManagerService extends IActivityManager.Stub
                             }
                         } else {
                             checkTime(startTime, "getContentProviderImpl: before start process");
-                            proc = startProcessLocked(cpi.processName,
+                            proc = startProcessLocked(cpi.processName, //应用进程启动，startProcessLocked，未启动进程
                                     cpr.appInfo, false, 0,
                                     new HostingRecord("content provider",
                                     new ComponentName(cpi.applicationInfo.packageName,
@@ -18397,6 +18398,7 @@ public class ActivityManagerService extends IActivityManager.Stub
                             + processName);
                 }
                 synchronized (ActivityManagerService.this) {
+                    //应用进程启动，startProcessLocked，触发
                     startProcessLocked(processName, info, knownToBeDead, 0 /* intentFlags */,
                             new HostingRecord(hostingType, hostingName),
                             false /* allowWhileBooting */, false /* isolated */,

@@ -7077,7 +7077,7 @@ public final class ActivityThread extends ClientTransactionHandler {
             RuntimeInit.setApplicationObject(mAppThread.asBinder());
             final IActivityManager mgr = ActivityManager.getService();
             try {
-                mgr.attachApplication(mAppThread, startSeq);
+                mgr.attachApplication(mAppThread, startSeq);//应用进程启动，attachApplication
             } catch (RemoteException ex) {
                 throw ex.rethrowFromSystemServer();
             }
@@ -7326,6 +7326,7 @@ public final class ActivityThread extends ClientTransactionHandler {
 
         Process.setArgV0("<pre-initialized>");
 
+        //应用进程启动，ActivityThread
         Looper.prepareMainLooper();
 
         // Find the value for {@link #PROC_START_SEQ_IDENT} if provided on the command line.
@@ -7339,6 +7340,7 @@ public final class ActivityThread extends ClientTransactionHandler {
                 }
             }
         }
+        //应用进程启动，ActivityThread，attach，
         ActivityThread thread = new ActivityThread();
         thread.attach(false, startSeq);
 

@@ -11,12 +11,12 @@
   <component name="ChangeListManager">
     <list default="true" id="af249a12-873e-48b4-8f8b-ded42e771cdb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/android.iws" beforeDir="false" afterPath="$PROJECT_DIR$/android.iws" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/native/cmds/servicemanager/binder.c" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/native/cmds/servicemanager/binder.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/native/cmds/servicemanager/service_manager.c" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/native/cmds/servicemanager/service_manager.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/native/libs/binder/BpBinder.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/native/libs/binder/BpBinder.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/native/libs/binder/IServiceManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/native/libs/binder/IServiceManager.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/native/libs/binder/include/binder/BinderService.h" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/native/libs/binder/include/binder/BinderService.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/native/libs/binder/ndk/service_manager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/native/libs/binder/ndk/service_manager.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/app/ActivityThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/app/ActivityThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/com/android/internal/os/ZygoteConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/com/android/internal/os/ZygoteConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frameworks/base/services/core/java/com/android/server/am/ActiveServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/services/core/java/com/android/server/am/ActiveServices.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frameworks/base/services/core/java/com/android/server/am/ActivityManagerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/services/core/java/com/android/server/am/ActivityManagerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frameworks/base/services/core/java/com/android/server/am/BroadcastQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/services/core/java/com/android/server/am/BroadcastQueue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frameworks/base/services/core/java/com/android/server/am/ProcessList.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/services/core/java/com/android/server/am/ProcessList.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +112,14 @@
       <option name="project" value="LOCAL" />
       <updated>1645602486777</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="ServiceManager启动和工作原理">
+      <created>1645610976510</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1645610976510</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -293,6 +300,7 @@
     <MESSAGE value="Android系统启动流程，systemServer" />
     <MESSAGE value="Android系统启动流程，桌面启动" />
     <MESSAGE value="系统服务注册与使用" />
-    <option name="LAST_COMMIT_MESSAGE" value="系统服务注册与使用" />
+    <MESSAGE value="ServiceManager启动和工作原理" />
+    <option name="LAST_COMMIT_MESSAGE" value="ServiceManager启动和工作原理" />
   </component>
 </project>

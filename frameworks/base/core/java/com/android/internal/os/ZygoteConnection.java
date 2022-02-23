@@ -263,7 +263,7 @@ class ZygoteConnection {
         }
 
         fd = null;
-
+        //应用进程启动，以下代码是zygote启动进程的核心
         pid = Zygote.forkAndSpecialize(parsedArgs.mUid, parsedArgs.mGid, parsedArgs.mGids,
                 parsedArgs.mRuntimeFlags, rlimits, parsedArgs.mMountExternal, parsedArgs.mSeInfo,
                 parsedArgs.mNiceName, fdsToClose, fdsToIgnore, parsedArgs.mStartChildZygote,
@@ -277,7 +277,7 @@ class ZygoteConnection {
                 zygoteServer.closeServerSocket();
                 IoUtils.closeQuietly(serverPipeFd);
                 serverPipeFd = null;
-
+                //-----
                 return handleChildProc(parsedArgs, descriptors, childPipeFd,
                         parsedArgs.mStartChildZygote);
             } else {
@@ -285,6 +285,7 @@ class ZygoteConnection {
                 // handleParentProc.
                 IoUtils.closeQuietly(childPipeFd);
                 childPipeFd = null;
+                //-------
                 handleParentProc(pid, descriptors, serverPipeFd);
                 return null;
             }
@@ -595,6 +596,7 @@ class ZygoteConnection {
             // Should not get here.
             throw new IllegalStateException("WrapperInit.execApplication unexpectedly returned");
         } else {
+            //应用进程启动，启动子进程
             if (!isZygote) {
                 return ZygoteInit.zygoteInit(parsedArgs.mTargetSdkVersion,
                         parsedArgs.mRemainingArgs, null /* classLoader */);
@@ -703,6 +705,7 @@ class ZygoteConnection {
         }
 
         try {
+            //应用进程启动，启动父进程直接写于传入的pid
             mSocketOutStream.writeInt(pid);
             mSocketOutStream.writeBoolean(usingWrapper);
         } catch (IOException ex) {
