@@ -146,6 +146,7 @@ class ServiceManagerProxy implements IServiceManager {
 
     public void addService(String name, IBinder service, boolean allowIsolated, int dumpPriority)
             throws RemoteException {
+        //系统服务注册及使用，addService
         Parcel data = Parcel.obtain();
         Parcel reply = Parcel.obtain();
         data.writeInterfaceToken(IServiceManager.descriptor);

@@ -381,6 +381,7 @@ static int audit_callback(void *data, __unused security_class_t cls, char *buf, 
 
 int main(int argc, char** argv)
 {
+
     struct binder_state *bs;
     union selinux_callback cb;
     char *driver;

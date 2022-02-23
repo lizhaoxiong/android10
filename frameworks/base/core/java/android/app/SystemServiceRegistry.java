@@ -517,6 +517,7 @@ final class SystemServiceRegistry {
                 return new NsdManager(ctx.getOuterContext(), service);
             }});
 
+        //系统服务注册及使用，registerService
         registerService(Context.POWER_SERVICE, PowerManager.class,
                 new CachedServiceFetcher<PowerManager>() {
             @Override
@@ -1399,6 +1400,7 @@ final class SystemServiceRegistry {
                     try {
                         // This thread is the first one to get here. Instantiate the service
                         // *without* the cache lock held.
+                        //系统服务注册及使用，createService
                         service = createService(ctx);
                         newState = ContextImpl.STATE_READY;
 

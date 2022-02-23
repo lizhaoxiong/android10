@@ -121,6 +121,7 @@ public final class ServiceManager {
      */
     @UnsupportedAppUsage
     public static IBinder getService(String name) {
+        //系统服务注册及使用，getService
         try {
             IBinder service = sCache.get(name);
             if (service != null) {
@@ -189,6 +190,7 @@ public final class ServiceManager {
     public static void addService(String name, IBinder service, boolean allowIsolated,
             int dumpPriority) {
         try {
+            //系统服务注册及使用，注册，addService
             getIServiceManager().addService(name, service, allowIsolated, dumpPriority);
         } catch (RemoteException e) {
             Log.e(TAG, "error in addService", e);

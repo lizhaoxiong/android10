@@ -1802,6 +1802,7 @@ class ContextImpl extends Context {
 
     @Override
     public Object getSystemService(String name) {
+        //系统服务注册及使用，调用getSystemService
         return SystemServiceRegistry.getSystemService(this, name);
     }
 
