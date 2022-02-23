@@ -233,6 +233,7 @@ public abstract class SystemService {
      */
     protected final void publishBinderService(String name, IBinder service,
             boolean allowIsolated, int dumpPriority) {
+        //Android系统启动流程，publishBinderService，系统服务发布 **/
         ServiceManager.addService(name, service, allowIsolated, dumpPriority);
     }
 

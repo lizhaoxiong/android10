@@ -346,6 +346,7 @@ public final class SystemServer {
     /**
      * The main entry point from zygote.
      */
+    /* Android系统启动流程，SystemServer，入口函数 **/
     public static void main(String[] args) {
         new SystemServer().run();
     }
@@ -368,6 +369,7 @@ public final class SystemServer {
         mRuntimeRestart = "1".equals(SystemProperties.get("sys.boot_completed"));
     }
 
+    /* Android系统启动流程，SytemServer，run() **/
     private void run() {
         try {
             traceBeginAndSlog("InitBeforeStartServices");
@@ -475,12 +477,12 @@ public final class SystemServer {
             android.os.Process.setThreadPriority(
                     android.os.Process.THREAD_PRIORITY_FOREGROUND);
             android.os.Process.setCanSelfBackground(false);
-            Looper.prepareMainLooper();
+            Looper.prepareMainLooper(); //Android系统启动流程，prepareMainLooper **/
             Looper.getMainLooper().setSlowLogThresholdMs(
                     SLOW_DISPATCH_THRESHOLD_MS, SLOW_DELIVERY_THRESHOLD_MS);
 
             // Initialize native services.
-            System.loadLibrary("android_servers");
+            System.loadLibrary("android_servers"); //Android系统启动流程，loadLibrary，共享库 **/
 
             // Debug builds - allow heap profiling.
             if (Build.IS_DEBUGGABLE) {
@@ -492,7 +494,7 @@ public final class SystemServer {
             performPendingShutdown();
 
             // Initialize the system context.
-            createSystemContext();
+            createSystemContext(); //Android系统启动流程，createSystemContext，系统上下文 **/
 
             // Create the system service manager.
             mSystemServiceManager = new SystemServiceManager(mSystemContext);
@@ -508,6 +510,7 @@ public final class SystemServer {
         // Start services.
         try {
             traceBeginAndSlog("StartServices");
+            //Android系统启动流程，StartServices，启动系统服务 **/
             startBootstrapServices();
             startCoreServices();
             startOtherServices();
@@ -539,7 +542,7 @@ public final class SystemServer {
         }
 
         // Loop forever.
-        Looper.loop();
+        Looper.loop(); //Android系统启动流程，Looper.loop **/
         throw new RuntimeException("Main thread loop unexpectedly exited");
     }
 

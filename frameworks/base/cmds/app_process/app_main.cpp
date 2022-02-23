@@ -88,7 +88,7 @@ public:
         IPCThreadState::self()->stopProcess();
         hardware::IPCThreadState::self()->stopProcess();
     }
-
+    /* Android系统启动流程，onZygoteInit，启用binder机制 **/
     virtual void onZygoteInit()
     {
         sp<ProcessState> proc = ProcessState::self();

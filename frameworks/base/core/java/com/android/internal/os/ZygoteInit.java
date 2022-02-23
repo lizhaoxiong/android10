@@ -477,6 +477,7 @@ public class ZygoteInit {
     /**
      * Finish remaining work for the newly forked system server process.
      */
+    /* Android系统启动流程 - handleSystemServerProcess **/
     private static Runnable handleSystemServerProcess(ZygoteArguments parsedArgs) {
         // set umask to 0077 so new files and directories will default to owner-only permissions.
         Os.umask(S_IRWXG | S_IRWXO);
@@ -721,6 +722,7 @@ public class ZygoteInit {
      * @return A {@code Runnable} that provides an entrypoint into system_server code in the child
      * process; {@code null} in the parent.
      */
+    /* Android系统启动流程 - forkSystemServer **/
     private static Runnable forkSystemServer(String abiList, String socketName,
             ZygoteServer zygoteServer) {
         long capabilities = posixCapabilitiesAsBits(
@@ -795,6 +797,7 @@ public class ZygoteInit {
             }
 
             zygoteServer.closeServerSocket();
+            //
             return handleSystemServerProcess(parsedArgs);
         }
 
@@ -817,6 +820,7 @@ public class ZygoteInit {
 
     @UnsupportedAppUsage
     public static void main(String argv[]) {
+        /* Android系统启动流程 - main **/
         ZygoteServer zygoteServer = null;
 
         // Mark zygote start. This ensures that thread creation will throw
@@ -900,6 +904,7 @@ public class ZygoteInit {
             zygoteServer = new ZygoteServer(isPrimaryZygote);
 
             if (startSystemServer) {
+                //
                 Runnable r = forkSystemServer(abiList, zygoteSocketName, zygoteServer);
 
                 // {@code r == null} in the parent (zygote) process, and {@code r != null} in the
@@ -969,6 +974,7 @@ public class ZygoteInit {
      * @param targetSdkVersion target SDK version
      * @param argv arg strings
      */
+    /* Android系统启动流程 - zygoteInit **/
     public static final Runnable zygoteInit(int targetSdkVersion, String[] argv,
             ClassLoader classLoader) {
         if (RuntimeInit.DEBUG) {
@@ -979,7 +985,7 @@ public class ZygoteInit {
         RuntimeInit.redirectLogStreams();
 
         RuntimeInit.commonInit();
-        ZygoteInit.nativeZygoteInit();
+        ZygoteInit.nativeZygoteInit(); /* Android系统启动流程，nativeZygoteInit，启用binder机制 **/
         return RuntimeInit.applicationInit(targetSdkVersion, argv, classLoader);
     }
 

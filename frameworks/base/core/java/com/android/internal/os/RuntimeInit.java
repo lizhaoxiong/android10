@@ -295,6 +295,7 @@ public class RuntimeInit {
 
         Method m;
         try {
+            /* Android系统启动流程，applicationInit，调用systemServer的入口函数**/
             m = cl.getMethod("main", new Class[] { String[].class });
         } catch (NoSuchMethodException ex) {
             throw new RuntimeException(
