@@ -1057,6 +1057,7 @@ public class ApplicationPackageManager extends PackageManager {
     public List<ResolveInfo> queryIntentActivitiesAsUser(Intent intent,
             int flags, int userId) {
         try {
+            /* Android系统启动流程，桌面启动 **/
             ParceledListSlice<ResolveInfo> parceledList = mPM.queryIntentActivities(
                     intent,
                     intent.resolveTypeIfNeeded(mContext.getContentResolver()),

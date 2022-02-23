@@ -130,6 +130,7 @@ class DocumentLoader implements AutoCloseable {
                 Preconditions.checkState(existingTask.getState() != LoaderTask.STATE_LOADING);
                 mTaskList.remove(existingTask);
             }
+            /* Android系统启动流程，启动桌面，LoaderTask **/
             final LoaderTask newTask = new LoaderTask(
                     mMtpManager, mDatabase, mDevice.operationsSupported, identifier);
             newTask.loadObjectHandles();

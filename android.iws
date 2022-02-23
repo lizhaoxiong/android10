@@ -9,13 +9,11 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af249a12-873e-48b4-8f8b-ded42e771cdb" name="Default Changelist" comment="导入三方库">
+    <list default="true" id="af249a12-873e-48b4-8f8b-ded42e771cdb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/android.iws" beforeDir="false" afterPath="$PROJECT_DIR$/android.iws" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/base/cmds/app_process/app_main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/cmds/app_process/app_main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/com/android/internal/os/RuntimeInit.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/com/android/internal/os/RuntimeInit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/com/android/internal/os/ZygoteInit.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/com/android/internal/os/ZygoteInit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/base/services/core/java/com/android/server/SystemService.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/services/core/java/com/android/server/SystemService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/base/services/java/com/android/server/SystemServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/services/java/com/android/server/SystemServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/app/ApplicationPackageManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/app/ApplicationPackageManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frameworks/base/packages/MtpDocumentsProvider/src/com/android/mtp/DocumentLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/packages/MtpDocumentsProvider/src/com/android/mtp/DocumentLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frameworks/base/services/core/java/com/android/server/wm/RootActivityContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/services/core/java/com/android/server/wm/RootActivityContainer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +88,14 @@
       <option name="project" value="LOCAL" />
       <updated>1645582193363</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Android系统启动流程，systemServer">
+      <created>1645596166103</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1645596166103</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -268,6 +273,7 @@
     </ignored-roots>
     <MESSAGE value="导入源码Glide" />
     <MESSAGE value="导入三方库" />
-    <option name="LAST_COMMIT_MESSAGE" value="导入三方库" />
+    <MESSAGE value="Android系统启动流程，systemServer" />
+    <option name="LAST_COMMIT_MESSAGE" value="Android系统启动流程，systemServer" />
   </component>
 </project>

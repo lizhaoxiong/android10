@@ -330,6 +330,7 @@ class RootActivityContainer extends ConfigurationContainer
         return getActivityDisplay(DEFAULT_DISPLAY).getHomeActivityForUser(userId);
     }
 
+    /* Android系统启动流程，桌面启动 **/
     boolean startHomeOnAllDisplays(int userId, String reason) {
         boolean homeStarted = false;
         for (int i = mActivityDisplays.size() - 1; i >= 0; i--) {
