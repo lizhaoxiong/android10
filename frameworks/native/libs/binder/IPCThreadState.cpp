@@ -497,7 +497,7 @@ status_t IPCThreadState::getAndExecuteCommand()
     if (result >= NO_ERROR) {
         size_t IN = mIn.dataAvail();
         if (IN < sizeof(int32_t)) return result;
-        cmd = mIn.readInt32();
+        cmd = mIn.readInt32(); //binder机制的启动，数据读mIn
         IF_LOG_COMMANDS() {
             alog << "Processing top-level Command: "
                  << getReturnString(cmd) << endl;
@@ -511,7 +511,7 @@ status_t IPCThreadState::getAndExecuteCommand()
         }
         pthread_mutex_unlock(&mProcess->mThreadCountLock);
 
-        result = executeCommand(cmd);
+        result = executeCommand(cmd);//binder机制的启动，执行，到这里写，读，执行全有了over
 
         pthread_mutex_lock(&mProcess->mThreadCountLock);
         mProcess->mExecutingThreadsCount--;
@@ -584,7 +584,7 @@ void IPCThreadState::processPostWriteDerefs()
 void IPCThreadState::joinThreadPool(bool isMain)
 {
     LOG_THREADPOOL("**** THREAD %p (PID %d) IS JOINING THE THREAD POOL\n", (void*)pthread_self(), getpid());
-
+    //binder机制的启动，数据写入mOut，数据读取mIn
     mOut.writeInt32(isMain ? BC_ENTER_LOOPER : BC_REGISTER_LOOPER);
 
     status_t result;
@@ -592,6 +592,7 @@ void IPCThreadState::joinThreadPool(bool isMain)
         processPendingDerefs();
         // now get the next command to be processed, waiting if necessary
         result = getAndExecuteCommand();
+        //binder机制的启动，getAndExecuteCommand
 
         if (result < NO_ERROR && result != TIMED_OUT && result != -ECONNREFUSED && result != -EBADF) {
             ALOGE("getAndExecuteCommand(fd=%d) returned unexpected error %d, aborting",

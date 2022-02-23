@@ -165,6 +165,7 @@ void ProcessState::startThreadPool()
     AutoMutex _l(mLock);
     if (!mThreadPoolStarted) {
         mThreadPoolStarted = true;
+        //binder机制的启动，线程池
         spawnPooledThread(true);
     }
 }
@@ -369,7 +370,7 @@ void ProcessState::spawnPooledThread(bool isMain)
     if (mThreadPoolStarted) {
         String8 name = makeBinderThreadName();
         ALOGV("Spawning new pooled thread, name=%s\n", name.string());
-        sp<Thread> t = new PoolThread(isMain);
+        sp<Thread> t = new PoolThread(isMain);//binder机制的启动，搞了一个线程
         t->run(name.string());
     }
 }
@@ -423,7 +424,7 @@ static int open_driver(const char *driver)
 
 ProcessState::ProcessState(const char *driver)
     : mDriverName(String8(driver))
-    , mDriverFD(open_driver(driver))
+    , mDriverFD(open_driver(driver)) //binder机制的启动，open("/dev/binder",O_RDWR)
     , mVMStart(MAP_FAILED)
     , mThreadCountLock(PTHREAD_MUTEX_INITIALIZER)
     , mThreadCountDecrement(PTHREAD_COND_INITIALIZER)
@@ -437,6 +438,7 @@ ProcessState::ProcessState(const char *driver)
     , mThreadPoolSeq(1)
     , mCallRestriction(CallRestriction::NONE)
 {
+    //binder机制的启动，>0代表有效的，mmap映射到内存空间
     if (mDriverFD >= 0) {
         // mmap the binder, providing a chunk of virtual address space to receive transactions.
         mVMStart = mmap(nullptr, BINDER_VM_SIZE, PROT_READ, MAP_PRIVATE | MAP_NORESERVE, mDriverFD, 0);

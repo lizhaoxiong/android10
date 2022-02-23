@@ -983,8 +983,8 @@ public class ZygoteInit {
 
         Trace.traceBegin(Trace.TRACE_TAG_ACTIVITY_MANAGER, "ZygoteInit");
         RuntimeInit.redirectLogStreams();
-
         RuntimeInit.commonInit();
+        //binder机制的启动，启动进程环节启动binder机制 --- 入C -- onZygoteInit()
         ZygoteInit.nativeZygoteInit(); /* Android系统启动流程，nativeZygoteInit，启用binder机制 **/
         return RuntimeInit.applicationInit(targetSdkVersion, argv, classLoader);
     }
