@@ -4302,6 +4302,7 @@ public final class ActivityThread extends ClientTransactionHandler {
             if (a.mVisibleFromClient) {
                 if (!a.mWindowAdded) {
                     a.mWindowAdded = true;
+                    //Activity的显示原理7，wm.addView
                     wm.addView(decor, l);
                 } else {
                     // The activity will get a callback for this {@link LayoutParams} change
@@ -4352,6 +4353,7 @@ public final class ActivityThread extends ClientTransactionHandler {
             r.activity.mVisibleFromServer = true;
             mNumVisibleActivities++;
             if (r.activity.mVisibleFromClient) {
+                //Activity的显示原理8，mDecor Visibility
                 r.activity.makeVisible();
             }
         }

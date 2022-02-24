@@ -320,7 +320,7 @@ public class PhoneWindow extends Window implements MenuBuilder.Callback {
     @UnsupportedAppUsage
     public PhoneWindow(Context context) {
         super(context);
-        mLayoutInflater = LayoutInflater.from(context);
+        mLayoutInflater = LayoutInflater.from(context);//Activity的显示原理5，window里面有mLayoutInflater
     }
 
     /**
@@ -435,6 +435,7 @@ public class PhoneWindow extends Window implements MenuBuilder.Callback {
                     getContext());
             transitionTo(newScene);
         } else {
+            //Activity的显示原理6，mLayoutInflater.inflate xml
             mLayoutInflater.inflate(layoutResID, mContentParent);
         }
         mContentParent.requestApplyInsets();
@@ -2681,6 +2682,7 @@ public class PhoneWindow extends Window implements MenuBuilder.Callback {
     private void installDecor() {
         mForceDecorInstall = false;
         if (mDecor == null) {
+            //Activity的显示原理3，new DecorView - FrameLayout
             mDecor = generateDecor(-1);
             mDecor.setDescendantFocusability(ViewGroup.FOCUS_AFTER_DESCENDANTS);
             mDecor.setIsRootNamespace(true);
@@ -2688,6 +2690,7 @@ public class PhoneWindow extends Window implements MenuBuilder.Callback {
                 mDecor.postOnAnimation(mInvalidatePanelMenuRunnable);
             }
         } else {
+            //Activity的显示原理4，绑定window
             mDecor.setWindow(this);
         }
         if (mContentParent == null) {

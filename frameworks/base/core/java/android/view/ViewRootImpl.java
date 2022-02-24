@@ -615,6 +615,7 @@ public final class ViewRootImpl implements ViewParent,
         mWindowSession = WindowManagerGlobal.getWindowSession();
         mDisplay = display;
         mBasePackageName = context.getBasePackageName();
+        //Activity的显示原理9，new ViewRootImpl绑定当前线程，也就是主线程UI线程
         mThread = Thread.currentThread();
         mLocation = new WindowLeaked(null);
         mLocation.fillInStackTrace();
@@ -874,7 +875,7 @@ public final class ViewRootImpl implements ViewParent,
                 // Schedule the first layout -before- adding to the window
                 // manager, to make sure we do the relayout before receiving
                 // any other events from the system.
-                requestLayout();
+                requestLayout(); //Activity的显示原理11，检查线程+scheduleTraversals
                 if ((mWindowAttributes.inputFeatures
                         & WindowManager.LayoutParams.INPUT_FEATURE_NO_INPUT_CHANNEL) == 0) {
                     mInputChannel = new InputChannel();
@@ -885,6 +886,7 @@ public final class ViewRootImpl implements ViewParent,
                     mOrigWindowType = mWindowAttributes.type;
                     mAttachInfo.mRecomputeGlobalAttributes = true;
                     collectViewAttributes();
+                    //Activity的显示原理14，addToDisplay，显示到屏幕上
                     res = mWindowSession.addToDisplay(mWindow, mSeq, mWindowAttributes,
                             getHostVisibility(), mDisplay.getDisplayId(), mTmpFrame,
                             mAttachInfo.mContentInsets, mAttachInfo.mStableInsets,
@@ -1714,6 +1716,7 @@ public final class ViewRootImpl implements ViewParent,
         if (!mTraversalScheduled) {
             mTraversalScheduled = true;
             mTraversalBarrier = mHandler.getLooper().getQueue().postSyncBarrier();
+            //Activity的显示原理12，Traversals - mChoreographer
             mChoreographer.postCallback(
                     Choreographer.CALLBACK_TRAVERSAL, mTraversalRunnable, null);
             if (!mUnbufferedInputDispatch) {
@@ -1741,7 +1744,7 @@ public final class ViewRootImpl implements ViewParent,
             if (mProfile) {
                 Debug.startMethodTracing("ViewAncestor");
             }
-
+            //Activity的显示原理12，Traversals - performTraversals
             performTraversals();
 
             if (mProfile) {
@@ -2285,6 +2288,7 @@ public final class ViewRootImpl implements ViewParent,
                     }
                     mChoreographer.mFrameInfo.addFlags(FrameInfo.FLAG_WINDOW_LAYOUT_CHANGED);
                 }
+                //Activity的显示原理13，relayoutWindow - 申请mSurface
                 relayoutResult = relayoutWindow(params, viewVisibility, insetsPending);
 
                 if (DEBUG_LAYOUT) Log.v(mTag, "relayout: frame=" + frame.toShortString()
@@ -7096,7 +7100,7 @@ public final class ViewRootImpl implements ViewParent,
         if (mSurface.isValid()) {
             frameNumber = mSurface.getNextFrameNumber();
         }
-
+        //Activity的显示原理13.1，mSurfaceControl - mSurface，申请surface
         int relayoutResult = mWindowSession.relayout(mWindow, mSeq, params,
                 (int) (mView.getMeasuredWidth() * appScale + 0.5f),
                 (int) (mView.getMeasuredHeight() * appScale + 0.5f), viewVisibility,
@@ -7104,7 +7108,7 @@ public final class ViewRootImpl implements ViewParent,
                 mTmpFrame, mPendingOverscanInsets, mPendingContentInsets, mPendingVisibleInsets,
                 mPendingStableInsets, mPendingOutsets, mPendingBackDropFrame, mPendingDisplayCutout,
                 mPendingMergedConfiguration, mSurfaceControl, mTempInsets);
-        if (mSurfaceControl.isValid()) {
+        if (mSurfaceControl.isValid()) {//申请surface
             mSurface.copyFrom(mSurfaceControl);
         } else {
             destroySurface();

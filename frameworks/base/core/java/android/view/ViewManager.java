@@ -31,6 +31,7 @@ public interface ViewManager
      * @param view The view to be added to this window.
      * @param params The LayoutParams to assign to view.
      */
+    //Activity的显示原理7.1，WindowManager
     public void addView(View view, ViewGroup.LayoutParams params);
     public void updateViewLayout(View view, ViewGroup.LayoutParams params);
     public void removeView(View view);

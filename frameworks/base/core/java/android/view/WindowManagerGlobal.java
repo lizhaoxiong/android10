@@ -203,10 +203,12 @@ public final class WindowManagerGlobal {
                     // TODO(b/116157766): Remove this hack after cleaning up @UnsupportedAppUsage
                     InputMethodManager.ensureDefaultInstanceForDefaultDisplayIfNecessary();
                     IWindowManager windowManager = getWindowManagerService();
+                    //Activity的显示原理14.1，openSession
                     sWindowSession = windowManager.openSession(
                             new IWindowSessionCallback.Stub() {
                                 @Override
                                 public void onAnimatorScaleChanged(float scale) {
+                                    //Activity的显示原理14.1，窗口动画
                                     ValueAnimator.setDurationScale(scale);
                                 }
                             });
@@ -373,7 +375,7 @@ public final class WindowManagerGlobal {
                     }
                 }
             }
-
+            //Activity的显示原理9，new ViewRootImpl
             root = new ViewRootImpl(view.getContext(), display);
 
             view.setLayoutParams(wparams);
@@ -384,6 +386,7 @@ public final class WindowManagerGlobal {
 
             // do this last because it fires off messages to start doing things
             try {
+                //Activity的显示原理10，绑定view视图，requestLayout + addToDisplay
                 root.setView(view, wparams, panelParentView);
             } catch (RuntimeException e) {
                 // BadTokenException or InvalidDisplayException, clean up.
