@@ -199,6 +199,7 @@ public class RemoteMediaBrowserCompat {
 
         boolean bound = false;
         try {
+            //Service的绑定原理1，举个例子
             bound = mContext.bindService(intent, mServiceConnection, Context.BIND_AUTO_CREATE);
         } catch (Exception ex) {
             Log.e(TAG, "Failed to bind to the MediaBrowserCompatProviderService.");

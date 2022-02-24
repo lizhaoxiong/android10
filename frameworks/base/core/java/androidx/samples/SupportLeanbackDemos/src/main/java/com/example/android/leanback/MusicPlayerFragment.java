@@ -231,6 +231,7 @@ public class MusicPlayerFragment extends PlaybackFragment implements
             mSongMetaDataList.add(i);
         }
         Intent serviceIntent = new Intent(getActivity(), MediaSessionService.class);
+
         getActivity().bindService(serviceIntent, mPlaybackServiceConnection,
                 Context.BIND_AUTO_CREATE);
     }

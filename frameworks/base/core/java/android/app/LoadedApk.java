@@ -1681,6 +1681,7 @@ public final class LoadedApk {
                 if (DEBUG) Slog.d(TAG, "Creating new dispatcher " + sd + " for conn " + c);
                 if (map == null) {
                     map = new ArrayMap<>();
+                    //Service的绑定原理1,说明不同context的ServiceDispatcher
                     mServices.put(context, map);
                 }
                 map.put(c, sd);
@@ -1774,7 +1775,7 @@ public final class LoadedApk {
             IBinder binder;
             IBinder.DeathRecipient deathMonitor;
         }
-
+        //Service的绑定原理1,InnerConnection
         private static class InnerConnection extends IServiceConnection.Stub {
             @UnsupportedAppUsage
             final WeakReference<LoadedApk.ServiceDispatcher> mDispatcher;
@@ -1787,6 +1788,7 @@ public final class LoadedApk {
                     throws RemoteException {
                 LoadedApk.ServiceDispatcher sd = mDispatcher.get();
                 if (sd != null) {
+                    //Service的绑定原理1,connected
                     sd.connected(name, service, dead);
                 }
             }
@@ -1883,6 +1885,7 @@ public final class LoadedApk {
             } else if (mActivityThread != null) {
                 mActivityThread.post(new RunConnection(name, service, 0, dead));
             } else {
+                //Service的绑定原理1,doConnected
                 doConnected(name, service, dead);
             }
         }
@@ -1907,6 +1910,7 @@ public final class LoadedApk {
                     // any connection received.
                     return;
                 }
+                //Service的绑定原理1,ArrayMap<ComponentName,ConnectionInfo>
                 old = mActiveConnections.get(name);
                 if (old != null && old.binder == service) {
                     // Huh, already have this one.  Oh well!
@@ -1917,6 +1921,7 @@ public final class LoadedApk {
                     // A new service is being connected... set it all up.
                     info = new ConnectionInfo();
                     info.binder = service;
+                    //Service的绑定原理1,DeathMonitor
                     info.deathMonitor = new DeathMonitor(name, service);
                     try {
                         service.linkToDeath(info.deathMonitor, 0);
@@ -1939,6 +1944,7 @@ public final class LoadedApk {
             }
 
             // If there was an old service, it is now disconnected.
+            //Service的绑定原理1,mConnection
             if (old != null) {
                 mConnection.onServiceDisconnected(name);
             }
@@ -1965,7 +1971,7 @@ public final class LoadedApk {
                 mActiveConnections.remove(name);
                 old.binder.unlinkToDeath(old.deathMonitor, 0);
             }
-
+            //Service的绑定原理1,onServiceDisconnected
             mConnection.onServiceDisconnected(name);
         }
 
@@ -1999,6 +2005,7 @@ public final class LoadedApk {
             }
 
             public void binderDied() {
+                //Service的绑定原理1,death
                 death(mName, mService);
             }
 

@@ -1787,6 +1787,7 @@ public final class ActiveServices {
             //Service的启动流程，对于BindService这种情况
             if ((flags&Context.BIND_AUTO_CREATE) != 0) {
                 s.lastActivity = SystemClock.uptimeMillis();
+                //Service的绑定原理1,bringUpServiceLocked
                 if (bringUpServiceLocked(s, service.getFlags(), callerFg, false,
                         permissionsReviewRequired) != null) {
                     return 0;
@@ -1814,10 +1815,10 @@ public final class ActiveServices {
                     + " apps=" + b.intent.apps.size()
                     + " doRebind=" + b.intent.doRebind);
 
-            if (s.app != null && b.intent.received) {
+            if (s.app != null && b.intent.received) { //服务已启动，AMS已经收到
                 // Service is already running, so we can immediately
                 // publish the connection.
-                try {
+                try {//Service的绑定原理1,connected
                     c.conn.connected(s.name, b.intent.binder, false);
                 } catch (Exception e) {
                     Slog.w(TAG, "Failure sending service " + s.shortInstanceName
@@ -1832,6 +1833,7 @@ public final class ActiveServices {
                     requestServiceBindingLocked(s, b.intent, callerFg, true);
                 }
             } else if (!b.intent.requested) {
+                //Service的绑定原理1,重新请求绑定
                 requestServiceBindingLocked(s, b.intent, callerFg, false);
             }
 
@@ -1873,6 +1875,7 @@ public final class ActiveServices {
                             }
                             if (DEBUG_SERVICE) Slog.v(TAG_SERVICE, "Publishing to: " + c);
                             try {
+                                //Service的绑定原理1,遍历建立链接回调
                                 c.conn.connected(r.name, service, false);
                             } catch (Exception e) {
                                 Slog.w(TAG, "Failure sending service " + r.shortInstanceName
@@ -1939,6 +1942,7 @@ public final class ActiveServices {
         try {
             while (clist.size() > 0) {
                 ConnectionRecord r = clist.get(0);
+                //Service的绑定原理1,Connection解除绑定
                 removeConnectionLocked(r, null, null);
                 if (clist.size() > 0 && clist.get(0) == r) {
                     // In case it didn't get removed above, do it now.
@@ -2002,7 +2006,7 @@ public final class ActiveServices {
                     } else {
                         // Note to tell the service the next time there is
                         // a new client.
-                        b.doRebind = true;
+                        b.doRebind = true;//Service的绑定原理1,doRebind
                     }
                 }
 
@@ -2301,6 +2305,7 @@ public final class ActiveServices {
         }
         if (DEBUG_SERVICE) Slog.d(TAG_SERVICE, "requestBind " + i + ": requested=" + i.requested
                 + " rebind=" + rebind);
+        //Service的绑定原理1,rebind
         if ((!i.requested || rebind) && i.apps.size() > 0) {
             try {
                 bumpServiceExecutingLocked(r, execInFg, "bind");
@@ -2572,6 +2577,7 @@ public final class ActiveServices {
             if (app != null && app.thread != null) {
                 try {
                     app.addPackage(r.appInfo.packageName, r.appInfo.longVersionCode, mAm.mProcessStats);
+                    //Service的绑定原理1,realStartServiceLocked
                     realStartServiceLocked(r, app, execInFg);//Service的启动流程，realStartServiceLocked
                     return null;
                 } catch (TransactionTooLargeException e) {
@@ -2627,7 +2633,7 @@ public final class ActiveServices {
             mAm.tempWhitelistUidLocked(r.appInfo.uid,
                     SERVICE_START_FOREGROUND_TIMEOUT, "fg-service-launch");
         }
-
+        //Service的绑定原理1，进程未启动添加进入mPendingServices
         if (!mPendingServices.contains(r)) {
             mPendingServices.add(r); //应用进程启动，进程已经启动，但是未注册SM，注册进去
         }
@@ -2727,7 +2733,7 @@ public final class ActiveServices {
         if (r.whitelistManager) {
             app.whitelistManager = true;
         }
-
+        //Service的绑定原理1,requestServiceBindingsLocked
         requestServiceBindingsLocked(r, execInFg);
 
         updateServiceClientActivitiesLocked(app, null, true);
@@ -2743,7 +2749,7 @@ public final class ActiveServices {
             r.pendingStarts.add(new ServiceRecord.StartItem(r, false, r.makeNextStartId(),
                     null, null, 0));
         }
-
+        //Service的绑定原理1,sendServiceArgsLocked
         sendServiceArgsLocked(r, execInFg, true);
 
         if (r.delayed) {
@@ -3156,6 +3162,7 @@ public final class ActiveServices {
                     // Assume the client doesn't want to know about a rebind;
                     // we will deal with that later if it asks for one.
                     b.intent.doRebind = false;
+                    //Service的绑定原理1,Connection解除绑定
                     s.app.thread.scheduleUnbindService(s, b.intent.intent.getIntent());
                 } catch (Exception e) {
                     Slog.w(TAG, "Exception when unbinding service " + s.shortInstanceName, e);

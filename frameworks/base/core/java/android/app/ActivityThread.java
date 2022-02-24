@@ -3976,7 +3976,7 @@ public final class ActivityThread extends ClientTransactionHandler {
         }
     }
 
-    private void handleBindService(BindServiceData data) {
+    private void handleBindService(BindServiceData data) {//Service的绑定原理1,ArrayMap<IBinder,Server>
         Service s = mServices.get(data.token);
         if (DEBUG_SERVICE)
             Slog.v(TAG, "handleBindService s=" + s + " rebind=" + data.rebind);
@@ -3987,9 +3987,11 @@ public final class ActivityThread extends ClientTransactionHandler {
                 try {
                     if (!data.rebind) {
                         IBinder binder = s.onBind(data.intent);
+                        //Service的绑定原理1,publishService
                         ActivityManager.getService().publishService(
                                 data.token, data.intent, binder);
                     } else {
+                        //Service的绑定原理2,onRebind
                         s.onRebind(data.intent);
                         ActivityManager.getService().serviceDoneExecuting(
                                 data.token, SERVICE_DONE_EXECUTING_ANON, 0, 0);
@@ -4013,9 +4015,11 @@ public final class ActivityThread extends ClientTransactionHandler {
             try {
                 data.intent.setExtrasClassLoader(s.getClassLoader());
                 data.intent.prepareToEnterProcess();
+                //Service的绑定原理1,onUnbind
                 boolean doRebind = s.onUnbind(data.intent);
                 try {
                     if (doRebind) {
+                        //Service的绑定原理1,unbindFinished
                         ActivityManager.getService().unbindFinished(
                                 data.token, data.intent, doRebind);
                     } else {
