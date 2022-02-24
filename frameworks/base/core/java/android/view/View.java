@@ -18385,9 +18385,10 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * @see #removeCallbacks
      */
     public boolean post(Runnable action) {
+        //UI线程启动3，attachInfo，是在ViewRootImple的trasaval中attachWindow创建的
         final AttachInfo attachInfo = mAttachInfo;
         if (attachInfo != null) {
-            return attachInfo.mHandler.post(action);
+            return attachInfo.mHandler.post(action); //说明在viewRootImpl是在mHandler所在UI线程
         }
 
         // Postpone the runnable until we know on which thread it needs to run.

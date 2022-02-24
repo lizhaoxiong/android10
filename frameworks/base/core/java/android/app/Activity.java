@@ -6889,6 +6889,7 @@ public class Activity extends ContextThemeWrapper
      * @param action the action to run on the UI thread
      */
     public final void runOnUiThread(Runnable action) {
+        //UI线程启动1，当前线程不是UI线程就将action放到工作线程队列，是UI现在直接run
         if (Thread.currentThread() != mUiThread) {
             mHandler.post(action);
         } else {
@@ -7716,6 +7717,7 @@ public class Activity extends ContextThemeWrapper
         if (info.uiOptions != 0) {
             mWindow.setUiOptions(info.uiOptions);
         }
+        //UI线程启动2，mUiThread是在Activity的attach(),设置全局上下文创建，对于Activity UI线程是主线程
         mUiThread = Thread.currentThread();
 
         mMainThread = aThread;

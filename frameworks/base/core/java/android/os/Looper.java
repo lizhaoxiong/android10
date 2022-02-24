@@ -100,7 +100,7 @@ public final class Looper {
       * {@link #quit()}.
       */
     public static void prepare() {
-        prepare(true);
+        prepare(true);//UI线程启动6，true，其他线程可以退出
     }
 
     private static void prepare(boolean quitAllowed) {
@@ -118,9 +118,10 @@ public final class Looper {
      * to call this function yourself.  See also: {@link #prepare()}
      */
     public static void prepareMainLooper() {
-        prepare(false);
+        prepare(false);//UI线程启动6，false，主线程不允许退出
         synchronized (Looper.class) {
             if (sMainLooper != null) {
+                //UI线程启动5，一个线程只能有一个Looper
                 throw new IllegalStateException("The main Looper has already been prepared.");
             }
             sMainLooper = myLooper();

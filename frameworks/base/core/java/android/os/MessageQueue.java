@@ -424,6 +424,7 @@ public final class MessageQueue {
     }
 
     void quit(boolean safe) {
+        //UI线程启动6.1，主线程不允许退出
         if (!mQuitAllowed) {
             throw new IllegalStateException("Main thread not allowed to quit.");
         }

@@ -9,14 +9,13 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af249a12-873e-48b4-8f8b-ded42e771cdb" name="Default Changelist" comment="startActivity流程">
+    <list default="true" id="af249a12-873e-48b4-8f8b-ded42e771cdb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/android.iws" beforeDir="false" afterPath="$PROJECT_DIR$/android.iws" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/app/Activity.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/app/Activity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/app/ActivityThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/app/ActivityThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/view/ViewManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/view/ViewManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/os/Looper.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/os/Looper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/os/MessageQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/os/MessageQueue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/view/View.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/view/ViewRootImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/view/ViewRootImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/view/WindowManagerGlobal.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/view/WindowManagerGlobal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/com/android/internal/policy/PhoneWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/com/android/internal/policy/PhoneWindow.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,7 +160,14 @@
       <option name="project" value="LOCAL" />
       <updated>1645678520131</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="[Activity的显示原理]PhoneWindow、setContentView、DecorView、ViewRootIml、WMS">
+      <created>1645683803140</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1645683803140</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -351,6 +357,7 @@
     <MESSAGE value="Application原理" />
     <MESSAGE value="Context原理" />
     <MESSAGE value="startActivity流程" />
-    <option name="LAST_COMMIT_MESSAGE" value="startActivity流程" />
+    <MESSAGE value="[Activity的显示原理]PhoneWindow、setContentView、DecorView、ViewRootIml、WMS" />
+    <option name="LAST_COMMIT_MESSAGE" value="[Activity的显示原理]PhoneWindow、setContentView、DecorView、ViewRootIml、WMS" />
   </component>
 </project>

@@ -8370,7 +8370,7 @@ public final class ViewRootImpl implements ViewParent,
         seen.clear();
         return null;
     }
-
+    ////UI线程启动4，保证当前更新UI的线程是创建ViewRootImpl的线程
     void checkThread() {
         if (mThread != Thread.currentThread()) {
             throw new CalledFromWrongThreadException(
