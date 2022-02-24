@@ -967,13 +967,13 @@ public class ActivityStackSupervisor implements RecentTasks.Callbacks {
                     + ", icicle size: " + icicleSize);
         }
     }
-
+    //startActivity流程，核心
     void startSpecificActivityLocked(ActivityRecord r, boolean andResume, boolean checkConfig) {
         // Is this activity's application already running?
         final WindowProcessController wpc =
                 mService.getProcessController(r.processName, r.info.applicationInfo.uid);
-
         boolean knownToBeDead = false;
+        //startActivity流程，判断应用进程是否是运行状态，启动组件会先启动进程
         if (wpc != null && wpc.hasThread()) {
             try {
                 realStartActivityLocked(r, wpc, andResume, checkConfig);
@@ -1002,6 +1002,7 @@ public class ActivityStackSupervisor implements RecentTasks.Callbacks {
             }
             // Post message to start process to avoid possible deadlock of calling into AMS with the
             // ATMS lock held.
+            //startActivity流程，ActivityManagerInternal::startProcess，启动进程
             final Message msg = PooledLambda.obtainMessage(
                     ActivityManagerInternal::startProcess, mService.mAmInternal, r.processName,
                     r.info.applicationInfo, knownToBeDead, "activity", r.intent.getComponent());

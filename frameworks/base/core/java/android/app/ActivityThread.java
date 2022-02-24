@@ -3380,6 +3380,7 @@ public final class ActivityThread extends ClientTransactionHandler {
 
     /**
      * Extended implementation of activity launch. Used when server requests a launch or relaunch.
+     * //startActivity流程，handleLaunchActivity,启动activity
      */
     @Override
     public Activity handleLaunchActivity(ActivityClientRecord r,
@@ -3409,7 +3410,7 @@ public final class ActivityThread extends ClientTransactionHandler {
 
         // Hint the GraphicsEnvironment that an activity is launching on the process.
         GraphicsEnvironment.hintActivityLaunch();
-
+        //startActivity流程，new Activity
         final Activity a = performLaunchActivity(r, customIntent);
 
         if (a != null) {
@@ -3830,7 +3831,7 @@ public final class ActivityThread extends ClientTransactionHandler {
         unscheduleGcIdler();
 
         // instantiate the BackupAgent class named in the manifest
-        LoadedApk packageInfo = getPackageInfoNoCheck(data.appInfo, data.compatInfo);
+        LoadedApk packageInfo = getPackageInfoNoCheck(data.appInfo, data.compatInfo);//startActivity流程，LoadedApk，有classLoader
         String packageName = packageInfo.mPackageName;
         if (packageName == null) {
             Slog.d(TAG, "Asked to create backup agent for nonexistent package");
@@ -4198,7 +4199,7 @@ public final class ActivityThread extends ClientTransactionHandler {
             if (r.pendingResults != null) {
                 deliverResults(r, r.pendingResults, reason);
                 r.pendingResults = null;
-            }
+            } //startActivity流程，onResume3
             r.activity.performResume(r.startsNotResumed, reason);
 
             r.state = null;
@@ -4241,6 +4242,7 @@ public final class ActivityThread extends ClientTransactionHandler {
         mSomeActivitiesChanged = true;
 
         // TODO Push resumeArgs into the activity for consideration
+        //startActivity流程，onResume2
         final ActivityClientRecord r = performResumeActivity(token, finalStateRequest, reason);
         if (r == null) {
             // We didn't actually resume the activity, so skipping any follow-up actions.
@@ -5208,7 +5210,7 @@ public final class ActivityThread extends ClientTransactionHandler {
      */
     void scheduleRelaunchActivity(IBinder token) {
         mH.removeMessages(H.RELAUNCH_ACTIVITY, token);
-        sendMessage(H.RELAUNCH_ACTIVITY, token);
+        sendMessage(H.RELAUNCH_ACTIVITY, token);//startActivity流程，H.RELAUNCH_ACTIVITY
     }
 
     /** Performs the activity relaunch locally vs. requesting from system-server. */

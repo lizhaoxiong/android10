@@ -5804,6 +5804,7 @@ public class Activity extends ContextThemeWrapper
     public void startActivityFromChild(@NonNull Activity child, @RequiresPermission Intent intent,
                                        int requestCode, @Nullable Bundle options) {
         options = transferSpringboardActivityOptions(options);
+        //startActivity流程，使用Activity的startActivity，mInstrumentation.execStartActivity
         Instrumentation.ActivityResult ar =
                 mInstrumentation.execStartActivity(
                         this, mMainThread.getApplicationThread(), mToken, child,
@@ -6191,7 +6192,7 @@ public class Activity extends ContextThemeWrapper
         if (Looper.myLooper() != mMainThread.getLooper()) {
             throw new IllegalStateException("Must be called from main thread");
         }
-        mMainThread.scheduleRelaunchActivity(mToken);
+        mMainThread.scheduleRelaunchActivity(mToken); //startActivity流程，ActivityThread,scheduleRelaunchActivity
     }
 
     /**
@@ -7936,6 +7937,7 @@ public class Activity extends ContextThemeWrapper
 
         mCalled = false;
         // mResumed is set by the instrumentation
+        //startActivity流程，onResume4
         mInstrumentation.callActivityOnResume(this);
         writeEventLog(LOG_AM_ON_RESUME_CALLED, reason);
         if (!mCalled) {

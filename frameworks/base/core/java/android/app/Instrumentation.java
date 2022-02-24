@@ -1436,7 +1436,7 @@ public class Instrumentation {
      */
     public void callActivityOnResume(Activity activity) {
         activity.mResumed = true;
-        activity.onResume();
+        activity.onResume();//startActivity流程，onResume5 --> over
 
         if (mActivityMonitors != null) {
             synchronized (mSync) {

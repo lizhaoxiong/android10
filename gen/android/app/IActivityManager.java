@@ -1025,7 +1025,7 @@ public interface IActivityManager extends android.os.IInterface
           }
           else {
             _arg9 = null;
-          }
+          } //startActivity流程，onTransact，读取跳转信息，AMS知道了开始执行自己的StartActivity
           int _result = this.startActivity(_arg0, _arg1, _arg2, _arg3, _arg4, _arg5, _arg6, _arg7, _arg8, _arg9);
           reply.writeNoException();
           reply.writeInt(_result);
@@ -3897,6 +3897,7 @@ public interface IActivityManager extends android.os.IInterface
           else {
             _data.writeInt(0);
           }
+          //startActivity流程，transact，把跳转信息写入_data，Ibinder通知AMS
           boolean _status = mRemote.transact(Stub.TRANSACTION_startActivity, _data, _reply, 0);
           if (!_status && getDefaultImpl() != null) {
             return getDefaultImpl().startActivity(caller, callingPackage, intent, resolvedType, resultTo, resultWho, requestCode, flags, profilerInfo, options);

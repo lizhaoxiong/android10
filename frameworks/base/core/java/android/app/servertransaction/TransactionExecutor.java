@@ -212,7 +212,7 @@ public class TransactionExecutor {
                         + getShortActivityName(r.token, mTransactionHandler)
                         + " to state: " + getStateName(state));
             }
-            switch (state) {
+            switch (state) {//startActivity流程，activity的声明周期回调
                 case ON_CREATE:
                     mTransactionHandler.handleLaunchActivity(r, mPendingActions,
                             null /* customIntent */);
@@ -221,6 +221,7 @@ public class TransactionExecutor {
                     mTransactionHandler.handleStartActivity(r, mPendingActions);
                     break;
                 case ON_RESUME:
+                    //startActivity流程，onResume1
                     mTransactionHandler.handleResumeActivity(r.token, false /* finalStateRequest */,
                             r.isForward, "LIFECYCLER_RESUME_ACTIVITY");
                     break;
