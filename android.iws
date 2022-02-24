@@ -11,11 +11,9 @@
   <component name="ChangeListManager">
     <list default="true" id="af249a12-873e-48b4-8f8b-ded42e771cdb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/android.iws" beforeDir="false" afterPath="$PROJECT_DIR$/android.iws" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/app/Activity.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/app/Activity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/os/Looper.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/os/Looper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/os/MessageQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/os/MessageQueue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/view/View.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/view/ViewRootImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/view/ViewRootImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/app/ActivityThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/app/ActivityThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frameworks/base/services/core/java/com/android/server/am/ActiveServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/services/core/java/com/android/server/am/ActiveServices.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frameworks/base/services/core/java/com/android/server/am/ActivityManagerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/services/core/java/com/android/server/am/ActivityManagerService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,7 +165,14 @@
       <option name="project" value="LOCAL" />
       <updated>1645683803140</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="[UI线程启动]runOnUiThread、mUiThread、mQuitAllowed、attachInfo">
+      <created>1645691040229</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1645691040229</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -358,6 +363,7 @@
     <MESSAGE value="Context原理" />
     <MESSAGE value="startActivity流程" />
     <MESSAGE value="[Activity的显示原理]PhoneWindow、setContentView、DecorView、ViewRootIml、WMS" />
-    <option name="LAST_COMMIT_MESSAGE" value="[Activity的显示原理]PhoneWindow、setContentView、DecorView、ViewRootIml、WMS" />
+    <MESSAGE value="[UI线程启动]runOnUiThread、mUiThread、mQuitAllowed、attachInfo" />
+    <option name="LAST_COMMIT_MESSAGE" value="[UI线程启动]runOnUiThread、mUiThread、mQuitAllowed、attachInfo" />
   </component>
 </project>

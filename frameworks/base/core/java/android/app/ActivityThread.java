@@ -947,7 +947,7 @@ public final class ActivityThread extends ClientTransactionHandler {
             s.token = token;
             s.info = info;
             s.compatInfo = compatInfo;
-
+            //Service的启动流程，走Service的初始化
             sendMessage(H.CREATE_SERVICE, s);
         }
 
@@ -3959,6 +3959,7 @@ public final class ActivityThread extends ClientTransactionHandler {
                     ActivityManager.getService());
             //Context原理，--> 4.onCreate
             service.onCreate();
+            //Service的启动流程，data.token == ServiceRecord
             mServices.put(data.token, service);
             try {
                 ActivityManager.getService().serviceDoneExecuting(
@@ -4083,7 +4084,8 @@ public final class ActivityThread extends ClientTransactionHandler {
     }
 
     private void handleServiceArgs(ServiceArgsData data) {
-        Service s = mServices.get(data.token);
+
+        Service s = mServices.get(data.token); //Service的启动流程，ServiceRecord
         if (s != null) {
             try {
                 if (data.args != null) {
@@ -4092,6 +4094,7 @@ public final class ActivityThread extends ClientTransactionHandler {
                 }
                 int res;
                 if (!data.taskRemoved) {
+                    //Service的启动流程，onStartCommand
                     res = s.onStartCommand(data.args, data.flags, data.startId);
                 } else {
                     s.onTaskRemoved(data.args);

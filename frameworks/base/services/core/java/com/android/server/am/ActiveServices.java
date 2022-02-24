@@ -637,7 +637,7 @@ public final class ActiveServices {
         if (allowBackgroundActivityStarts) {
             r.whitelistBgActivityStartsOnServiceStart();
         }
-
+        //Service的启动流程，startServiceInnerLocked
         ComponentName cmp = startServiceInnerLocked(smap, service, r, callerFg, addToStarting);
         return cmp;
     }
@@ -699,6 +699,7 @@ public final class ActiveServices {
         synchronized (r.stats.getBatteryStats()) {
             r.stats.startRunningLocked();
         }
+        //Service的启动流程，bringUpServiceLocked
         String error = bringUpServiceLocked(r, service.getFlags(), callerFg, false, false);
         if (error != null) {
             return new ComponentName("!!", error);
@@ -1783,7 +1784,7 @@ public final class ActiveServices {
                 mServiceConnections.put(binder, clist);
             }
             clist.add(c);
-
+            //Service的启动流程，对于BindService这种情况
             if ((flags&Context.BIND_AUTO_CREATE) != 0) {
                 s.lastActivity = SystemClock.uptimeMillis();
                 if (bringUpServiceLocked(s, service.getFlags(), callerFg, false,
@@ -2571,7 +2572,7 @@ public final class ActiveServices {
             if (app != null && app.thread != null) {
                 try {
                     app.addPackage(r.appInfo.packageName, r.appInfo.longVersionCode, mAm.mProcessStats);
-                    realStartServiceLocked(r, app, execInFg);
+                    realStartServiceLocked(r, app, execInFg);//Service的启动流程，realStartServiceLocked
                     return null;
                 } catch (TransactionTooLargeException e) {
                     throw e;
@@ -2658,7 +2659,7 @@ public final class ActiveServices {
      * Note the name of this method should not be confused with the started services concept.
      * The "start" here means bring up the instance in the client, and this method is called
      * from bindService() as well.
-     */
+     *///Service的启动流程，ServiceRecord,service的binder形态
     private final void realStartServiceLocked(ServiceRecord r,
             ProcessRecord app, boolean execInFg) throws RemoteException {
         if (app.thread == null) {
@@ -2694,6 +2695,7 @@ public final class ActiveServices {
             mAm.notifyPackageUse(r.serviceInfo.packageName,
                                  PackageManager.NOTIFY_PACKAGE_USE_SERVICE);
             app.forceProcessStateUpTo(ActivityManager.PROCESS_STATE_SERVICE);
+            //Service的启动流程，走Service的onCreate
             app.thread.scheduleCreateService(r, r.serviceInfo,
                     mAm.compatibilityInfoForPackage(r.serviceInfo.applicationInfo),
                     app.getReportedProcState());
@@ -2824,6 +2826,7 @@ public final class ActiveServices {
         slice.setInlineCountLimit(4);
         Exception caughtException = null;
         try {
+            //Service的启动流程，循环pendingStarts，服务已经启动，再次启动只走onStartCommand
             r.app.thread.scheduleServiceArgs(r, slice);
         } catch (TransactionTooLargeException e) {
             if (DEBUG_SERVICE) Slog.v(TAG_SERVICE, "Transaction too large for " + args.size()
@@ -3338,6 +3341,7 @@ public final class ActiveServices {
         if (mPendingServices.size() > 0) {
             ServiceRecord sr = null;
             try {
+                //Service的启动流程，遍历mPendingServices启动
                 for (int i=0; i<mPendingServices.size(); i++) {
                     sr = mPendingServices.get(i);
                     if (proc != sr.isolatedProc && (proc.uid != sr.appInfo.uid

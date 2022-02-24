@@ -13906,6 +13906,7 @@ public class ActivityManagerService extends IActivityManager.Stub
             final long origId = Binder.clearCallingIdentity();
             ComponentName res;
             try {
+                //Service的启动原理1，肯定是跑到AMS，startServiceLocked
                 res = mServices.startServiceLocked(caller, service,
                         resolvedType, callingPid, callingUid,
                         requireForeground, callingPackage, userId);
