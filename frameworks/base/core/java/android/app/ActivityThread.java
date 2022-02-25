@@ -1116,6 +1116,7 @@ public final class ActivityThread extends ClientTransactionHandler {
                 int resultCode, String dataStr, Bundle extras, boolean ordered,
                 boolean sticky, int sendingUser, int processState) throws RemoteException {
             updateProcessState(processState, false);
+            //动态广播原理，接收
             receiver.performReceive(intent, resultCode, dataStr, extras, ordered,
                     sticky, sendingUser);
         }

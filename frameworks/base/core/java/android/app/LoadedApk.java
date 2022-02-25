@@ -1441,6 +1441,7 @@ public final class LoadedApk {
             final LoadedApk.ReceiverDispatcher mStrongRef;
 
             InnerReceiver(LoadedApk.ReceiverDispatcher rd, boolean strong) {
+                //动态广播原理，注册，AMS - InnerReceiver - 弱引用ReceiverDispatcher - broadcastReceiver
                 mDispatcher = new WeakReference<LoadedApk.ReceiverDispatcher>(rd);
                 mStrongRef = strong ? rd : null;
             }
@@ -1461,6 +1462,7 @@ public final class LoadedApk {
                             + " seq=" + seq + " to " + (rd != null ? rd.mReceiver : null));
                 }
                 if (rd != null) {
+                    //动态广播原理，接收
                     rd.performReceive(intent, resultCode, data, extras,
                             ordered, sticky, sendingUser);
                 } else {
@@ -1549,6 +1551,7 @@ public final class LoadedApk {
                         intent.prepareToEnterProcess();
                         setExtrasClassLoader(cl);
                         receiver.setPendingResult(this);
+                        //动态广播原理，接收,onReceive回调
                         receiver.onReceive(mContext, intent);
                     } catch (Exception e) {
                         if (mRegistered && ordered) {
@@ -1640,6 +1643,7 @@ public final class LoadedApk {
                             + " seq=" + seq + " to " + mReceiver);
                 }
             }
+            //动态广播原理，接收
             if (intent == null || !mActivityThread.post(args.getRunnable())) {
                 if (mRegistered && ordered) {
                     IActivityManager mgr = ActivityManager.getService();

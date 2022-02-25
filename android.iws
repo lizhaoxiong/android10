@@ -9,14 +9,13 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af249a12-873e-48b4-8f8b-ded42e771cdb" name="Default Changelist" comment="">
+    <list default="true" id="af249a12-873e-48b4-8f8b-ded42e771cdb" name="Default Changelist" comment="[Service的绑定原理]">
       <change beforePath="$PROJECT_DIR$/android.iws" beforeDir="false" afterPath="$PROJECT_DIR$/android.iws" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/app/ActivityThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/app/ActivityThread.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/app/ContextImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/app/ContextImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/app/LoadedApk.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/app/LoadedApk.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/androidx/media2/media2-session/version-compat-tests/previous/service/src/androidTest/java/androidx/media2/test/service/RemoteMediaBrowserCompat.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/androidx/media2/media2-session/version-compat-tests/previous/service/src/androidTest/java/androidx/media2/test/service/RemoteMediaBrowserCompat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/androidx/samples/SupportLeanbackDemos/src/main/java/com/example/android/leanback/MusicPlayerFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/androidx/samples/SupportLeanbackDemos/src/main/java/com/example/android/leanback/MusicPlayerFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/base/services/core/java/com/android/server/am/ActiveServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/services/core/java/com/android/server/am/ActiveServices.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frameworks/base/services/core/java/com/android/server/am/ActivityManagerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/services/core/java/com/android/server/am/ActivityManagerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frameworks/base/services/core/java/com/android/server/am/BroadcastQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/services/core/java/com/android/server/am/BroadcastQueue.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,7 +181,14 @@
       <option name="project" value="LOCAL" />
       <updated>1645694666056</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="[Service的绑定原理]">
+      <created>1645711069386</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1645711069386</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -376,6 +382,7 @@
     <MESSAGE value="[Activity的显示原理]PhoneWindow、setContentView、DecorView、ViewRootIml、WMS" />
     <MESSAGE value="[UI线程启动]runOnUiThread、mUiThread、mQuitAllowed、attachInfo" />
     <MESSAGE value="[Service的启动原理]ServiceRecord、onStartCommand、startService&amp;bindService、mPendingServices" />
-    <option name="LAST_COMMIT_MESSAGE" value="[Service的启动原理]ServiceRecord、onStartCommand、startService&amp;bindService、mPendingServices" />
+    <MESSAGE value="[Service的绑定原理]" />
+    <option name="LAST_COMMIT_MESSAGE" value="[Service的绑定原理]" />
   </component>
 </project>

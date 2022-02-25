@@ -14386,7 +14386,7 @@ public class ActivityManagerService extends IActivityManager.Stub
         }
         return didSomething;
     }
-
+    //动态广播原理，注册，AMS的registerReceiver
     public Intent registerReceiver(IApplicationThread caller, String callerPackage,
             IIntentReceiver receiver, IntentFilter filter, String permission, int userId,
             int flags) {
@@ -15341,6 +15341,7 @@ public class ActivityManagerService extends IActivityManager.Stub
                     && (queue.replaceParallelBroadcastLocked(r) != null);
             // Note: We assume resultTo is null for non-ordered broadcasts.
             if (!replaced) {
+                //动态广播原理，发送，AMS处理，Parallel并行入队列
                 queue.enqueueParallelBroadcastLocked(r);
                 queue.scheduleBroadcastsLocked();
             }
@@ -15563,6 +15564,7 @@ public class ActivityManagerService extends IActivityManager.Stub
 
             final long origId = Binder.clearCallingIdentity();
             try {
+                //动态广播原理，发送，AMS处理
                 return broadcastIntentLocked(callerApp,
                         callerApp != null ? callerApp.info.packageName : null,
                         intent, resolvedType, resultTo, resultCode, resultData, resultExtras,

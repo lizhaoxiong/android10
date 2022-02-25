@@ -216,6 +216,7 @@ public abstract class BroadcastReceiver {
          * next broadcast will proceed.
          */
         public final void finish() {
+            //动态广播原理，接收，完成，执行下一个
             if (mType == TYPE_COMPONENT) {
                 final IActivityManager mgr = ActivityManager.getService();
                 if (QueuedWork.hasPendingWork()) {

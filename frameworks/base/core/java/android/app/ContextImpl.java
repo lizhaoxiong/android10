@@ -1047,6 +1047,7 @@ class ContextImpl extends Context {
         String resolvedType = intent.resolveTypeIfNeeded(getContentResolver());
         try {
             intent.prepareToLeaveProcess(this);
+            //动态广播原理，发送，通知AMS
             ActivityManager.getService().broadcastIntent(
                     mMainThread.getApplicationThread(), intent, resolvedType, null,
                     Activity.RESULT_OK, null, null, null, AppOpsManager.OP_NONE, null, false, false,
@@ -1513,6 +1514,7 @@ class ContextImpl extends Context {
                 if (scheduler == null) {
                     scheduler = mMainThread.getHandler();
                 }
+                //动态广播原理，注册，getReceiverDispatcher
                 rd = mPackageInfo.getReceiverDispatcher(
                     receiver, context, scheduler,
                     mMainThread.getInstrumentation(), true);
@@ -1525,6 +1527,7 @@ class ContextImpl extends Context {
             }
         }
         try {
+            //动态广播原理，注册，通知AMS
             final Intent intent = ActivityManager.getService().registerReceiver(
                     mMainThread.getApplicationThread(), mBasePackageName, rd, filter,
                     broadcastPermission, userId, flags);

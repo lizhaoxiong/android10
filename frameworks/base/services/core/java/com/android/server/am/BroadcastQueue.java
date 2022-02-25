@@ -585,6 +585,7 @@ public final class BroadcastQueue {
                 // If we have an app thread, do the call through that so it is
                 // correctly ordered with other one-way calls.
                 try {
+                    //动态广播原理，接收
                     app.thread.scheduleRegisteredReceiver(receiver, intent, resultCode,
                             data, extras, ordered, sticky, sendingUser, app.getReportedProcState());
                 // TODO: Uncomment this when (b/28322359) is fixed and we aren't getting
@@ -987,6 +988,7 @@ public final class BroadcastQueue {
                 if (DEBUG_BROADCAST)  Slog.v(TAG_BROADCAST,
                         "Delivering non-ordered on [" + mQueueName + "] to registered "
                         + target + ": " + r);
+                //动态广播原理，发送，分发
                 deliverToRegisteredReceiverLocked(r, (BroadcastFilter)target, false, i);
             }
             addBroadcastToHistoryLocked(r);
