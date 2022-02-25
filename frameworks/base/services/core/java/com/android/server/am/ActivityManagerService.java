@@ -4873,6 +4873,7 @@ public class ActivityManagerService extends IActivityManager.Stub
         if (providers != null && checkAppInLaunchingProvidersLocked(app)) {
             Message msg = mHandler.obtainMessage(CONTENT_PROVIDER_PUBLISH_TIMEOUT_MSG);
             msg.obj = app;
+            //ContentProvider的启动原理，进程attach的时候会发布provider，发布就是在AMS里面去注册binder
             mHandler.sendMessageDelayed(msg, CONTENT_PROVIDER_PUBLISH_TIMEOUT);
         }
 
@@ -6687,7 +6688,7 @@ public class ActivityManagerService extends IActivityManager.Stub
         }
         return null;
     }
-
+    //ContentProvider的启动原理，AMS去搞provider
     private ContentProviderHolder getContentProviderImpl(IApplicationThread caller,
             String name, IBinder token, int callingUid, String callingPackage, String callingTag,
             boolean stable, int userId) {
@@ -6753,7 +6754,7 @@ public class ActivityManagerService extends IActivityManager.Stub
                     checkTime(startTime, "getContentProviderImpl: after appDied (killedByAm)");
                 }
             }
-
+            //ContentProvider的启动原理，ContentProviderRecord存在直接返回
             if (providerRunning) {
                 cpi = cpr.info;
                 String msg;
@@ -6870,7 +6871,7 @@ public class ActivityManagerService extends IActivityManager.Stub
 
                 Binder.restoreCallingIdentity(origId);
             }
-
+            //ContentProvider的启动原理，本地没有安装
             if (!providerRunning) {
                 try {
                     checkTime(startTime, "getContentProviderImpl: before resolveContentProvider");
@@ -6973,7 +6974,7 @@ public class ActivityManagerService extends IActivityManager.Stub
                 }
 
                 checkTime(startTime, "getContentProviderImpl: now have ContentProviderRecord");
-
+                //ContentProvider的启动原理，是否是在不同进程
                 if (r != null && cpr.canRunHere(r)) {
                     // If this is a multiprocess provider, then just return its
                     // info and allow the caller to instantiate it.  Only do
@@ -7027,11 +7028,13 @@ public class ActivityManagerService extends IActivityManager.Stub
                                 checkTime(startTime, "getContentProviderImpl: scheduling install");
                                 proc.pubProviders.put(cpi.name, cpr);
                                 try {
+                                    //ContentProvider的启动原理，本地没有安装，进程已经启动，找ActivityThread去安装
                                     proc.thread.scheduleInstallProvider(cpi);
                                 } catch (RemoteException e) {
                                 }
                             }
                         } else {
+                            //ContentProvider的启动原理，本地没有安装，进程未启动，startProcessLocked
                             checkTime(startTime, "getContentProviderImpl: before start process");
                             proc = startProcessLocked(cpi.processName, //应用进程启动，startProcessLocked，未启动进程
                                     cpr.appInfo, false, 0,
@@ -7100,6 +7103,7 @@ public class ActivityManagerService extends IActivityManager.Stub
                     if (conn != null) {
                         conn.waiting = true;
                     }
+                    //ContentProvider的启动原理，拿不到就wait，在while
                     cpr.wait(wait);
                     if (cpr.provider == null) {
                         timedOut = true;
@@ -7342,12 +7346,12 @@ public class ActivityManagerService extends IActivityManager.Stub
                 ContentProviderHolder src = providers.get(i);
                 if (src == null || src.info == null || src.provider == null) {
                     continue;
-                }
+                }//ContentProvider的启动原理
                 ContentProviderRecord dst = r.pubProviders.get(src.info.name);
                 if (DEBUG_MU) Slog.v(TAG_MU, "ContentProviderRecord uid = " + dst.uid);
                 if (dst != null) {
                     ComponentName comp = new ComponentName(dst.info.packageName, dst.info.name);
-                    mProviderMap.putProviderByClass(comp, dst);
+                    mProviderMap.putProviderByClass(comp, dst);//ContentProvider的启动原理，发布-更新provider缓存
                     String names[] = dst.info.authority.split(";");
                     for (int j = 0; j < names.length; j++) {
                         mProviderMap.putProviderByName(names[j], dst);
@@ -7356,7 +7360,7 @@ public class ActivityManagerService extends IActivityManager.Stub
                     int launchingCount = mLaunchingProviders.size();
                     int j;
                     boolean wasInLaunchingProviders = false;
-                    for (j = 0; j < launchingCount; j++) {
+                    for (j = 0; j < launchingCount; j++) {//ContentProvider的启动原理，更新LaunchingProvider
                         if (mLaunchingProviders.get(j) == dst) {
                             mLaunchingProviders.remove(j);
                             wasInLaunchingProviders = true;
@@ -7365,6 +7369,7 @@ public class ActivityManagerService extends IActivityManager.Stub
                         }
                     }
                     if (wasInLaunchingProviders) {
+                        //ContentProvider的启动原理，删除超时倒计时
                         mHandler.removeMessages(CONTENT_PROVIDER_PUBLISH_TIMEOUT_MSG, r);
                     }
                     // Make sure the package is associated with the process.
@@ -7377,7 +7382,7 @@ public class ActivityManagerService extends IActivityManager.Stub
                     synchronized (dst) {
                         dst.provider = src.provider;
                         dst.setProcess(r);
-                        dst.notifyAll();
+                        dst.notifyAll();//ContentProvider的启动原理，对应之前的wait
                     }
                     updateOomAdjLocked(r, true, OomAdjuster.OOM_ADJ_REASON_GET_PROVIDER);
                     maybeUpdateProviderUsageStatsLocked(r, src.info.packageName,

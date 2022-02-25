@@ -1813,12 +1813,12 @@ public abstract class ContentResolver implements ContentInterface {
                 @Nullable ContentValues values) {
         Preconditions.checkNotNull(url, "url");
 
-        try {
+        try {//ContentProvider的启动原理，使用provider做插入
             if (mWrapped != null) return mWrapped.insert(url, values);
         } catch (RemoteException e) {
             return null;
         }
-
+        //ContentProvider的启动原理，传入前得获取Provider
         IContentProvider provider = acquireProvider(url);
         if (provider == null) {
             throw new IllegalArgumentException("Unknown URL " + url);

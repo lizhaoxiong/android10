@@ -6467,6 +6467,7 @@ public final class ActivityThread extends ClientTransactionHandler {
                 if (!ArrayUtils.isEmpty(data.providers)) {
                     //Application原理，contentProvider的onCreate提前与application的onCreate
                     //在handleBindApplication，installContentProvider > mInstrumentation.callApplicationOnCreate
+                    //ContentProvider的启动原理，handleBindApplication,去安装
                     installContentProviders(app, data.providers);
                 }
             }
@@ -6559,7 +6560,7 @@ public final class ActivityThread extends ClientTransactionHandler {
             }
         }
 
-        try {
+        try {//ContentProvider的启动原理，找AMS去发布
             ActivityManager.getService().publishContentProviders(
                 getApplicationThread(), results);
         } catch (RemoteException ex) {
@@ -6572,6 +6573,7 @@ public final class ActivityThread extends ClientTransactionHandler {
             Context c, String auth, int userId, boolean stable) {
         final IContentProvider provider = acquireExistingProvider(c, auth, userId, stable);
         if (provider != null) {
+            //ContentProvider的启动原理，本地有安装的provider直接返回
             return provider;
         }
 
@@ -6584,6 +6586,7 @@ public final class ActivityThread extends ClientTransactionHandler {
         ContentProviderHolder holder = null;
         try {
             synchronized (getGetProviderLock(auth, userId)) {
+                //ContentProvider的启动原理，找AMS
                 holder = ActivityManager.getService().getContentProvider(
                         getApplicationThread(), c.getOpPackageName(), auth, userId, stable);
             }
@@ -6597,6 +6600,7 @@ public final class ActivityThread extends ClientTransactionHandler {
 
         // Install provider will increment the reference count for us, and break
         // any ties in the race.
+        //ContentProvider的启动原理，安装Provider，本地安装
         holder = installProvider(c, holder, holder.info,
                 true /*noisy*/, holder.noReleaseNeeded, stable);
         return holder.provider;
@@ -6687,6 +6691,7 @@ public final class ActivityThread extends ClientTransactionHandler {
             Context c, String auth, int userId, boolean stable) {
         synchronized (mProviderMap) {
             final ProviderKey key = new ProviderKey(auth, userId);
+            //ContentProvider的启动原理，本地找有安装的provider
             final ProviderClientRecord pr = mProviderMap.get(key);
             if (pr == null) {
                 return null;
@@ -6993,7 +6998,7 @@ public final class ActivityThread extends ClientTransactionHandler {
                 if (packageInfo == null) {
                     // System startup case.
                     packageInfo = getSystemContext().mPackageInfo;
-                }
+                }//ContentProvider的启动原理，本地安装，new
                 localProvider = packageInfo.getAppFactory()
                         .instantiateProvider(cl, info.name);
                 provider = localProvider.getIContentProvider();
@@ -7006,7 +7011,7 @@ public final class ActivityThread extends ClientTransactionHandler {
                 if (DEBUG_PROVIDER) Slog.v(
                     TAG, "Instantiating local provider " + info.name);
                 // XXX Need to create the correct context for this provider.
-                localProvider.attachInfo(c, info);
+                localProvider.attachInfo(c, info); //ContentProvider的启动原理，本地安装，attach
             } catch (java.lang.Exception e) {
                 if (!mInstrumentation.onException(null, e)) {
                     throw new RuntimeException(
@@ -7041,6 +7046,7 @@ public final class ActivityThread extends ClientTransactionHandler {
                     holder.provider = provider;
                     holder.noReleaseNeeded = true;
                     pr = installProviderAuthoritiesLocked(provider, localProvider, holder);
+                    //ContentProvider的启动原理，本地安装，put
                     mLocalProviders.put(jBinder, pr);
                     mLocalProvidersByName.put(cname, pr);
                 }

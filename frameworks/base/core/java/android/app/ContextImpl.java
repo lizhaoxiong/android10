@@ -2576,7 +2576,7 @@ class ContextImpl extends Context {
         }
 
         mOpPackageName = overrideOpPackageName != null ? overrideOpPackageName : opPackageName;
-
+        //ContentProvider的启动原理，mContentResolver是在ContextImpl构造
         mContentResolver = new ApplicationContentResolver(this, mainThread);
     }
 
@@ -2712,6 +2712,7 @@ class ContextImpl extends Context {
         @Override
         @UnsupportedAppUsage
         protected IContentProvider acquireProvider(Context context, String auth) {
+            //ContentProvider的启动原理，传入前得获取Provider
             return mMainThread.acquireProvider(context,
                     ContentProvider.getAuthorityWithoutUserId(auth),
                     resolveUserIdFromAuthority(auth), true);
