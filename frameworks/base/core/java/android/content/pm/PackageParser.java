@@ -3796,6 +3796,8 @@ public class PackageParser {
 
             String tagName = parser.getName();
             if (tagName.equals("activity")) {
+                //静态广播的原理，注册，启动系统读取各个App的AndroidManifest.xml的广播
+                //Activity只是一个组件
                 Activity a = parseActivity(owner, res, parser, flags, outError, cachedArgs, false,
                         owner.baseHardwareAccelerated);
                 if (a == null) {

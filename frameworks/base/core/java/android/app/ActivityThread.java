@@ -3761,6 +3761,7 @@ public final class ActivityThread extends ClientTransactionHandler {
         ContextImpl context;
         try {
             app = packageInfo.makeApplication(false, mInstrumentation);
+            //静态广播的原理，接收，注意广播传递的context是mBase
             context = (ContextImpl) app.getBaseContext();
             if (data.info.splitName != null) {
                 context = (ContextImpl) context.createContextForSplit(data.info.splitName);
@@ -3769,6 +3770,7 @@ public final class ActivityThread extends ClientTransactionHandler {
             data.intent.setExtrasClassLoader(cl);
             data.intent.prepareToEnterProcess();
             data.setExtrasClassLoader(cl);
+            //静态广播的原理，接收，new receiver
             receiver = packageInfo.getAppFactory()
                     .instantiateReceiver(cl, data.info.name, data.intent);
         } catch (Exception e) {
@@ -3791,6 +3793,7 @@ public final class ActivityThread extends ClientTransactionHandler {
 
             sCurrentBroadcastIntent.set(data.intent);
             receiver.setPendingResult(data);
+            ////静态广播的原理，接收，onReceive回调，注意传的context
             receiver.onReceive(context.getReceiverRestrictedContext(),
                     data.intent);
         } catch (Exception e) {

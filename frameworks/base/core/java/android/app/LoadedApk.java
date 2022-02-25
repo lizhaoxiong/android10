@@ -1477,6 +1477,7 @@ public final class LoadedApk {
                         if (extras != null) {
                             extras.setAllowFds(false);
                         }
+                        //静态广播的原理，接收，通知AMS我处理完成了，是不是要搞下一个
                         mgr.finishReceiver(this, resultCode, data, extras, false, intent.getFlags());
                     } catch (RemoteException e) {
                         throw e.rethrowFromSystemServer();

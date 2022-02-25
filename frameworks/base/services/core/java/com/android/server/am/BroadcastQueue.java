@@ -322,6 +322,7 @@ public final class BroadcastQueue {
                     + ": " + r);
             mService.notifyPackageUse(r.intent.getComponent().getPackageName(),
                                       PackageManager.NOTIFY_PACKAGE_USE_BROADCAST_RECEIVER);
+            //静态广播的原理，finish后处理下一个，串行处理
             app.thread.scheduleReceiver(new Intent(r.intent), r.curReceiver,
                     mService.compatibilityInfoForPackage(r.curReceiver.applicationInfo),
                     r.resultCode, r.resultData, r.resultExtras, r.ordered, r.userId,
@@ -559,6 +560,7 @@ public final class BroadcastQueue {
         // We will process the next receiver right now if this is finishing
         // an app receiver (which is always asynchronous) or after we have
         // come back from calling a receiver.
+        //静态广播的原理，接收
         return state == BroadcastRecord.APP_RECEIVE
                 || state == BroadcastRecord.CALL_DONE_RECEIVE;
     }
@@ -812,6 +814,7 @@ public final class BroadcastQueue {
             } else {
                 r.receiverTime = SystemClock.uptimeMillis();
                 maybeAddAllowBackgroundActivityStartsToken(filter.receiverList.app, r);
+                //静态广播的原理，接收
                 performReceiveLocked(filter.receiverList.app, filter.receiverList.receiver,
                         new Intent(r.intent), r.resultCode, r.resultData,
                         r.resultExtras, r.ordered, r.initialSticky, r.userId);
@@ -950,7 +953,7 @@ public final class BroadcastQueue {
             processNextBroadcastLocked(fromMsg, false);
         }
     }
-
+    //静态广播的原理，发送，串行+pending广播（进程未启动）+分发超时+ 下一个+ 动态静态
     final void processNextBroadcastLocked(boolean fromMsg, boolean skipOomAdj) {
         BroadcastRecord r;
 
@@ -1691,7 +1694,7 @@ public final class BroadcastQueue {
             mPendingBroadcastTimeoutMessage = false;
         }
     }
-
+    //静态广播的原理，发送，处理超时
     final void broadcastTimeoutLocked(boolean fromMsg) {
         if (fromMsg) {
             mPendingBroadcastTimeoutMessage = false;

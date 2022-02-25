@@ -14806,7 +14806,7 @@ public class ActivityManagerService extends IActivityManager.Stub
             boolean ordered, boolean sticky, int callingPid, int callingUid, int realCallingUid,
             int realCallingPid, int userId, boolean allowBackgroundActivityStarts) {
         intent = new Intent(intent);
-
+        //静态广播的原理，发送
         final boolean callerInstantApp = isInstantApp(callerApp, callerPackage, callingUid);
         // Instant Apps cannot use FLAG_RECEIVER_VISIBLE_TO_INSTANT_APPS
         if (callerInstantApp) {
@@ -15323,6 +15323,7 @@ public class ActivityManagerService extends IActivityManager.Stub
 
         int NR = registeredReceivers != null ? registeredReceivers.size() : 0;
         if (!ordered && NR > 0) {
+            //静态广播的原理，处理动态reveiver，发送
             // If we are not serializing this broadcast, then send the
             // registered receivers separately so they don't wait for the
             // components to be launched.

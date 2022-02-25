@@ -9,11 +9,11 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af249a12-873e-48b4-8f8b-ded42e771cdb" name="Default Changelist" comment="[Service的绑定原理]">
+    <list default="true" id="af249a12-873e-48b4-8f8b-ded42e771cdb" name="Default Changelist" comment="[动态广播的注册、接收、分发]">
       <change beforePath="$PROJECT_DIR$/android.iws" beforeDir="false" afterPath="$PROJECT_DIR$/android.iws" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/app/ActivityThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/app/ActivityThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/app/ContextImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/app/ContextImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/app/LoadedApk.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/app/LoadedApk.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/content/pm/PackageParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/content/pm/PackageParser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frameworks/base/services/core/java/com/android/server/am/ActivityManagerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/services/core/java/com/android/server/am/ActivityManagerService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frameworks/base/services/core/java/com/android/server/am/BroadcastQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/services/core/java/com/android/server/am/BroadcastQueue.java" afterDir="false" />
     </list>
@@ -188,7 +188,14 @@
       <option name="project" value="LOCAL" />
       <updated>1645711069386</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="[动态广播的注册、接收、分发]">
+      <created>1645779327166</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1645779327166</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -383,6 +390,7 @@
     <MESSAGE value="[UI线程启动]runOnUiThread、mUiThread、mQuitAllowed、attachInfo" />
     <MESSAGE value="[Service的启动原理]ServiceRecord、onStartCommand、startService&amp;bindService、mPendingServices" />
     <MESSAGE value="[Service的绑定原理]" />
-    <option name="LAST_COMMIT_MESSAGE" value="[Service的绑定原理]" />
+    <MESSAGE value="[动态广播的注册、接收、分发]" />
+    <option name="LAST_COMMIT_MESSAGE" value="[动态广播的注册、接收、分发]" />
   </component>
 </project>
