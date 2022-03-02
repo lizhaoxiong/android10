@@ -1445,6 +1445,7 @@ public final class ViewRootImpl implements ViewParent,
         if (!mHandlingLayoutInLayoutRequest) {
             checkThread();
             mLayoutRequested = true;
+            //屏幕刷新机制，重绘
             scheduleTraversals();
         }
     }
@@ -1713,11 +1714,13 @@ public final class ViewRootImpl implements ViewParent,
 
     @UnsupportedAppUsage
     void scheduleTraversals() {
+        //屏幕刷新机制，一次vsync周期只会触发一次重绘
         if (!mTraversalScheduled) {
             mTraversalScheduled = true;
+            //屏幕刷新机制，线程消息队列插入同步屏障（将普通消息暂停，走isAsync==ture的消息）
             mTraversalBarrier = mHandler.getLooper().getQueue().postSyncBarrier();
             //Activity的显示原理12，Traversals - mChoreographer
-            mChoreographer.postCallback(
+            mChoreographer.postCallback( //屏幕刷新机制，的消息队列插入callback
                     Choreographer.CALLBACK_TRAVERSAL, mTraversalRunnable, null);
             if (!mUnbufferedInputDispatch) {
                 scheduleConsumeBatchedInput();
@@ -1738,6 +1741,7 @@ public final class ViewRootImpl implements ViewParent,
 
     void doTraversal() {
         if (mTraversalScheduled) {
+            //屏幕刷新机制，一次vsync周期只会触发一次重绘
             mTraversalScheduled = false;
             mHandler.getLooper().getQueue().removeSyncBarrier(mTraversalBarrier);
 

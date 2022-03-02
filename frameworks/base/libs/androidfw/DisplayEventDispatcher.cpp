@@ -75,7 +75,7 @@ status_t DisplayEventDispatcher::scheduleVsync() {
             ALOGE("dispatcher %p ~ last event processed while scheduling was for %" PRId64 "",
                     this, ns2ms(static_cast<nsecs_t>(vsyncTimestamp)));
         }
-
+        //屏幕刷新机制，请求下一个vsync
         status_t status = mReceiver.requestNextVsync();
         if (status) {
             ALOGW("Failed to request next vsync, status=%d", status);

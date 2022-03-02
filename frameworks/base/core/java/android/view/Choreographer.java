@@ -283,7 +283,7 @@ public final class Choreographer {
      * @return The choreographer for this thread.
      * @throws IllegalStateException if the thread does not have a looper.
      */
-    public static Choreographer getInstance() {
+    public static Choreographer getInstance() { //屏幕刷新机制，choreographer不是单例，是线程单例
         return sThreadInstance.get();
     }
 
@@ -463,7 +463,7 @@ public final class Choreographer {
             } else {
                 Message msg = mHandler.obtainMessage(MSG_DO_SCHEDULE_CALLBACK, action);
                 msg.arg1 = callbackType;
-                msg.setAsynchronous(true);
+                msg.setAsynchronous(true);//屏幕刷新机制，Choreographer维护的mCallbackQueues消息相对于msg都是不受屏障影响的
                 mHandler.sendMessageAtTime(msg, dueTime);
             }
         }
@@ -629,12 +629,12 @@ public final class Choreographer {
                 // If running on the Looper thread, then schedule the vsync immediately,
                 // otherwise post a message to schedule the vsync from the UI thread
                 // as soon as possible.
-                if (isRunningOnLooperThreadLocked()) {
+                if (isRunningOnLooperThreadLocked()) { //屏幕刷新机制，通过Lopper判断是否是同一个工作线程
                     scheduleVsyncLocked();
                 } else {
                     Message msg = mHandler.obtainMessage(MSG_DO_SCHEDULE_VSYNC);
                     msg.setAsynchronous(true);
-                    mHandler.sendMessageAtFrontOfQueue(msg);
+                    mHandler.sendMessageAtFrontOfQueue(msg);//屏幕刷新机制，VSYNC消息插入队列最前面，不然只能推迟执行了，告诉surfaceFinger，一定要在下一个vsnyc来的时候第一时间通知我们
                 }
             } else {
                 final long nextFrameTime = Math.max(
@@ -644,7 +644,7 @@ public final class Choreographer {
                 }
                 Message msg = mHandler.obtainMessage(MSG_DO_FRAME);
                 msg.setAsynchronous(true);
-                mHandler.sendMessageAtTime(msg, nextFrameTime);
+                mHandler.sendMessageAtTime(msg, nextFrameTime);//屏幕刷新机制，非VSYNC消息，乖乖安装时间排序
             }
         }
     }
@@ -674,7 +674,7 @@ public final class Choreographer {
             final long jitterNanos = startNanos - frameTimeNanos;
             if (jitterNanos >= mFrameIntervalNanos) {
                 final long skippedFrames = jitterNanos / mFrameIntervalNanos;
-                if (skippedFrames >= SKIPPED_FRAME_WARNING_LIMIT) {
+                if (skippedFrames >= SKIPPED_FRAME_WARNING_LIMIT) {//屏幕刷新机制，跳帧的原因如下
                     Log.i(TAG, "Skipped " + skippedFrames + " frames!  "
                             + "The application may be doing too much work on its main thread.");
                 }
@@ -693,7 +693,7 @@ public final class Choreographer {
                 if (DEBUG_JANK) {
                     Log.d(TAG, "Frame time appears to be going backwards.  May be due to a "
                             + "previously skipped frame.  Waiting for next vsync.");
-                }
+                }//屏幕刷新机制，scheduleVsyncLocked，找Finger要下一个vsync
                 scheduleVsyncLocked();
                 return;
             }
@@ -714,7 +714,7 @@ public final class Choreographer {
         try {
             Trace.traceBegin(Trace.TRACE_TAG_VIEW, "Choreographer#doFrame");
             AnimationUtils.lockAnimationClock(frameTimeNanos / TimeUtils.NANOS_PER_MS);
-
+            //屏幕刷新机制，有时间戳的Callback，到时间才会执行
             mFrameInfo.markInputHandlingStart();
             doCallbacks(Choreographer.CALLBACK_INPUT, frameTimeNanos);
 
@@ -746,6 +746,7 @@ public final class Choreographer {
             // for earlier processing phases in a frame to post callbacks that should run
             // in a following phase, such as an input event that causes an animation to start.
             final long now = System.nanoTime();
+            //屏幕刷新机制，取出到了时间的CallBack,
             callbacks = mCallbackQueues[callbackType].extractDueCallbacksLocked(
                     now / TimeUtils.NANOS_PER_MS);
             if (callbacks == null) {
@@ -788,6 +789,7 @@ public final class Choreographer {
                             + ", action=" + c.action + ", token=" + c.token
                             + ", latencyMillis=" + (SystemClock.uptimeMillis() - c.dueTime));
                 }
+                //屏幕刷新机制，在执行这些callback的run函数
                 c.run(frameTimeNanos);
             }
         } finally {

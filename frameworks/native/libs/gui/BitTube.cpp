@@ -46,6 +46,7 @@ BitTube::BitTube(const Parcel& data) {
 
 void BitTube::init(size_t rcvbuf, size_t sndbuf) {
     int sockets[2];
+    //屏幕刷新机制，请求下一个vsync
     if (socketpair(AF_UNIX, SOCK_SEQPACKET, 0, sockets) == 0) {
         size_t size = DEFAULT_SOCKET_BUFFER_SIZE;
         setsockopt(sockets[0], SOL_SOCKET, SO_RCVBUF, &rcvbuf, sizeof(rcvbuf));

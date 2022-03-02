@@ -25008,7 +25008,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
         mPrivateFlags |= PFLAG_INVALIDATED;
 
         if (mParent != null && !mParent.isLayoutRequested()) {
-            mParent.requestLayout();
+            mParent.requestLayout(); //屏幕刷新机制，应用层的view要重绘 - viewRootImpl
         }
         if (mAttachInfo != null && mAttachInfo.mViewRequestingLayout == this) {
             mAttachInfo.mViewRequestingLayout = null;

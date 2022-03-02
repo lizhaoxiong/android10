@@ -11,10 +11,11 @@
   <component name="ChangeListManager">
     <list default="true" id="af249a12-873e-48b4-8f8b-ded42e771cdb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/android.iws" beforeDir="false" afterPath="$PROJECT_DIR$/android.iws" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/app/ActivityThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/app/ActivityThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/app/ContextImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/app/ContextImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/content/ContentResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/content/ContentResolver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/base/services/core/java/com/android/server/am/ActivityManagerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/services/core/java/com/android/server/am/ActivityManagerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/view/Choreographer.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/view/Choreographer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/view/View.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/view/ViewRootImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/view/ViewRootImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frameworks/base/libs/androidfw/DisplayEventDispatcher.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/libs/androidfw/DisplayEventDispatcher.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frameworks/native/libs/gui/BitTube.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/native/libs/gui/BitTube.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -201,7 +202,14 @@
       <option name="project" value="LOCAL" />
       <updated>1645781207287</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="[ContentProvider的启动原理]">
+      <created>1645805104928</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1645805104928</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -398,6 +406,7 @@
     <MESSAGE value="[Service的绑定原理]" />
     <MESSAGE value="[动态广播的注册、接收、分发]" />
     <MESSAGE value="[静态广播的注册、接收、分发]" />
-    <option name="LAST_COMMIT_MESSAGE" value="[静态广播的注册、接收、分发]" />
+    <MESSAGE value="[ContentProvider的启动原理]" />
+    <option name="LAST_COMMIT_MESSAGE" value="[ContentProvider的启动原理]" />
   </component>
 </project>
