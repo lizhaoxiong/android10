@@ -110,7 +110,7 @@ void DispSyncSource::onDispSyncEvent(nsecs_t when) {
     }
 
     if (callback != nullptr) {
-        callback->onVSyncEvent(when);
+        callback->onVSyncEvent(when);//Vsync信号机制
     }
 }
 

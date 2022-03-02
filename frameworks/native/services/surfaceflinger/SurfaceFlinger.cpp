@@ -614,7 +614,7 @@ void SurfaceFlinger::deleteTextureAsync(uint32_t texture) {
 
 // Do not call property_set on main thread which will be blocked by init
 // Use StartPropertySetThread instead.
-void SurfaceFlinger::init() {
+void SurfaceFlinger::init() {//Vsync信号机制
     ALOGI(  "SurfaceFlinger's main thread ready to run. "
             "Initializing graphics H/W...");
 
@@ -1430,7 +1430,7 @@ void SurfaceFlinger::onVsyncReceived(int32_t sequenceId, hwc2_display_t hwcDispl
     }
 
     bool periodFlushed = false;
-    mScheduler->addResyncSample(timestamp, &periodFlushed);
+    mScheduler->addResyncSample(timestamp, &periodFlushed);//Vsync信号机制
     if (periodFlushed) {
         mVsyncModulator.onRefreshRateChangeCompleted();
     }
@@ -3025,7 +3025,7 @@ void SurfaceFlinger::initScheduler(DisplayId primaryDisplayId) {
             std::make_unique<scheduler::RefreshRateStats>(*mRefreshRateConfigs, *mTimeStats,
                                                           currentConfig, HWC_POWER_MODE_OFF);
     mRefreshRateStats->setConfigMode(currentConfig);
-
+    //Vsync信号机制
     // start the EventThread
     mScheduler =
             getFactory().createScheduler([this](bool enabled) { setPrimaryVsyncEnabled(enabled); },

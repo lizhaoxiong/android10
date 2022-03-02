@@ -144,7 +144,7 @@ ssize_t BitTube::sendObjects(const sp<BitTube>& tube,
         void const* events, size_t count, size_t objSize)
 {
     const char* vaddr = reinterpret_cast<const char*>(events);
-    ssize_t size = tube->write(vaddr, count*objSize);
+    ssize_t size = tube->write(vaddr, count*objSize);//Vsync信号机制
 
     // should never happen because of SOCK_SEQPACKET
     LOG_ALWAYS_FATAL_IF((size >= 0) && (size % static_cast<ssize_t>(objSize)),

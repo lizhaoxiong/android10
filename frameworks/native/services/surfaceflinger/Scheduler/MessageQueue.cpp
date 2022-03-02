@@ -101,6 +101,7 @@ void MessageQueue::setEventThread(android::EventThread* eventThread,
     mEvents->stealReceiveChannel(&mEventTube);
     mLooper->addFd(mEventTube.getFd(), 0, Looper::EVENT_INPUT, MessageQueue::cb_eventReceiver,
                    this);
+     //Vsync信号机制,getFd()
 }
 
 void MessageQueue::setEventConnection(const sp<EventThreadConnection>& connection) {

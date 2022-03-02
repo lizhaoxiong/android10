@@ -108,7 +108,7 @@ public:
         ALOGV("[%s] updateModel: mPeriod = %" PRId64 ", mPhase = %" PRId64
               " mReferenceTime = %" PRId64,
               mName, ns2us(mPeriod), ns2us(mPhase), ns2us(mReferenceTime));
-        mCond.signal();
+        mCond.signal();//Vsync信号机制
     }
 
     void stop() {
@@ -153,7 +153,7 @@ public:
                 }
 
                 if (mPeriod == 0) {
-                    err = mCond.wait(mMutex);
+                    err = mCond.wait(mMutex); //Vsync信号机制
                     if (err != NO_ERROR) {
                         ALOGE("error waiting for new events: %s (%d)", strerror(-err), err);
                         return false;
@@ -481,6 +481,7 @@ DispSync::~DispSync() {
 void DispSync::init(bool hasSyncFramework, int64_t dispSyncPresentTimeOffset) {
     mIgnorePresentFences = !hasSyncFramework;
     mPresentTimeOffset = dispSyncPresentTimeOffset;
+    //Vsync信号机制
     mThread->run("DispSync", PRIORITY_URGENT_DISPLAY + PRIORITY_MORE_FAVORABLE);
 
     // set DispSync to SCHED_FIFO to minimize jitter
