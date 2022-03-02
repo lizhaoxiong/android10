@@ -246,7 +246,7 @@ static jlong nativeLockCanvas(JNIEnv* env, jclass clazz,
     }
 
     ANativeWindow_Buffer outBuffer;
-    status_t err = surface->lock(&outBuffer, dirtyRectPtr);
+    status_t err = surface->lock(&outBuffer, dirtyRectPtr);//surface绘制原理，buffer申请
     if (err < 0) {
         const char* const exception = (err == NO_MEMORY) ?
                 OutOfResourcesException :

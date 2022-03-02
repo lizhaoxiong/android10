@@ -3799,7 +3799,7 @@ public final class ViewRootImpl implements ViewParent,
                     scheduleTraversals();
                     return false;
                 }
-
+                //surface绘制原理，drawSoftware
                 if (!drawSoftware(surface, mAttachInfo, xOffset, yOffset,
                         scalingRequired, dirty, surfaceInsets)) {
                     return false;
@@ -3838,7 +3838,7 @@ public final class ViewRootImpl implements ViewParent,
             final int top = dirty.top;
             final int right = dirty.right;
             final int bottom = dirty.bottom;
-
+            //surface绘制原理，drawSoftware
             canvas = mSurface.lockCanvas(dirty);
 
             // TODO: Do this in native

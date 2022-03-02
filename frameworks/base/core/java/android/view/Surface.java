@@ -370,6 +370,7 @@ public class Surface implements Parcelable {//surface跨进程传递原理，Par
                 // we just refuse to re-lock the Surface.
                 throw new IllegalArgumentException("Surface was already locked");
             }
+            //surface绘制原理，drawSoftware
             mLockedObject = nativeLockCanvas(mNativeObject, mCanvas, inOutDirty);
             return mCanvas;
         }
@@ -388,7 +389,7 @@ public class Surface implements Parcelable {//surface跨进程传递原理，Par
             if (mHwuiContext != null) {
                 mHwuiContext.unlockAndPost(canvas);
             } else {
-                unlockSwCanvasAndPost(canvas);
+                unlockSwCanvasAndPost(canvas); //surface绘制原理，buffer给消费
             }
         }
     }
@@ -407,7 +408,7 @@ public class Surface implements Parcelable {//surface跨进程传递原理，Par
             throw new IllegalStateException("Surface was not locked");
         }
         try {
-            nativeUnlockCanvasAndPost(mLockedObject, canvas);
+            nativeUnlockCanvasAndPost(mLockedObject, canvas);//surface绘制原理，buffer给消费
         } finally {
             nativeRelease(mLockedObject);
             mLockedObject = 0;

@@ -618,7 +618,7 @@ int Surface::dequeueBuffer(android_native_buffer_t** buffer, int* fenceFd) {
         if (mReportRemovedBuffers && (gbuf != nullptr)) {
             mRemovedBuffers.push_back(gbuf);
         }
-        result = mGraphicBufferProducer->requestBuffer(buf, &gbuf);
+        result = mGraphicBufferProducer->requestBuffer(buf, &gbuf); //surface绘制原理，远端更新本地
         if (result != NO_ERROR) {
             ALOGE("dequeueBuffer: IGraphicBufferProducer::requestBuffer failed: %d", result);
             mGraphicBufferProducer->cancelBuffer(buf, fence);
@@ -1820,7 +1820,7 @@ status_t Surface::lock(
 
     ANativeWindowBuffer* out;
     int fenceFd = -1;
-    status_t err = dequeueBuffer(&out, &fenceFd);
+    status_t err = dequeueBuffer(&out, &fenceFd); //surface绘制原理，入列
     ALOGE_IF(err, "dequeueBuffer failed (%s)", strerror(-err));
     if (err == NO_ERROR) {
         sp<GraphicBuffer> backBuffer(GraphicBuffer::getSelf(out));
