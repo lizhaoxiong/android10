@@ -142,7 +142,7 @@ sp<Surface> SurfaceControl::generateSurfaceLocked() const
 {
     // This surface is always consumed by SurfaceFlinger, so the
     // producerControlledByApp value doesn't matter; using false.
-    mSurfaceData = new Surface(mGraphicBufferProducer, false);
+    mSurfaceData = new Surface(mGraphicBufferProducer, false); //surface跨进程传递原理，new Surface，gbp --> over
 
     return mSurfaceData;
 }
@@ -151,7 +151,7 @@ sp<Surface> SurfaceControl::getSurface() const
 {
     Mutex::Autolock _l(mLock);
     if (mSurfaceData == nullptr) {
-        return generateSurfaceLocked();
+        return generateSurfaceLocked();//surface跨进程传递原理，SurfaceControl，generateSurfaceLocked
     }
     return mSurfaceData;
 }

@@ -52,7 +52,7 @@ import java.lang.annotation.RetentionPolicy;
  * {@link java.lang.ref.WeakReference weak reference} to the consumer it is associated with. By
  * itself it will not keep its parent consumer from being reclaimed.</p>
  */
-public class Surface implements Parcelable {
+public class Surface implements Parcelable {//surface跨进程传递原理，Parcelable
     private static final String TAG = "Surface";
 
     private static native long nativeCreateFromSurfaceTexture(SurfaceTexture surfaceTexture)
@@ -523,6 +523,7 @@ public class Surface implements Parcelable {
             throw new NullPointerException(
                     "null SurfaceControl native object. Are you using a released SurfaceControl?");
         }
+        //surface跨进程传递原理，nativeGetFromSurfaceControl
         long newNativeObject = nativeGetFromSurfaceControl(mNativeObject, surfaceControlPtr);
 
         synchronized (mLock) {
@@ -615,7 +616,7 @@ public class Surface implements Parcelable {
             // in frameworks/native/libs/Surface.cpp
             mName = source.readString();
             mIsSingleBuffered = source.readInt() != 0;
-            setNativeObjectLocked(nativeReadFromParcel(mNativeObject, source));
+            setNativeObjectLocked(nativeReadFromParcel(mNativeObject, source));//surface跨进程传递原理,nativeReadFromParcel
         }
     }
 
@@ -629,7 +630,7 @@ public class Surface implements Parcelable {
             // in frameworks/native/libs/Surface.cpp
             dest.writeString(mName);
             dest.writeInt(mIsSingleBuffered ? 1 : 0);
-            nativeWriteToParcel(mNativeObject, dest);
+            nativeWriteToParcel(mNativeObject, dest);//surface跨进程传递原理,nativeWriteToParcel
         }
         if ((flags & Parcelable.PARCELABLE_WRITE_RETURN_VALUE) != 0) {
             release();

@@ -346,7 +346,7 @@ static jlong nativeGetFromSurfaceControl(JNIEnv* env, jclass clazz,
         return nativeObject;
     }
 
-    sp<Surface> surface(ctrl->getSurface());
+    sp<Surface> surface(ctrl->getSurface()); //surface跨进程传递原理，getSurface
     if (surface != NULL) {
         surface->incStrong(&sRefBaseOwner);
     }
@@ -392,7 +392,7 @@ static jlong nativeReadFromParcel(JNIEnv* env, jclass clazz,
         self->decStrong(&sRefBaseOwner);
     }
 
-    return jlong(sur.get());
+    return jlong(sur.get());//surface跨进程传递原理，getIGraphicBufferProducer
 }
 
 static void nativeWriteToParcel(JNIEnv* env, jclass clazz,
@@ -405,7 +405,7 @@ static void nativeWriteToParcel(JNIEnv* env, jclass clazz,
     sp<Surface> self(reinterpret_cast<Surface *>(nativeObject));
     android::view::Surface surfaceShim;
     if (self != nullptr) {
-        surfaceShim.graphicBufferProducer = self->getIGraphicBufferProducer();
+        surfaceShim.graphicBufferProducer = self->getIGraphicBufferProducer(); //surface跨进程传递原理，getIGraphicBufferProducer
     }
     // Calling code in Surface.java has already written the name of the Surface
     // to the Parcel

@@ -7113,7 +7113,7 @@ public final class ViewRootImpl implements ViewParent,
                 mPendingStableInsets, mPendingOutsets, mPendingBackDropFrame, mPendingDisplayCutout,
                 mPendingMergedConfiguration, mSurfaceControl, mTempInsets);
         if (mSurfaceControl.isValid()) {//申请surface
-            mSurface.copyFrom(mSurfaceControl);
+            mSurface.copyFrom(mSurfaceControl);//surface跨进程传递原理，copyFrom ----> begin
         } else {
             destroySurface();
         }
