@@ -60,7 +60,7 @@ public class MemoryFile {
     public MemoryFile(String name, int length) throws IOException {
         try {
             mSharedMemory = SharedMemory.create(name, length);
-            mMapping = mSharedMemory.mapReadWrite();
+            mMapping = mSharedMemory.mapReadWrite(); //跨进程通信，共享内存
         } catch (ErrnoException ex) {
             ex.rethrowAsIOException();
         }

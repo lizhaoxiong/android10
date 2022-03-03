@@ -690,8 +690,8 @@ status_t IPCThreadState::transact(int32_t handle,
             ALOGI(">>>>>> CALLING transaction %d", code);
         }
         #endif
-        if (reply) {
-            err = waitForResponse(reply);
+        if (reply) {//跨进程通信，binder，SurfaceFlinger系统服务注册SM
+            err = waitForResponse(reply);//跨进程通信，binder，不带oneway
         } else {
             Parcel fakeReply;
             err = waitForResponse(&fakeReply);
@@ -712,7 +712,7 @@ status_t IPCThreadState::transact(int32_t handle,
             else alog << "(none requested)" << endl;
         }
     } else {
-        err = waitForResponse(nullptr, nullptr);
+        err = waitForResponse(nullptr, nullptr); //跨进程通信，binder，带oneway
     }
 
     return err;
@@ -849,7 +849,7 @@ status_t IPCThreadState::waitForResponse(Parcel *reply, status_t *acquireResult)
 
         switch (cmd) {
         case BR_TRANSACTION_COMPLETE:
-            if (!reply && !acquireResult) goto finish;
+            if (!reply && !acquireResult) goto finish; //跨进程通信，binder，带oneway的直接在这里finish，退出循环
             break;
 
         case BR_DEAD_REPLY:
@@ -901,7 +901,7 @@ status_t IPCThreadState::waitForResponse(Parcel *reply, status_t *acquireResult)
                     continue;
                 }
             }
-            goto finish;
+            goto finish; //跨进程通信，binder，不带oneway的要一直循环，直到。。。
 
         default:
             err = executeCommand(cmd);

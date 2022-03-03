@@ -404,7 +404,7 @@ static void SigChldHandler(int /*signal_number*/) {
 static void SetSignalHandlers() {
   struct sigaction sig_chld = {};
   sig_chld.sa_handler = SigChldHandler;
-
+  //跨进程通信，信号
   if (sigaction(SIGCHLD, &sig_chld, nullptr) < 0) {
     ALOGW("Error setting SIGCHLD handler: %s", strerror(errno));
   }

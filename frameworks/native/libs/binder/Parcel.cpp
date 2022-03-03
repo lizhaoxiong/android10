@@ -95,7 +95,7 @@ enum {
 
 void acquire_object(const sp<ProcessState>& proc,
     const flat_binder_object& obj, const void* who, size_t* outAshmemSize)
-{
+{//跨进程通信，binder，存储原理，flat_binder_object
     switch (obj.hdr.type) {
         case BINDER_TYPE_BINDER:
             if (obj.binder) {
@@ -1411,7 +1411,7 @@ restart_write:
         mObjectsCapacity = newSize;
     }
 
-    goto restart_write;
+    goto restart_write; //跨进程通信，binder写
 }
 
 status_t Parcel::writeNoException()

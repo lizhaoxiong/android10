@@ -429,7 +429,7 @@ class ZygoteServer {
             }
 
             try {
-                Os.poll(pollFDs, -1);
+                Os.poll(pollFDs, -1);//跨进程通信，socket
             } catch (ErrnoException ex) {
                 throw new RuntimeException("poll failed", ex);
             }

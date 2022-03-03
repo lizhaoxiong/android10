@@ -77,7 +77,7 @@ public abstract class ServiceManagerNative extends Binder implements IServiceMan
                     IBinder service = data.readStrongBinder();
                     boolean allowIsolated = data.readInt() != 0;
                     int dumpPriority = data.readInt();
-                    addService(name, service, allowIsolated, dumpPriority);
+                    addService(name, service, allowIsolated, dumpPriority);//跨进程通信，binder，SurfaceFlinger系统服务注册SM
                     return true;
                 }
 

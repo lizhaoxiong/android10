@@ -784,7 +784,7 @@ public final class Parcel {
      * growing dataCapacity() if needed.
      */
     public final void writeStrongBinder(IBinder val) {
-        nativeWriteStrongBinder(mNativePtr, val);
+        nativeWriteStrongBinder(mNativePtr, val); //跨进程通信，binder序列化传输
     }
 
     /**
@@ -2159,7 +2159,7 @@ public final class Parcel {
      * Read an object from the parcel at the current dataPosition().
      */
     public final IBinder readStrongBinder() {
-        return nativeReadStrongBinder(mNativePtr);
+        return nativeReadStrongBinder(mNativePtr);//跨进程通信，binder读
     }
 
     /**

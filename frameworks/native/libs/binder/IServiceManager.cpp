@@ -42,7 +42,7 @@ sp<IServiceManager> defaultServiceManager()
         AutoMutex _l(gDefaultServiceManagerLock);
         while (gDefaultServiceManager == nullptr) {
             gDefaultServiceManager = interface_cast<IServiceManager>(
-                ProcessState::self()->getContextObject(nullptr));
+                ProcessState::self()->getContextObject(nullptr));//跨进程通信，binder，SurfaceFlinger系统服务注册SM
             if (gDefaultServiceManager == nullptr)
                 sleep(1);
         }

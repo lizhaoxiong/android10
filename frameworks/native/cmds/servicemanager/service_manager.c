@@ -380,7 +380,7 @@ static int audit_callback(void *data, __unused security_class_t cls, char *buf, 
     return 0;
 }
 
-int main(int argc, char** argv)
+int main(int argc, char** argv) //跨进程通信，binder启动
 {
     //ServiceManager启动和工作原理，main
     struct binder_state *bs;
@@ -438,7 +438,7 @@ int main(int argc, char** argv)
     }
 
     //ServiceManager启动和工作原理，处理请求
-    binder_loop(bs, svcmgr_handler);
+    binder_loop(bs, svcmgr_handler);//跨进程通信，binder启动
 
     return 0;
 }

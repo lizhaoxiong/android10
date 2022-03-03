@@ -274,7 +274,7 @@ EventHub::EventHub(void) :
     LOG_ALWAYS_FATAL_IF(result != 0, "Could not add INotify to epoll instance.  errno=%d", errno);
 
     int wakeFds[2];
-    result = pipe(wakeFds);
+    result = pipe(wakeFds);//跨进程通信，管道通信
     LOG_ALWAYS_FATAL_IF(result != 0, "Could not create wake pipe.  errno=%d", errno);
 
     mWakeReadPipeFd = wakeFds[0];

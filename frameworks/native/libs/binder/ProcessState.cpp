@@ -115,7 +115,7 @@ void ProcessState::setContextObject(const sp<IBinder>& object)
 
 sp<IBinder> ProcessState::getContextObject(const sp<IBinder>& /*caller*/)
 {
-    return getStrongProxyForHandle(0);
+    return getStrongProxyForHandle(0);//跨进程通信，binder，SurfaceFlinger系统服务注册SM
 }
 
 void ProcessState::setContextObject(const sp<IBinder>& object, const String16& name)
@@ -148,7 +148,7 @@ sp<IBinder> ProcessState::getContextObject(const String16& name, const sp<IBinde
         // no interface token on this magic transaction
         data.writeString16(name);
         data.writeStrongBinder(caller);
-        status_t result = ipc->transact(0 /*magic*/, 0, data, &reply, 0);
+        status_t result = ipc->transact(0 /*magic*/, 0, data, &reply, 0);//跨进程通信，binder，SurfaceFlinger系统服务注册SM
         if (result == NO_ERROR) {
             object = reply.readStrongBinder();
         }
@@ -292,7 +292,7 @@ sp<IBinder> ProcessState::getStrongProxyForHandle(int32_t handle)
                 // proper reference counting.
 
                 Parcel data;
-                status_t status = IPCThreadState::self()->transact(
+                status_t status = IPCThreadState::self()->transact(//跨进程通信，binder，SurfaceFlinger系统服务注册SM
                         0, IBinder::PING_TRANSACTION, data, nullptr, 0);
                 if (status == DEAD_OBJECT)
                    return nullptr;

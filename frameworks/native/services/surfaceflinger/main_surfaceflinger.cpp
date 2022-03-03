@@ -89,7 +89,7 @@ int main(int, char**) {
     ps->startThreadPool();
 
     // instantiate surfaceflinger
-    sp<SurfaceFlinger> flinger = surfaceflinger::createSurfaceFlinger();
+    sp<SurfaceFlinger> flinger = surfaceflinger::createSurfaceFlinger(); //跨进程通信，binder，SurfaceFlinger系统服务注册SM
 
     setpriority(PRIO_PROCESS, 0, PRIORITY_URGENT_DISPLAY);
 
@@ -104,7 +104,7 @@ int main(int, char**) {
     flinger->init();
 
     // publish surface flinger
-    sp<IServiceManager> sm(defaultServiceManager());
+    sp<IServiceManager> sm(defaultServiceManager());//跨进程通信，binder，SurfaceFlinger系统服务注册SM
     sm->addService(String16(SurfaceFlinger::getServiceName()), flinger, false,
                    IServiceManager::DUMP_FLAG_PRIORITY_CRITICAL | IServiceManager::DUMP_FLAG_PROTO);
 
