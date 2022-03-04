@@ -864,7 +864,7 @@ class AppErrors {
     }
 
     void handleShowAnrUi(Message msg) {
-        Dialog dialogToShow = null;
+        Dialog dialogToShow = null; //线程间通信，ANR，这里展示5s弹窗
         List<VersionedPackage> packageList = null;
         synchronized (mService) {
             AppNotRespondingDialog.Data data = (AppNotRespondingDialog.Data) msg.obj;

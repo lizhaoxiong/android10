@@ -11,18 +11,20 @@
   <component name="ChangeListManager">
     <list default="true" id="af249a12-873e-48b4-8f8b-ded42e771cdb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/android.iws" beforeDir="false" afterPath="$PROJECT_DIR$/android.iws" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/os/MemoryFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/os/MemoryFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/os/Parcel.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/os/Parcel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/os/ServiceManagerNative.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/os/ServiceManagerNative.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/com/android/internal/os/ZygoteServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/com/android/internal/os/ZygoteServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/base/core/jni/com_android_internal_os_Zygote.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/jni/com_android_internal_os_Zygote.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/native/cmds/servicemanager/service_manager.c" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/native/cmds/servicemanager/service_manager.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frameworks/av/media/mtp/MtpFfsHandle.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/av/media/mtp/MtpFfsHandle.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/app/ActivityThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/app/ActivityThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/app/Instrumentation.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/app/Instrumentation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/os/Handler.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/os/Handler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/os/Looper.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/os/Looper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/os/MessageQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/os/MessageQueue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frameworks/base/core/jni/android_os_MessageQueue.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/jni/android_os_MessageQueue.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frameworks/base/native/android/looper.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/native/android/looper.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frameworks/base/services/core/java/com/android/server/am/ActiveServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/services/core/java/com/android/server/am/ActiveServices.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frameworks/base/services/core/java/com/android/server/am/AppErrors.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/services/core/java/com/android/server/am/AppErrors.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frameworks/base/services/core/java/com/android/server/am/ProcessRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/services/core/java/com/android/server/am/ProcessRecord.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frameworks/native/libs/binder/IPCThreadState.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/native/libs/binder/IPCThreadState.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/native/libs/binder/IServiceManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/native/libs/binder/IServiceManager.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/native/libs/binder/Parcel.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/native/libs/binder/Parcel.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/native/libs/binder/ProcessState.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/native/libs/binder/ProcessState.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frameworks/native/services/inputflinger/EventHub.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/native/services/inputflinger/EventHub.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/native/services/surfaceflinger/main_surfaceflinger.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/native/services/surfaceflinger/main_surfaceflinger.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frameworks/native/services/surfaceflinger/Scheduler/MessageQueue.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/native/services/surfaceflinger/Scheduler/MessageQueue.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -244,7 +246,14 @@
       <option name="project" value="LOCAL" />
       <updated>1646232804144</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="[跨进程通信binder]oneway">
+      <created>1646299008234</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1646299008234</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -446,6 +455,7 @@
     <MESSAGE value="[surface跨进程传递原理]GBP、suface、sufaceControl" />
     <MESSAGE value="[surface绘制原理]Buffer" />
     <MESSAGE value="[Vsync信号机制]" />
-    <option name="LAST_COMMIT_MESSAGE" value="[Vsync信号机制]" />
+    <MESSAGE value="[跨进程通信binder]oneway" />
+    <option name="LAST_COMMIT_MESSAGE" value="[跨进程通信binder]oneway" />
   </component>
 </project>

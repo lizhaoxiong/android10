@@ -329,7 +329,7 @@ void IPCThreadState::shutdown()
 
     if (gHaveTLS) {
         // XXX Need to wait for all thread pool threads to exit!
-        IPCThreadState* st = (IPCThreadState*)pthread_getspecific(gTLS);
+        IPCThreadState* st = (IPCThreadState*)pthread_getspecific(gTLS); //handler机制，pthread_getspecific
         if (st) {
             delete st;
             pthread_setspecific(gTLS, nullptr);

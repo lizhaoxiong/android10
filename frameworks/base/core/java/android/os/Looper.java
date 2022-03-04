@@ -213,7 +213,7 @@ public final class Looper {
             }
             long origWorkSource = ThreadLocalWorkSource.setUid(msg.workSourceUid);
             try {
-                msg.target.dispatchMessage(msg);
+                msg.target.dispatchMessage(msg); //线程间通信，消息分发处理
                 if (observer != null) {
                     observer.messageDispatched(token, msg);
                 }

@@ -3955,6 +3955,7 @@ public final class ActiveServices {
         msg.obj = proc;
         mAm.mHandler.sendMessageDelayed(msg,
                 proc.execServicesFg ? SERVICE_TIMEOUT : SERVICE_BACKGROUND_TIMEOUT);
+        //线程间通信，ANR，启动服务超时
     }
 
     void scheduleServiceForegroundTransitionTimeoutLocked(ServiceRecord r) {

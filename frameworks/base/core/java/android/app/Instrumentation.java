@@ -397,7 +397,7 @@ public class Instrumentation {
         Idler idler = new Idler(null);
         mMessageQueue.addIdleHandler(idler);
         mThread.getHandler().post(new EmptyRunnable());
-        idler.waitForIdle();
+        idler.waitForIdle();//线程间通信，mIdleHandlers，wait
     }
 
     private void waitForEnterAnimationComplete(Activity activity) {
@@ -2231,7 +2231,7 @@ public class Instrumentation {
         public final boolean queueIdle() {
             synchronized (mSync) {
                 mWaitingActivities.remove(mWaiter);
-                mSync.notifyAll();
+                mSync.notifyAll();//线程间通信，mIdleHandlers，nofity
             }
             return false;
         }

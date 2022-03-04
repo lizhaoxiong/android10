@@ -285,7 +285,7 @@ int MtpFfsHandle::start(bool ptp) {
         PLOG(ERROR) << "unable to setup aio";
         return -1;
     }
-    mEventFd.reset(eventfd(0, EFD_NONBLOCK));
+    mEventFd.reset(eventfd(0, EFD_NONBLOCK)); //handler机制，休眠
     mPollFds[0].fd = mControl;
     mPollFds[0].events = POLLIN;
     mPollFds[1].fd = mEventFd;

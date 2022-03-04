@@ -95,7 +95,7 @@ public class Handler {
     /**
      * Handle system messages here.
      */
-    public void dispatchMessage(@NonNull Message msg) {
+    public void dispatchMessage(@NonNull Message msg) {//线程间通信，消息分发处理
         if (msg.callback != null) {
             handleCallback(msg);
         } else {
@@ -209,7 +209,7 @@ public class Handler {
         }
         mQueue = mLooper.mQueue;
         mCallback = callback;
-        mAsynchronous = async;
+        mAsynchronous = async; //异步消息
     }
 
     /**
@@ -700,7 +700,7 @@ public class Handler {
             Log.w("Looper", e.getMessage(), e);
             return false;
         }
-        return enqueueMessage(queue, msg, uptimeMillis);
+        return enqueueMessage(queue, msg, uptimeMillis); //线程间通信，消息发送
     }
 
     /**

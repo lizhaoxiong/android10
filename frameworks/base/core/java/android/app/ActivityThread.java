@@ -916,7 +916,7 @@ public final class ActivityThread extends ClientTransactionHandler {
                     sync, false, mAppThread.asBinder(), sendingUser);
             r.info = info;
             r.compatInfo = compatInfo;
-            sendMessage(H.RECEIVER, r);
+            sendMessage(H.RECEIVER, r); //线程间通信，ANR，启动RECEIVER
         }
 
         public final void scheduleCreateBackupAgent(ApplicationInfo app,
@@ -948,7 +948,7 @@ public final class ActivityThread extends ClientTransactionHandler {
             s.info = info;
             s.compatInfo = compatInfo;
             //Service的启动流程，走Service的初始化
-            sendMessage(H.CREATE_SERVICE, s);
+            sendMessage(H.CREATE_SERVICE, s); //线程间通信，ANR，启动SERVICE
         }
 
         public final void scheduleBindService(IBinder token, Intent intent,
@@ -2073,7 +2073,7 @@ public final class ActivityThread extends ClientTransactionHandler {
                 mProfiler.stopProfiling();
             }
             applyPendingProcessState();
-            return false;
+            return false; //线程间通信，说明是一次性的
         }
     }
 
@@ -2429,7 +2429,7 @@ public final class ActivityThread extends ClientTransactionHandler {
     void scheduleGcIdler() {
         if (!mGcIdlerScheduled) {
             mGcIdlerScheduled = true;
-            Looper.myQueue().addIdleHandler(mGcIdler);
+            Looper.myQueue().addIdleHandler(mGcIdler);//线程间通信，mIdleHandlers，来一次GC消息
         }
         mH.removeMessages(H.GC_WHEN_IDLE);
     }
@@ -2469,7 +2469,7 @@ public final class ActivityThread extends ClientTransactionHandler {
         //        + "m now=" + now);
         if ((BinderInternal.getLastGcTime()+MIN_TIME_BETWEEN_GCS) < now) {
             //Slog.i(TAG, "**** WE DO, WE DO WANT TO GC!");
-            BinderInternal.forceGc(reason);
+            BinderInternal.forceGc(reason);  //线程间通信，mIdleHandlers，GcIdler搞一次GC
         }
     }
 
@@ -4372,7 +4372,7 @@ public final class ActivityThread extends ClientTransactionHandler {
         r.nextIdle = mNewActivities;
         mNewActivities = r;
         if (localLOGV) Slog.v(TAG, "Scheduling idle handler for " + r);
-        Looper.myQueue().addIdleHandler(new Idler());
+        Looper.myQueue().addIdleHandler(new Idler()); //线程间通信，这玩意在resume最后加入到监听的
     }
 
 
@@ -5223,6 +5223,7 @@ public final class ActivityThread extends ClientTransactionHandler {
      */
     void scheduleRelaunchActivity(IBinder token) {
         mH.removeMessages(H.RELAUNCH_ACTIVITY, token);
+        //线程间通信，ANR，没有启动Activity，因为在Input里面
         sendMessage(H.RELAUNCH_ACTIVITY, token);//startActivity流程，H.RELAUNCH_ACTIVITY
     }
 

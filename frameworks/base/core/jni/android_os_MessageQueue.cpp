@@ -79,7 +79,7 @@ NativeMessageQueue::NativeMessageQueue() :
         mPollEnv(NULL), mPollObj(NULL), mExceptionObj(NULL) {
     mLooper = Looper::getForThread();
     if (mLooper == NULL) {
-        mLooper = new Looper(false);
+        mLooper = new Looper(false);//Handler机制，Native层new Looper
         Looper::setForThread(mLooper);
     }
 }
@@ -188,12 +188,12 @@ static void android_os_MessageQueue_nativeDestroy(JNIEnv* env, jclass clazz, jlo
 static void android_os_MessageQueue_nativePollOnce(JNIEnv* env, jobject obj,
         jlong ptr, jint timeoutMillis) {
     NativeMessageQueue* nativeMessageQueue = reinterpret_cast<NativeMessageQueue*>(ptr);
-    nativeMessageQueue->pollOnce(env, obj, timeoutMillis);
+    nativeMessageQueue->pollOnce(env, obj, timeoutMillis);//线程间通信，消息循环
 }
 
 static void android_os_MessageQueue_nativeWake(JNIEnv* env, jclass clazz, jlong ptr) {
     NativeMessageQueue* nativeMessageQueue = reinterpret_cast<NativeMessageQueue*>(ptr);
-    nativeMessageQueue->wake();
+    nativeMessageQueue->wake();//线程间通信，线程唤醒
 }
 
 static jboolean android_os_MessageQueue_nativeIsPolling(JNIEnv* env, jclass clazz, jlong ptr) {

@@ -1594,7 +1594,7 @@ class ProcessRecord implements WindowProcessListener {
                 msg.what = ActivityManagerService.SHOW_NOT_RESPONDING_UI_MSG;
                 msg.obj = new AppNotRespondingDialog.Data(this, aInfo, aboveSystem);
 
-                mService.mUiHandler.sendMessage(msg);
+                mService.mUiHandler.sendMessage(msg); //线程间通信，ANR，system_server的一个子线程是UI线程
             }
         }
     }

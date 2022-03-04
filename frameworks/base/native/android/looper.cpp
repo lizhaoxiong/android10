@@ -72,7 +72,7 @@ int ALooper_pollAll(int timeoutMillis, int* outFd, int* outEvents, void** outDat
 }
 
 void ALooper_wake(ALooper* looper) {
-    ALooper_to_Looper(looper)->wake();
+    ALooper_to_Looper(looper)->wake(); //handler机制，唤醒
 }
 
 int ALooper_addFd(ALooper* looper, int fd, int ident, int events,

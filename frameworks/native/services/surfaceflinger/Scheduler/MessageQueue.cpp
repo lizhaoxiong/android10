@@ -118,7 +118,7 @@ void MessageQueue::setEventConnection(const sp<EventThreadConnection>& connectio
 void MessageQueue::waitMessage() {
     do {
         IPCThreadState::self()->flushCommands();
-        int32_t ret = mLooper->pollOnce(-1);
+        int32_t ret = mLooper->pollOnce(-1); //handler机制，唤醒pollOnce
         switch (ret) {
             case Looper::POLL_WAKE:
             case Looper::POLL_CALLBACK:

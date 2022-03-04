@@ -127,7 +127,7 @@ public final class MessageQueue {
             throw new NullPointerException("Can't add a null IdleHandler");
         }
         synchronized (this) {
-            mIdleHandlers.add(handler);
+            mIdleHandlers.add(handler);//线程间通信，mIdleHandlers，加入
         }
     }
 
@@ -350,7 +350,7 @@ public final class MessageQueue {
                 if (msg != null) {
                     if (now < msg.when) {
                         // Next message is not ready.  Set a timeout to wake up when it is ready.
-                        nextPollTimeoutMillis = (int) Math.min(msg.when - now, Integer.MAX_VALUE);
+                        nextPollTimeoutMillis = (int) Math.min(msg.when - now, Integer.MAX_VALUE); //线程间通信，超时时间管理唤醒
                     } else {
                         // Got a message.
                         mBlocked = false;
@@ -397,7 +397,7 @@ public final class MessageQueue {
             // Run the idle handlers.
             // We only ever reach this code block during the first iteration.
             for (int i = 0; i < pendingIdleHandlerCount; i++) {
-                final IdleHandler idler = mPendingIdleHandlers[i];
+                final IdleHandler idler = mPendingIdleHandlers[i];//线程间通信，mPendingIdleHandlers
                 mPendingIdleHandlers[i] = null; // release the reference to the handler
 
                 boolean keep = false;
@@ -409,7 +409,7 @@ public final class MessageQueue {
 
                 if (!keep) {
                     synchronized (this) {
-                        mIdleHandlers.remove(idler);
+                        mIdleHandlers.remove(idler);//线程间通信，mIdleHandlers，移除
                     }
                 }
             }
@@ -474,7 +474,7 @@ public final class MessageQueue {
         return postSyncBarrier(SystemClock.uptimeMillis());
     }
 
-    private int postSyncBarrier(long when) {
+    private int postSyncBarrier(long when) { //线程间通信，同步屏障消息，异步消息
         // Enqueue a new sync barrier token.
         // We don't need to wake the queue because the purpose of a barrier is to stall it.
         synchronized (this) {
@@ -514,7 +514,7 @@ public final class MessageQueue {
      * @hide
      */
     @TestApi
-    public void removeSyncBarrier(int token) {
+    public void removeSyncBarrier(int token) { //线程间通信，同步屏障消息移除
         // Remove a sync barrier token from the queue.
         // If the queue is no longer stalled by a barrier then wake it.
         synchronized (this) {
@@ -594,7 +594,7 @@ public final class MessageQueue {
 
             // We can assume mPtr != 0 because mQuitting is false.
             if (needWake) {
-                nativeWake(mPtr);
+                nativeWake(mPtr);//线程间通信，消息插入消息队列
             }
         }
         return true;
@@ -830,7 +830,7 @@ public final class MessageQueue {
          * pending in the queue, but they are all scheduled to be dispatched
          * after the current time.
          */
-        boolean queueIdle();
+        boolean queueIdle(); //线程间通信，IdleHandler，现在没有可处理消息，包括pending消息
     }
 
     /**
