@@ -69,7 +69,7 @@ public final class Looper {
 
     // sThreadLocal.get() will return null unless you've called prepare().
     @UnsupportedAppUsage
-    static final ThreadLocal<Looper> sThreadLocal = new ThreadLocal<Looper>();
+    static final ThreadLocal<Looper> sThreadLocal = new ThreadLocal<Looper>(); //ThreadLocal,static,Looper
     @UnsupportedAppUsage
     private static Looper sMainLooper;  // guarded by Looper.class
     private static Observer sObserver;
@@ -108,7 +108,7 @@ public final class Looper {
             throw new RuntimeException("Only one Looper may be created per thread");
         }
         //通过一个线程只有一个ThreadLocal来确保线程只有一个Looper
-        sThreadLocal.set(new Looper(quitAllowed));
+        sThreadLocal.set(new Looper(quitAllowed));//ThreadLocal,set
     }
 
     /**
@@ -284,7 +284,7 @@ public final class Looper {
      * null if the calling thread is not associated with a Looper.
      */
     public static @Nullable Looper myLooper() {
-        return sThreadLocal.get();
+        return sThreadLocal.get();//ThreadLocal,get()
     }
 
     /**

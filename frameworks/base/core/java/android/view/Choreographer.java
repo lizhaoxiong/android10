@@ -110,7 +110,7 @@ public final class Choreographer {
             if (looper == null) {
                 throw new IllegalStateException("The current thread must have a looper!");
             }
-            Choreographer choreographer = new Choreographer(looper, VSYNC_SOURCE_APP);
+            Choreographer choreographer = new Choreographer(looper, VSYNC_SOURCE_APP); //ThreadLocal,Choreographer,looper
             if (looper == Looper.getMainLooper()) {
                 mMainInstance = choreographer;
             }
@@ -284,7 +284,7 @@ public final class Choreographer {
      * @throws IllegalStateException if the thread does not have a looper.
      */
     public static Choreographer getInstance() { //屏幕刷新机制，choreographer不是单例，是线程单例
-        return sThreadInstance.get();
+        return sThreadInstance.get();//ThreadLocal，sThreadInstance
     }
 
     /**

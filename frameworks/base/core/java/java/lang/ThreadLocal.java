@@ -103,7 +103,7 @@ public class ThreadLocal<T> {
      * Returns the next hash code.
      */
     private static int nextHashCode() {
-        return nextHashCode.getAndAdd(HASH_INCREMENT);
+        return nextHashCode.getAndAdd(HASH_INCREMENT); //ThreadLocal，hash
     }
 
     /**
@@ -158,7 +158,7 @@ public class ThreadLocal<T> {
      *
      * @return the current thread's value of this thread-local
      */
-    public T get() {
+    public T get() { //ThreadLocal，get()
         //获取当前的线程
         Thread t = Thread.currentThread();
         //获取当前线程中的  ThreadLocalMap
