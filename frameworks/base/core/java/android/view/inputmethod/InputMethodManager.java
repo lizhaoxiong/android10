@@ -905,7 +905,7 @@ public final class InputMethodManager {
         // If InputMethodManager is running for layoutlib, stub out IPCs into IMMS.
         final Class<IInputMethodManager> c = IInputMethodManager.class;
         final IInputMethodManager stubInterface =
-                (IInputMethodManager) Proxy.newProxyInstance(c.getClassLoader(),
+                (IInputMethodManager) Proxy.newProxyInstance(c.getClassLoader(), //动态代理，newProxyInstance
                         new Class[]{c}, (proxy, method, args) -> {
                             final Class<?> returnType = method.getReturnType();
                             if (returnType == boolean.class) {

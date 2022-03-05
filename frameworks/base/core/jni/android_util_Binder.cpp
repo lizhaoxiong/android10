@@ -953,7 +953,7 @@ JNIEXPORT jlong JNICALL android_os_Binder_getNativeFinalizer(JNIEnv*, jclass) {
 
 static void android_os_Binder_blockUntilThreadAvailable(JNIEnv* env, jobject clazz)
 {
-    return IPCThreadState::self()->blockUntilThreadAvailable();
+    return IPCThreadState::self()->blockUntilThreadAvailable(); //线程耗时检测，blockUntilThreadAvailable
 }
 
 // ----------------------------------------------------------------------------

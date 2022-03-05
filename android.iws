@@ -9,10 +9,12 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af249a12-873e-48b4-8f8b-ded42e771cdb" name="Default Changelist" comment="">
+    <list default="true" id="af249a12-873e-48b4-8f8b-ded42e771cdb" name="Default Changelist" comment="[同步消息处理]">
       <change beforePath="$PROJECT_DIR$/android.iws" beforeDir="false" afterPath="$PROJECT_DIR$/android.iws" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/os/Handler.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/os/Handler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/native/services/surfaceflinger/SurfaceFlinger.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/native/services/surfaceflinger/SurfaceFlinger.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/os/Looper.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/os/Looper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/view/inputmethod/InputMethodManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/view/inputmethod/InputMethodManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frameworks/base/core/jni/android_util_Binder.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/jni/android_util_Binder.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frameworks/base/services/core/java/com/android/server/Watchdog.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/services/core/java/com/android/server/Watchdog.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -269,7 +271,14 @@
       <option name="project" value="LOCAL" />
       <updated>1646499024743</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="[同步消息处理]">
+      <created>1646499642980</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1646499642980</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -449,7 +458,6 @@
       <path value="$PROJECT_DIR$/toolchain/pgo-profiles" />
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="Android系统启动流程，systemServer" />
     <MESSAGE value="Android系统启动流程，桌面启动" />
     <MESSAGE value="系统服务注册与使用" />
     <MESSAGE value="ServiceManager启动和工作原理" />
@@ -474,6 +482,7 @@
     <MESSAGE value="[跨进程传大图]ashmem、MoemoryFile、ContentProvider" />
     <MESSAGE value="[ThreadLocal]" />
     <MESSAGE value="[Looper]监听其他描述符" />
-    <option name="LAST_COMMIT_MESSAGE" value="[Looper]监听其他描述符" />
+    <MESSAGE value="[同步消息处理]" />
+    <option name="LAST_COMMIT_MESSAGE" value="[同步消息处理]" />
   </component>
 </project>

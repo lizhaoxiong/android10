@@ -180,7 +180,7 @@ public final class Looper {
             }
 
             // This must be in a local variable, in case a UI event sets the logger
-            final Printer logging = me.mLogging;
+            final Printer logging = me.mLogging; //线程耗时检测，BlockCanary原理
             if (logging != null) {
                 logging.println(">>>>> Dispatching to " + msg.target + " " +
                         msg.callback + ": " + msg.what);

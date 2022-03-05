@@ -59,7 +59,7 @@ import java.util.HashSet;
 import java.util.List;
 
 /** This class calls its monitor every minute. Killing this process if they don't return **/
-public class Watchdog extends Thread {
+public class Watchdog extends Thread { //线程耗时检测，Watchdog
     static final String TAG = "Watchdog";
 
     /** Debug flag. */
@@ -182,14 +182,14 @@ public class Watchdog extends Thread {
             mCompleted = false;
             mCurrentMonitor = null;
             mStartTime = SystemClock.uptimeMillis();
-            mHandler.postAtFrontOfQueue(this);
+            mHandler.postAtFrontOfQueue(this); //线程耗时检测，watchdog，postAtFrontOfQueue，handler最前面插入消息
         }
 
         boolean isOverdueLocked() {
             return (!mCompleted) && (SystemClock.uptimeMillis() > mStartTime + mWaitMax);
         }
 
-        public int getCompletionStateLocked() {
+        public int getCompletionStateLocked() {//线程耗时检测，watchdog，关键方法
             if (mCompleted) {
                 return COMPLETED;
             } else {
@@ -197,7 +197,7 @@ public class Watchdog extends Thread {
                 if (latency < mWaitMax/2) {
                     return WAITING;
                 } else if (latency < mWaitMax) {
-                    return WAITED_HALF;
+                    return WAITED_HALF; //线程耗时检测，watchdog，再来一次
                 }
             }
             return OVERDUE;
@@ -281,7 +281,7 @@ public class Watchdog extends Thread {
     private static final class BinderThreadMonitor implements Watchdog.Monitor {
         @Override
         public void monitor() {
-            Binder.blockUntilThreadAvailable();
+            Binder.blockUntilThreadAvailable(); //线程耗时检测，Watchdog，monitor
         }
     }
 
@@ -297,7 +297,7 @@ public class Watchdog extends Thread {
         return sWatchdog;
     }
 
-    private Watchdog() {
+    private Watchdog() { //线程耗时检测，Watchdog，addCheck + Monitor
         super("watchdog");
         // Initialize handler checkers for each common thread we want to check.  Note
         // that we are not currently checking the background thread, since it can
@@ -449,7 +449,7 @@ public class Watchdog extends Thread {
         int state = COMPLETED;
         for (int i=0; i<mHandlerCheckers.size(); i++) {
             HandlerChecker hc = mHandlerCheckers.get(i);
-            state = Math.max(state, hc.getCompletionStateLocked());
+            state = Math.max(state, hc.getCompletionStateLocked()); //线程耗时检测，watchdog
         }
         return state;
     }
