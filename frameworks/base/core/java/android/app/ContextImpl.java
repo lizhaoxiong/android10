@@ -1046,7 +1046,7 @@ class ContextImpl extends Context {
         warnIfCallingFromSystemProcess();
         String resolvedType = intent.resolveTypeIfNeeded(getContentResolver());
         try {
-            intent.prepareToLeaveProcess(this);
+            intent.prepareToLeaveProcess(this); //跨进程传大数据，prepareToLeaveProcess
             //动态广播原理，发送，通知AMS
             ActivityManager.getService().broadcastIntent(
                     mMainThread.getApplicationThread(), intent, resolvedType, null,

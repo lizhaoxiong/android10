@@ -1990,7 +1990,7 @@ public class Instrumentation {
         }
         try {
             intent.migrateExtraStreamToClipData();
-            intent.prepareToLeaveProcess(who);
+            intent.prepareToLeaveProcess(who); //跨进程传大数据，prepareToLeaveProcess
             int result = appTask.startActivity(whoThread.asBinder(), who.getBasePackageName(),
                     intent, intent.resolveTypeIfNeeded(who.getContentResolver()), options);
             checkStartActivityResult(result, intent);

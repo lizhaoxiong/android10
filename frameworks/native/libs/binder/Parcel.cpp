@@ -580,7 +580,7 @@ bool Parcel::pushAllowFds(bool allowFds)
     if (!allowFds) {
         mAllowFds = false;
     }
-    return origValue;
+    return origValue;//跨进程传大数据，pushAllowFds
 }
 
 void Parcel::restoreAllowFds(bool lastValue)
@@ -1268,7 +1268,7 @@ status_t Parcel::writeBlob(size_t len, bool mutableCopy, WritableBlob* outBlob)
     }
 
     status_t status;
-    if (!mAllowFds || len <= BLOB_INPLACE_LIMIT) {
+    if (!mAllowFds || len <= BLOB_INPLACE_LIMIT) {//跨进程传大数据，writeToParcel,writeBlob,16k
         ALOGV("writeBlob: write in place");
         status = writeInt32(BLOB_INPLACE);
         if (status) return status;
@@ -1284,11 +1284,11 @@ status_t Parcel::writeBlob(size_t len, bool mutableCopy, WritableBlob* outBlob)
     int fd = ashmem_create_region("Parcel Blob", len);
     if (fd < 0) return NO_MEMORY;
 
-    int result = ashmem_set_prot_region(fd, PROT_READ | PROT_WRITE);
+    int result = ashmem_set_prot_region(fd, PROT_READ | PROT_WRITE);//跨进程传大数据，writeToParcel,writeBlob,ashmem
     if (result < 0) {
         status = result;
     } else {
-        void* ptr = ::mmap(nullptr, len, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
+        void* ptr = ::mmap(nullptr, len, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);//跨进程传大数据，writeToParcel,writeBlob,mmap
         if (ptr == MAP_FAILED) {
             status = -errno;
         } else {

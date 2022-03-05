@@ -3873,7 +3873,7 @@ public interface IActivityManager extends android.os.IInterface
           _data.writeString(callingPackage);
           if ((intent!=null)) {
             _data.writeInt(1);
-            intent.writeToParcel(_data, 0);
+            intent.writeToParcel(_data, 0); //跨进程传大数据，startAcitivity
           }
           else {
             _data.writeInt(0);

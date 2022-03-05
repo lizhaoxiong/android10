@@ -1248,8 +1248,10 @@ public final class Bundle extends BaseBundle implements Cloneable, Parcelable {
      */
     @Override
     public void writeToParcel(Parcel parcel, int flags) {
+        //跨进程传大数据，pushAllowFds
         final boolean oldAllowFds = parcel.pushAllowFds((mFlags & FLAG_ALLOW_FDS) != 0);
         try {
+            //跨进程传大数据，pushAllowFds
             super.writeToParcelInner(parcel, flags);
         } finally {
             parcel.restoreAllowFds(oldAllowFds);

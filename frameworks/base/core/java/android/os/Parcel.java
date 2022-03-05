@@ -925,7 +925,7 @@ public final class Parcel {
         for (int i=0; i<N; i++) {
             if (DEBUG_ARRAY_MAP) startPos = dataPosition();
             writeString(val.keyAt(i));
-            writeValue(val.valueAt(i));
+            writeValue(val.valueAt(i));//跨进程传大数据，writeToParcel
             if (DEBUG_ARRAY_MAP) Log.d(TAG, "  Write #" + i + " "
                     + (dataPosition()-startPos) + " bytes: key=0x"
                     + Integer.toHexString(val.keyAt(i) != null ? val.keyAt(i).hashCode() : 0)
@@ -994,7 +994,7 @@ public final class Parcel {
             return;
         }
 
-        val.writeToParcel(this, 0);
+        val.writeToParcel(this, 0);//跨进程传大数据，writeToParcel
     }
 
     /**
@@ -1695,7 +1695,7 @@ public final class Parcel {
         } else if (v instanceof Bundle) {
             // Must be before Parcelable
             writeInt(VAL_BUNDLE);
-            writeBundle((Bundle) v);
+            writeBundle((Bundle) v);//跨进程传大数据，writeBundle,里面依然是writeToParcel
         } else if (v instanceof PersistableBundle) {
             writeInt(VAL_PERSISTABLEBUNDLE);
             writePersistableBundle((PersistableBundle) v);
@@ -1704,7 +1704,7 @@ public final class Parcel {
             // come before the Parcelable case, so that their specific VAL_*
             // types will be written.
             writeInt(VAL_PARCELABLE);
-            writeParcelable((Parcelable) v, 0);
+            writeParcelable((Parcelable) v, 0);//跨进程传大数据，writeToParcel
         } else if (v instanceof Short) {
             writeInt(VAL_SHORT);
             writeInt(((Short) v).intValue());
@@ -1798,7 +1798,7 @@ public final class Parcel {
             return;
         }
         writeParcelableCreator(p);
-        p.writeToParcel(this, parcelableFlags);
+        p.writeToParcel(this, parcelableFlags);//跨进程传大数据，writeToParcel，java层就到这里，接下来就是native
     }
 
     /** @hide */

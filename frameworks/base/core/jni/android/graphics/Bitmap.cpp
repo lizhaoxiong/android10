@@ -826,7 +826,7 @@ static jboolean Bitmap_writeToParcel(JNIEnv* env, jobject,
 
     // Transfer the underlying ashmem region if we have one and it's immutable.
     android::status_t status;
-    int fd = bitmapWrapper->bitmap().getAshmemFd();
+    int fd = bitmapWrapper->bitmap().getAshmemFd(); //跨进程传大数据，writeToParcel,getAshmemFd
     if (fd >= 0 && !isMutable && p->allowFds()) {
 #if DEBUG_PARCEL
         ALOGD("Bitmap.writeToParcel: transferring immutable bitmap's ashmem fd as "
@@ -853,7 +853,7 @@ static jboolean Bitmap_writeToParcel(JNIEnv* env, jobject,
 
     size_t size = bitmap.computeByteSize();
     android::Parcel::WritableBlob blob;
-    status = p->writeBlob(size, mutableCopy, &blob);
+    status = p->writeBlob(size, mutableCopy, &blob);//跨进程传大数据，writeToParcel,writeBlob
     if (status) {
         doThrowRE(env, "Could not copy bitmap to parcel blob.");
         return JNI_FALSE;
@@ -863,7 +863,7 @@ static jboolean Bitmap_writeToParcel(JNIEnv* env, jobject,
     if (pSrc == NULL) {
         memset(blob.data(), 0, size);
     } else {
-        memcpy(blob.data(), pSrc, size);
+        memcpy(blob.data(), pSrc, size); //跨进程传大数据，writeToParcel,memcpy
     }
 
     blob.release();

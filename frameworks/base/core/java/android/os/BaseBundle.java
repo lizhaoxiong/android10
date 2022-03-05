@@ -1581,7 +1581,7 @@ public class BaseBundle {
         parcel.writeInt(BUNDLE_MAGIC);
 
         int startPos = parcel.dataPosition();
-        parcel.writeArrayMapInternal(map);
+        parcel.writeArrayMapInternal(map);//跨进程传大数据，writeArrayMapInternal
         int endPos = parcel.dataPosition();
 
         // Backpatch length

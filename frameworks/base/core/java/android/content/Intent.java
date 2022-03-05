@@ -7725,7 +7725,7 @@ public class Intent implements Parcelable, Cloneable {
     @UnsupportedAppUsage
     public void setAllowFds(boolean allowFds) {
         if (mExtras != null) {
-            mExtras.setAllowFds(allowFds);
+            mExtras.setAllowFds(allowFds); //跨进程传大数据，prepareToLeaveProcess
         }
     }
 
@@ -10495,7 +10495,7 @@ public class Intent implements Parcelable, Cloneable {
             out.writeInt(0);
         }
         out.writeInt(mContentUserHint);
-        out.writeBundle(mExtras);
+        out.writeBundle(mExtras); //跨进程传大数据，writeBundle
     }
 
     public static final @android.annotation.NonNull Parcelable.Creator<Intent> CREATOR
@@ -10753,7 +10753,7 @@ public class Intent implements Parcelable, Cloneable {
      * @hide
      */
     public void prepareToLeaveProcess(boolean leavingPackage) {
-        setAllowFds(false);
+        setAllowFds(false); //跨进程传大数据，setAllowFds(false)
 
         if (mSelector != null) {
             mSelector.prepareToLeaveProcess(leavingPackage);

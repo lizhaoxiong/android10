@@ -787,7 +787,7 @@ void signalExceptionForError(JNIEnv* env, jobject obj, status_t err,
         case FAILED_TRANSACTION: {
             ALOGE("!!! FAILED BINDER TRANSACTION !!!  (parcel size = %d)", parcelSize);
             const char* exceptionToThrow;
-            char msg[128];
+            char msg[128]; //跨进程传大数据，TransactionTooLargeException
             // TransactionTooLargeException is a checked exception, only throw from certain methods.
             // FIXME: Transaction too large is the most common reason for FAILED_TRANSACTION
             //        but it is not the only one.  The Binder driver can return BR_FAILED_REPLY
@@ -1330,7 +1330,7 @@ static jboolean android_os_BinderProxy_transact(JNIEnv* env, jobject obj,
     } else if (err == UNKNOWN_TRANSACTION) {
         return JNI_FALSE;
     }
-
+    //跨进程传大数据，signalExceptionForError
     signalExceptionForError(env, obj, err, true /*canThrowRemoteException*/, data->dataSize());
     return JNI_FALSE;
 }

@@ -11,20 +11,17 @@
   <component name="ChangeListManager">
     <list default="true" id="af249a12-873e-48b4-8f8b-ded42e771cdb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/android.iws" beforeDir="false" afterPath="$PROJECT_DIR$/android.iws" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/av/media/mtp/MtpFfsHandle.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/av/media/mtp/MtpFfsHandle.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/app/ActivityThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/app/ActivityThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/app/ContextImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/app/ContextImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/app/Instrumentation.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/app/Instrumentation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/os/Handler.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/os/Handler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/os/Looper.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/os/Looper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/os/MessageQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/os/MessageQueue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/base/core/jni/android_os_MessageQueue.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/jni/android_os_MessageQueue.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/base/native/android/looper.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/native/android/looper.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/base/services/core/java/com/android/server/am/ActiveServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/services/core/java/com/android/server/am/ActiveServices.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/base/services/core/java/com/android/server/am/AppErrors.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/services/core/java/com/android/server/am/AppErrors.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/base/services/core/java/com/android/server/am/ProcessRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/services/core/java/com/android/server/am/ProcessRecord.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/content/Intent.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/content/Intent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/os/BaseBundle.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/os/BaseBundle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/os/Bundle.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/os/Bundle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/os/Parcel.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/os/Parcel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frameworks/base/core/jni/android/graphics/Bitmap.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/jni/android/graphics/Bitmap.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frameworks/base/core/jni/android_util_Binder.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/jni/android_util_Binder.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frameworks/native/libs/binder/IPCThreadState.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/native/libs/binder/IPCThreadState.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/native/services/inputflinger/EventHub.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/native/services/inputflinger/EventHub.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/native/services/surfaceflinger/Scheduler/MessageQueue.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/native/services/surfaceflinger/Scheduler/MessageQueue.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frameworks/native/libs/binder/Parcel.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/native/libs/binder/Parcel.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/android/app/IActivityManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/android/app/IActivityManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -253,7 +250,14 @@
       <option name="project" value="LOCAL" />
       <updated>1646299008234</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="[线程间通信]handler、同步屏障、异步消息、ANR">
+      <created>1646383695938</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1646383695938</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -456,6 +460,7 @@
     <MESSAGE value="[surface绘制原理]Buffer" />
     <MESSAGE value="[Vsync信号机制]" />
     <MESSAGE value="[跨进程通信binder]oneway" />
-    <option name="LAST_COMMIT_MESSAGE" value="[跨进程通信binder]oneway" />
+    <MESSAGE value="[线程间通信]handler、同步屏障、异步消息、ANR" />
+    <option name="LAST_COMMIT_MESSAGE" value="[线程间通信]handler、同步屏障、异步消息、ANR" />
   </component>
 </project>

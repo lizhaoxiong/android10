@@ -856,7 +856,7 @@ status_t IPCThreadState::waitForResponse(Parcel *reply, status_t *acquireResult)
             err = DEAD_OBJECT;
             goto finish;
 
-        case BR_FAILED_REPLY:
+        case BR_FAILED_REPLY: //跨进程传大数据，FAILED_TRANSACTION
             err = FAILED_TRANSACTION;
             goto finish;
 
