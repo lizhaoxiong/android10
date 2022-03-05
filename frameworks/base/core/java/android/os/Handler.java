@@ -565,8 +565,8 @@ public class Handler {
      * If we ever do make it part of the API, we might want to rename it to something
      * less funny like runUnsafe().
      */
-    public final boolean runWithScissors(@NonNull Runnable r, long timeout) {
-        if (r == null) {
+    public final boolean runWithScissors(@NonNull Runnable r, long timeout) {//同步消息处理，handler，runWithScissors
+        if (r == null) {//同步消息处理，关键方法runWithScissors
             throw new IllegalArgumentException("runnable must not be null");
         }
         if (timeout < 0) {
@@ -579,7 +579,7 @@ public class Handler {
         }
 
         BlockingRunnable br = new BlockingRunnable(r);
-        return br.postAndWait(this, timeout);
+        return br.postAndWait(this, timeout);//同步消息处理，handler，postAndWait
     }
 
     /**
@@ -907,7 +907,7 @@ public class Handler {
             } finally {
                 synchronized (this) {
                     mDone = true;
-                    notifyAll();
+                    notifyAll(); //同步消息处理，handler，postAndWait
                 }
             }
         }
@@ -931,7 +931,7 @@ public class Handler {
                         }
                     }
                 } else {
-                    while (!mDone) {
+                    while (!mDone) { //同步消息处理，handler，mDone
                         try {
                             wait();
                         } catch (InterruptedException ex) {

@@ -1387,16 +1387,16 @@ status_t SurfaceFlinger::postMessageAsync(const sp<MessageBase>& msg,
 
 status_t SurfaceFlinger::postMessageSync(const sp<MessageBase>& msg,
         nsecs_t reltime, uint32_t /* flags */) {
-    status_t res = mEventQueue->postMessage(msg, reltime);
+    status_t res = mEventQueue->postMessage(msg, reltime); //同步消息处理，postMessageSync
     if (res == NO_ERROR) {
-        msg->wait();
+        msg->wait();//同步消息处理，postMessageSync，发送同步消息后就wait，等待消息返回并唤醒，阻塞的
     }
     return res;
 }
 
 void SurfaceFlinger::run() {
     do {
-        waitForEvent();
+        waitForEvent();//同步消息处理，SurfaceFlinger::run()，一直等待着
     } while (true);
 }
 
