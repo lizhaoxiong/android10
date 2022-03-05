@@ -132,7 +132,7 @@ void NativeMessageQueue::setFileDescriptorEvents(int fd, int events) {
             looperEvents |= Looper::EVENT_OUTPUT;
         }
         mLooper->addFd(fd, Looper::POLL_CALLBACK, looperEvents, this,
-                reinterpret_cast<void*>(events));
+                reinterpret_cast<void*>(events)); //Looper，addFd
     } else {
         mLooper->removeFd(fd);
     }

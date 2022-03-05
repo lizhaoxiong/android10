@@ -265,8 +265,9 @@ public class ParcelFileDescriptor implements Parcelable, Closeable {
     }
 
     /** {@hide} */
+    @android.support.annotation.RequiresApi(api = Build.VERSION_CODES.M)
     public static ParcelFileDescriptor fromFd(FileDescriptor fd, Handler handler,
-            final OnCloseListener listener) throws IOException {
+                                              final OnCloseListener listener) throws IOException {
         if (handler == null) {
             throw new IllegalArgumentException("Handler must not be null");
         }
@@ -280,7 +281,7 @@ public class ParcelFileDescriptor implements Parcelable, Closeable {
         queue.addOnFileDescriptorEventListener(comm[1],
                 OnFileDescriptorEventListener.EVENT_INPUT, new OnFileDescriptorEventListener() {
             @Override
-            public int onFileDescriptorEvents(FileDescriptor fd, int events) {
+            public int onFileDescriptorEvents(FileDescriptor fd, int events) { //Looper，onFileDescriptorEvents
                 Status status = null;
                 if ((events & OnFileDescriptorEventListener.EVENT_INPUT) != 0) {
                     final byte[] buf = new byte[MAX_STATUS];

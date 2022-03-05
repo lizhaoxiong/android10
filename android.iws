@@ -11,9 +11,9 @@
   <component name="ChangeListManager">
     <list default="true" id="af249a12-873e-48b4-8f8b-ded42e771cdb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/android.iws" beforeDir="false" afterPath="$PROJECT_DIR$/android.iws" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/os/Looper.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/os/Looper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/view/Choreographer.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/view/Choreographer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/java/lang/ThreadLocal.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/java/lang/ThreadLocal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/os/ParcelFileDescriptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/os/ParcelFileDescriptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frameworks/base/core/jni/android_os_MessageQueue.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/jni/android_os_MessageQueue.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frameworks/base/services/core/java/com/android/server/am/ActivityManagerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/services/core/java/com/android/server/am/ActivityManagerService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -256,7 +256,14 @@
       <option name="project" value="LOCAL" />
       <updated>1646497490072</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="[ThreadLocal]">
+      <created>1646498199372</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1646498199372</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -436,7 +443,6 @@
       <path value="$PROJECT_DIR$/toolchain/pgo-profiles" />
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="导入源码Glide" />
     <MESSAGE value="导入三方库" />
     <MESSAGE value="Android系统启动流程，systemServer" />
     <MESSAGE value="Android系统启动流程，桌面启动" />
@@ -461,6 +467,7 @@
     <MESSAGE value="[跨进程通信binder]oneway" />
     <MESSAGE value="[线程间通信]handler、同步屏障、异步消息、ANR" />
     <MESSAGE value="[跨进程传大图]ashmem、MoemoryFile、ContentProvider" />
-    <option name="LAST_COMMIT_MESSAGE" value="[跨进程传大图]ashmem、MoemoryFile、ContentProvider" />
+    <MESSAGE value="[ThreadLocal]" />
+    <option name="LAST_COMMIT_MESSAGE" value="[ThreadLocal]" />
   </component>
 </project>

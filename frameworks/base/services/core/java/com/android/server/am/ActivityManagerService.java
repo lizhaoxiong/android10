@@ -19042,7 +19042,7 @@ public class ActivityManagerService extends IActivityManager.Stub
         synchronized (this) {
             try {
                 if (mLifeMonitorFds == null) {
-                    mLifeMonitorFds = ParcelFileDescriptor.createPipe();
+                    mLifeMonitorFds = ParcelFileDescriptor.createPipe(); //Looper，createPipe
                 }
                 // The returned FD will be closed, but we want to keep our reader open,
                 // so return a dup instead.
