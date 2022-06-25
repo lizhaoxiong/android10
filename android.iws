@@ -290,7 +290,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656139191522</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="[事件分发机制]longClick 长按事件原理">
+      <created>1656139558200</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1656139558200</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -497,7 +504,6 @@
       <path value="$PROJECT_DIR$/toolchain/pgo-profiles" />
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="系统服务注册与使用" />
     <MESSAGE value="ServiceManager启动和工作原理" />
     <MESSAGE value="应用进程启动" />
     <MESSAGE value="binder机制的启动" />
@@ -522,6 +528,7 @@
     <MESSAGE value="[Looper]监听其他描述符" />
     <MESSAGE value="[同步消息处理]" />
     <MESSAGE value="[Activity的显示原理]+1" />
-    <option name="LAST_COMMIT_MESSAGE" value="[Activity的显示原理]+1" />
+    <MESSAGE value="[事件分发机制]longClick 长按事件原理" />
+    <option name="LAST_COMMIT_MESSAGE" value="[事件分发机制]longClick 长按事件原理" />
   </component>
 </project>

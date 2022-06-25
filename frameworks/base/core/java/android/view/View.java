@@ -13946,6 +13946,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
             ListenerInfo li = mListenerInfo;
             if (li != null && li.mOnTouchListener != null
                     && (mViewFlags & ENABLED_MASK) == ENABLED
+                    //事件分发机制2:onTouch 优先于 onTouchEvent
                     && li.mOnTouchListener.onTouch(this, event)) {
                 result = true;
             }
