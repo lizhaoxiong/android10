@@ -5,15 +5,16 @@
       <config />
     </shared>
   </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af249a12-873e-48b4-8f8b-ded42e771cdb" name="Default Changelist" comment="[同步消息处理]">
+    <list default="true" id="af249a12-873e-48b4-8f8b-ded42e771cdb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/android.iws" beforeDir="false" afterPath="$PROJECT_DIR$/android.iws" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/app/Activity.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/app/Activity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/view/ViewRootImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/view/ViewRootImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/com/android/internal/policy/PhoneWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/com/android/internal/policy/PhoneWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/view/View.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -282,7 +283,14 @@
       <option name="project" value="LOCAL" />
       <updated>1646499642980</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="[Activity的显示原理]+1">
+      <created>1656139191522</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1656139191522</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -489,7 +497,6 @@
       <path value="$PROJECT_DIR$/toolchain/pgo-profiles" />
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="Android系统启动流程，桌面启动" />
     <MESSAGE value="系统服务注册与使用" />
     <MESSAGE value="ServiceManager启动和工作原理" />
     <MESSAGE value="应用进程启动" />
@@ -514,6 +521,7 @@
     <MESSAGE value="[ThreadLocal]" />
     <MESSAGE value="[Looper]监听其他描述符" />
     <MESSAGE value="[同步消息处理]" />
-    <option name="LAST_COMMIT_MESSAGE" value="[同步消息处理]" />
+    <MESSAGE value="[Activity的显示原理]+1" />
+    <option name="LAST_COMMIT_MESSAGE" value="[Activity的显示原理]+1" />
   </component>
 </project>

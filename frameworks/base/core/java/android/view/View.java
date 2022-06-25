@@ -15386,6 +15386,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
                     mHasPerformedLongPress = false;
 
                     if (!clickable) {
+                        //事件分发机制1：longclick 长按逻辑流程，DOWN开启线程400ms后看x,y坐标有没有变化
                         checkForLongClick(
                                 ViewConfiguration.getLongPressTimeout(),
                                 x,
