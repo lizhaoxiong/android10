@@ -875,7 +875,8 @@ public final class ViewRootImpl implements ViewParent,
                 // Schedule the first layout -before- adding to the window
                 // manager, to make sure we do the relayout before receiving
                 // any other events from the system.
-                requestLayout(); //Activity的显示原理11，检查线程+scheduleTraversals
+                //Activity的显示原理11，检查线程+scheduleTraversals
+                requestLayout();
                 if ((mWindowAttributes.inputFeatures
                         & WindowManager.LayoutParams.INPUT_FEATURE_NO_INPUT_CHANNEL) == 0) {
                     mInputChannel = new InputChannel();

@@ -11,10 +11,9 @@
   <component name="ChangeListManager">
     <list default="true" id="af249a12-873e-48b4-8f8b-ded42e771cdb" name="Default Changelist" comment="[同步消息处理]">
       <change beforePath="$PROJECT_DIR$/android.iws" beforeDir="false" afterPath="$PROJECT_DIR$/android.iws" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/os/Looper.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/os/Looper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/view/inputmethod/InputMethodManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/view/inputmethod/InputMethodManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/base/core/jni/android_util_Binder.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/jni/android_util_Binder.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/base/services/core/java/com/android/server/Watchdog.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/services/core/java/com/android/server/Watchdog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/app/Activity.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/app/Activity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/view/ViewRootImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/view/ViewRootImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/com/android/internal/policy/PhoneWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/com/android/internal/policy/PhoneWindow.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +22,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
     <option name="SET_USER_NAME_GLOBALLY" value="false" />
   </component>
   <component name="GitSEFilterConfiguration">
@@ -49,12 +49,16 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
+    <property name="android-custom-view/Users/lizhaoxiong/code/android10/frameworks/base/core/java/android/view/View.java_SELECTED" value="View" />
+    <property name="android-custom-view/Users/lizhaoxiong/code/android10/frameworks/base/core/java/android/widget/TextView.java_SELECTED" value="TextView" />
     <property name="android-custom-view/Users/lzx/code/aosp/android10/frameworks/base/core/java/android/view/SurfaceView.java_SELECTED" value="SurfaceView" />
     <property name="android-custom-view/Users/lzx/code/aosp/android10/frameworks/base/core/java/android/view/View.java_SELECTED" value="View" />
     <property name="android-custom-view/Users/lzx/code/aosp/android10/frameworks/base/core/java/android/view/ViewGroup.java_SELECTED" value="ViewGroup" />
     <property name="android-custom-view/Users/lzx/code/aosp/android10/frameworks/base/core/java/com/android/internal/widget/RecyclerView.java_SELECTED" value="RecyclerView" />
     <property name="android-custom-view/Users/lzx/code/aosp/android10/frameworks/base/core/java/leakcanary/internal/DisplayLeakConnectorView.kt_SELECTED" value="DisplayLeakConnectorView" />
     <property name="android-custom-view/Users/lzx/code/aosp/android10/frameworks/base/opengl/java/android/opengl/GLSurfaceView.java_SELECTED" value="GLSurfaceView" />
+    <property name="cidr.known.project.marker" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="SDKs" />
@@ -286,7 +290,34 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="HEAD" />
+                </option>
+              </RecentGroup>
+            </list>
           </value>
         </entry>
       </map>

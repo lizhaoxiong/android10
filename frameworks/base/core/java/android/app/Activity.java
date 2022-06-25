@@ -3378,7 +3378,7 @@ public class Activity extends ContextThemeWrapper
      * @see #setContentView(android.view.View, android.view.ViewGroup.LayoutParams)
      */
     public void setContentView(View view) {
-        //Activity的显示原理1，走window的setContentView
+        //Activity的显示原理2，走window的setContentView
         getWindow().setContentView(view);
         initWindowDecorActionBar();
     }
@@ -7742,8 +7742,8 @@ public class Activity extends ContextThemeWrapper
                         Looper.myLooper());
             }
         }
-        //关联windowManager
-        mWindow.setWindowManager( //Activity的显示原理0.1，关联WindowManager
+        //Activity的显示原理1，关联WindowManager
+        mWindow.setWindowManager(
                 (WindowManager) context.getSystemService(Context.WINDOW_SERVICE),
                 mToken, mComponent.flattenToString(),
                 (info.flags & ActivityInfo.FLAG_HARDWARE_ACCELERATED) != 0);

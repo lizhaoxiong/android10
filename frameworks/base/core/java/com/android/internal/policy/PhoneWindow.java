@@ -320,7 +320,8 @@ public class PhoneWindow extends Window implements MenuBuilder.Callback {
     @UnsupportedAppUsage
     public PhoneWindow(Context context) {
         super(context);
-        mLayoutInflater = LayoutInflater.from(context);//Activity的显示原理5，window里面有mLayoutInflater
+        //Activity的显示原理5，window里面有mLayoutInflater
+        mLayoutInflater = LayoutInflater.from(context);
     }
 
     /**
