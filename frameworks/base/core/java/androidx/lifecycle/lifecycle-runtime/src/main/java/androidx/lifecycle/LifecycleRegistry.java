@@ -39,7 +39,7 @@ import java.util.Map;
  * It is used by Fragments and Support Library Activities. You can also directly use it if you have
  * a custom LifecycleOwner.
  */
-public class LifecycleRegistry extends Lifecycle {
+public class LifecycleRegistry extends androidx.lifecycle.Lifecycle {
 
     /**
      * Custom list that keeps observers and can handle removals / additions during traversal.
@@ -167,6 +167,7 @@ public class LifecycleRegistry extends Lifecycle {
         return min(min(mState, siblingState), parentState);
     }
 
+    //LiveData原理3，粘性事件，addObserver
     @Override
     public void addObserver(@NonNull LifecycleObserver observer) {
         enforceMainThreadIfNeeded("addObserver");
@@ -193,6 +194,7 @@ public class LifecycleRegistry extends Lifecycle {
             if (event == null) {
                 throw new IllegalStateException("no event up from " + statefulObserver.mState);
             }
+            //LiveData原理3，粘性事件，dispatchEvent
             statefulObserver.dispatchEvent(lifecycleOwner, event);
             popParentState();
             // mState / subling may have been changed recalculate
@@ -351,6 +353,7 @@ public class LifecycleRegistry extends Lifecycle {
         void dispatchEvent(LifecycleOwner owner, Event event) {
             State newState = event.getTargetState();
             mState = min(mState, newState);
+            //LiveData原理3，粘性事件，onStateChanged
             mLifecycleObserver.onStateChanged(owner, event);
             mState = newState;
         }

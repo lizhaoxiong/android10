@@ -55,6 +55,7 @@ public class ArchTaskExecutor extends TaskExecutor {
     };
 
     private ArchTaskExecutor() {
+        //LiveData原理4，切换到主线程，就是这个了DefaultTaskExecutor
         mDefaultTaskExecutor = new DefaultTaskExecutor();
         mDelegate = mDefaultTaskExecutor;
     }
@@ -98,6 +99,7 @@ public class ArchTaskExecutor extends TaskExecutor {
 
     @Override
     public void postToMainThread(Runnable runnable) {
+        //LiveData原理4，切换到主线程，找mDelegate
         mDelegate.postToMainThread(runnable);
     }
 

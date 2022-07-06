@@ -70,6 +70,7 @@ public class DefaultTaskExecutor extends TaskExecutor {
             }
         }
         //noinspection ConstantConditions
+        //LiveData原理4，切换到主线程，mMainHandler, mMainHandler = createAsync(Looper.getMainLooper());
         mMainHandler.post(runnable);
     }
 

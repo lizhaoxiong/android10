@@ -12,9 +12,11 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af249a12-873e-48b4-8f8b-ded42e771cdb" name="Default Changelist" comment="">
+    <list default="true" id="af249a12-873e-48b4-8f8b-ded42e771cdb" name="Default Changelist" comment="[事件分发机制]onTouch 优先于 onTouchEvent">
       <change beforePath="$PROJECT_DIR$/android.iws" beforeDir="false" afterPath="$PROJECT_DIR$/android.iws" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/android/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/android/view/View.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/androidx/arch/core/core-runtime/src/main/java/androidx/arch/core/executor/ArchTaskExecutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/androidx/arch/core/core-runtime/src/main/java/androidx/arch/core/executor/ArchTaskExecutor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/androidx/lifecycle/lifecycle-livedata-core/src/main/java/androidx/lifecycle/LiveData.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/androidx/lifecycle/lifecycle-livedata-core/src/main/java/androidx/lifecycle/LiveData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frameworks/base/core/java/androidx/lifecycle/lifecycle-runtime/src/main/java/androidx/lifecycle/LifecycleRegistry.java" beforeDir="false" afterPath="$PROJECT_DIR$/frameworks/base/core/java/androidx/lifecycle/lifecycle-runtime/src/main/java/androidx/lifecycle/LifecycleRegistry.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +55,7 @@
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
     <property name="android-custom-view/Users/lizhaoxiong/code/android10/frameworks/base/core/java/android/view/View.java_SELECTED" value="View" />
     <property name="android-custom-view/Users/lizhaoxiong/code/android10/frameworks/base/core/java/android/widget/TextView.java_SELECTED" value="TextView" />
+    <property name="android-custom-view/Users/lizhaoxiong/code/android10/frameworks/base/core/java/com/android/internal/widget/RecyclerView.java_SELECTED" value="RecyclerView" />
     <property name="android-custom-view/Users/lzx/code/aosp/android10/frameworks/base/core/java/android/view/SurfaceView.java_SELECTED" value="SurfaceView" />
     <property name="android-custom-view/Users/lzx/code/aosp/android10/frameworks/base/core/java/android/view/View.java_SELECTED" value="View" />
     <property name="android-custom-view/Users/lzx/code/aosp/android10/frameworks/base/core/java/android/view/ViewGroup.java_SELECTED" value="ViewGroup" />
@@ -297,7 +300,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656139558200</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="[事件分发机制]onTouch 优先于 onTouchEvent">
+      <created>1656139860646</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1656139860646</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -504,7 +514,6 @@
       <path value="$PROJECT_DIR$/toolchain/pgo-profiles" />
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="ServiceManager启动和工作原理" />
     <MESSAGE value="应用进程启动" />
     <MESSAGE value="binder机制的启动" />
     <MESSAGE value="Application原理" />
@@ -529,6 +538,7 @@
     <MESSAGE value="[同步消息处理]" />
     <MESSAGE value="[Activity的显示原理]+1" />
     <MESSAGE value="[事件分发机制]longClick 长按事件原理" />
-    <option name="LAST_COMMIT_MESSAGE" value="[事件分发机制]longClick 长按事件原理" />
+    <MESSAGE value="[事件分发机制]onTouch 优先于 onTouchEvent" />
+    <option name="LAST_COMMIT_MESSAGE" value="[事件分发机制]onTouch 优先于 onTouchEvent" />
   </component>
 </project>

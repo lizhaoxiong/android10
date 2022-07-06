@@ -63,7 +63,7 @@ public abstract class LiveData<T> {
     @SuppressWarnings("WeakerAccess") /* synthetic access */
     static final Object NOT_SET = new Object();
 
-    private SafeIterableMap<Observer<? super T>, ObserverWrapper> mObservers =
+    private SafeIterableMap<androidx.lifecycle.Observer<? super T>, ObserverWrapper> mObservers =
             new SafeIterableMap<>();
 
     // how many observers are in active state
@@ -90,6 +90,7 @@ public abstract class LiveData<T> {
                 newValue = mPendingData;
                 mPendingData = NOT_SET;
             }
+            //LiveData原理2，发送消息，在执行setValue
             setValue((T) newValue);
         }
     };
@@ -130,6 +131,7 @@ public abstract class LiveData<T> {
             return;
         }
         observer.mLastVersion = mVersion;
+        //LiveData原理2，onChanged，回调执行onChanged方法和mData
         observer.mObserver.onChanged((T) mData);
     }
 
@@ -143,11 +145,13 @@ public abstract class LiveData<T> {
         do {
             mDispatchInvalidated = false;
             if (initiator != null) {
+                //LiveData原理3，粘性事件，considerNotify，里面是回调无疑
                 considerNotify(initiator);
                 initiator = null;
             } else {
                 for (Iterator<Map.Entry<Observer<? super T>, ObserverWrapper>> iterator =
                         mObservers.iteratorWithAdditions(); iterator.hasNext(); ) {
+                    //LiveData原理2，setValue发送消息，遍历迭代了这个mObservers的map
                     considerNotify(iterator.next().getValue());
                     if (mDispatchInvalidated) {
                         break;
@@ -186,6 +190,7 @@ public abstract class LiveData<T> {
      * @param owner    The LifecycleOwner which controls the observer
      * @param observer The observer that will receive the events
      */
+    //LiveData原理1，注册observe，viewModel.liveData.observe(activity,onChanged回调)
     @MainThread
     public void observe(@NonNull LifecycleOwner owner, @NonNull Observer<? super T> observer) {
         assertMainThread("observe");
@@ -194,6 +199,7 @@ public abstract class LiveData<T> {
             return;
         }
         LifecycleBoundObserver wrapper = new LifecycleBoundObserver(owner, observer);
+        //LiveData原理1，注册observe，存储在一个观察者的map中，key是observer，value是wrapper
         ObserverWrapper existing = mObservers.putIfAbsent(observer, wrapper);
         if (existing != null && !existing.isAttachedTo(owner)) {
             throw new IllegalArgumentException("Cannot add the same observer"
@@ -202,6 +208,7 @@ public abstract class LiveData<T> {
         if (existing != null) {
             return;
         }
+        //LiveData原理1，注册observe，感知生命周期绑定
         owner.getLifecycle().addObserver(wrapper);
     }
 
@@ -281,6 +288,7 @@ public abstract class LiveData<T> {
      *
      * @param value The new value
      */
+    //LiveData原理2，postValue发送消息，支持多线程发送
     protected void postValue(T value) {
         boolean postTask;
         synchronized (mDataLock) {
@@ -290,6 +298,8 @@ public abstract class LiveData<T> {
         if (!postTask) {
             return;
         }
+        //LiveData原理2，发送消息，最终还是切换到主线程，在执行setValue
+        //LiveData原理4，切换到主线程，postToMainThread
         ArchTaskExecutor.getInstance().postToMainThread(mPostValueRunnable);
     }
 
@@ -301,6 +311,7 @@ public abstract class LiveData<T> {
      *
      * @param value The new value
      */
+    //LiveData原理2，setValue发送消息，只能在主线程发送
     @MainThread
     protected void setValue(T value) {
         assertMainThread("setValue");
@@ -415,6 +426,7 @@ public abstract class LiveData<T> {
         public void onStateChanged(@NonNull LifecycleOwner source,
                 @NonNull Lifecycle.Event event) {
             Lifecycle.State currentState = mOwner.getLifecycle().getCurrentState();
+            //LiveData原理3，粘性事件，destroy生命周期移除监听，防止内存泄露
             if (currentState == DESTROYED) {
                 removeObserver(mObserver);
                 return;
@@ -422,6 +434,7 @@ public abstract class LiveData<T> {
             Lifecycle.State prevState = null;
             while (prevState != currentState) {
                 prevState = currentState;
+                //LiveData原理3，粘性事件，activeStateChanged
                 activeStateChanged(shouldBeActive());
                 currentState = mOwner.getLifecycle().getCurrentState();
             }
@@ -465,6 +478,7 @@ public abstract class LiveData<T> {
             mActive = newActive;
             changeActiveCounter(mActive ? 1 : -1);
             if (mActive) {
+                //LiveData原理3，粘性事件，dispatchingValue传入this，还记得setValue传入的是null
                 dispatchingValue(this);
             }
         }
